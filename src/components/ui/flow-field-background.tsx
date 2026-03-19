@@ -15,9 +15,9 @@ interface NeuralBackgroundProps {
 export default function NeuralBackground({
   className,
   color = "#0369a1", 
-  trailOpacity = 0.012, // Even darker
-  particleCount = 500, // Sharper, fewer particles
-  speed = 0.8,
+  trailOpacity = 0.025, 
+  particleCount = 500, 
+  speed = 1.2,
   scrollProgress,
 }: NeuralBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -65,7 +65,6 @@ export default function NeuralBackground({
       age: number;
       life: number;
       currentColor: string;
-      isGlowing: boolean;
 
       constructor() {
         this.x = Math.random() * width;
@@ -75,24 +74,21 @@ export default function NeuralBackground({
         this.age = 0;
         this.life = Math.random() * 200 + 100; 
         this.currentColor = color;
-        this.isGlowing = Math.random() > 0.65; // 35% glow for rich "Marcel" texture (v9)
       }
 
       update() {
-        // Stabilized: Pattern remains consistent during scroll
         const angle = (Math.cos(this.x * 0.005) + Math.sin(this.y * 0.005)) * Math.PI;
         
         this.vx += Math.cos(angle) * 0.22 * speed;
         this.vy += Math.sin(angle) * 0.22 * speed;
         
-        // Organic noise (v6)
         this.vx += (Math.random() - 0.5) * 0.08;
         this.vy += (Math.random() - 0.5) * 0.08;
         
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const interactionRadius = 300; // Slightly larger for better feel
+        const interactionRadius = 300;
 
         if (distance < interactionRadius) {
           const force = (interactionRadius - distance) / interactionRadius;
@@ -114,8 +110,8 @@ export default function NeuralBackground({
 
         this.x += this.vx;
         this.y += this.vy;
-        this.vx *= 0.945; // Slightly more fluid (v9)
-        this.vy *= 0.945;
+        this.vx *= 0.94;
+        this.vy *= 0.94;
 
         this.age++;
         if (this.age > this.life) {
@@ -135,24 +131,16 @@ export default function NeuralBackground({
         this.vy = 0;
         this.age = 0;
         this.life = Math.random() * 200 + 100;
-        // Keep the same "soul" (glow status) when resetting
       }
 
       draw(context: CanvasRenderingContext2D) {
-        if (this.isGlowing) {
-          context.shadowBlur = 8;
-          context.shadowColor = color;
-          context.fillStyle = "#ffffff"; // Brighter white/blue core
-          context.globalAlpha = 0.8;
-          context.fillRect(this.x, this.y, 1.2, 1.2);
-          context.shadowBlur = 0; // Reset immediately for efficiency
-        } else {
-          context.fillStyle = color;
-          // Richer base visibility (v9)
-          const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.5;
-          context.globalAlpha = alpha;
-          context.fillRect(this.x, this.y, 1.0, 1.0);
-        }
+        context.fillStyle = color;
+        context.shadowBlur = 2;
+        context.shadowColor = color;
+        const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.7;
+        context.globalAlpha = alpha;
+        context.fillRect(this.x, this.y, 1.4, 1.4);
+        context.shadowBlur = 0;
       }
     }
 
@@ -167,14 +155,14 @@ export default function NeuralBackground({
       canvas.style.height = height + "px";
 
       particles = [];
-      // No more artificial cap to allow for better coverage on tall pages
-      for (let i = 0; i < particleCount; i++) {
+      const actualParticleCount = Math.min(particleCount, 800); 
+      for (let i = 0; i < actualParticleCount; i++) {
         particles.push(new Particle());
       }
     };
 
     const animate = () => {
-      ctx.fillStyle = "rgba(0, 0, 0, " + trailOpacity + ")"; // True black tails
+      ctx.fillStyle = "rgba(0, 0, 0, " + trailOpacity + ")";
       ctx.fillRect(0, 0, width, height);
 
       if (clickPulse.strength > 0) {

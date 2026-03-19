@@ -53,10 +53,10 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         className="absolute inset-x-0 top-0 h-full z-0 overflow-hidden pointer-events-none"
       >
         <NeuralBackground 
-          color="#2563eb" 
-          particleCount={3000} // Ultra-dense silk flow (v9)
-          speed={1.2} // High vitality 
-          trailOpacity={0.007} // Long, cinematic trails
+          color="#0369a1" 
+          particleCount={600} // Original Marcel Density (v10)
+          speed={1.2} 
+          trailOpacity={0.025} // Clean original trails
           scrollProgress={scrollYProgress}
         />
       </div>
