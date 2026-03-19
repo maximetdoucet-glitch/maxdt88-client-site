@@ -18,11 +18,42 @@ interface PortfolioHomeProps {
 interface PortfolioVideoProps {
   src: string;
   stats: string;
+  aspectRatio?: string;
+  maxWidth?: string;
 }
 
-function PortfolioVideo({ src, stats }: PortfolioVideoProps) {
+function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }: PortfolioVideoProps) {
   const [isMuted, setIsMuted] = React.useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (videoRef.current) {
+          const shouldBeActive = entry.isIntersecting && entry.intersectionRatio > 0.6;
+          const targetMuted = !shouldBeActive;
+          
+          // CRITICAL: Only update state if it has changed to avoid infinite loops
+          if (videoRef.current.muted !== targetMuted) {
+            videoRef.current.muted = targetMuted;
+            setIsMuted(targetMuted);
+          }
+        }
+      },
+      {
+        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0], // More granular tracking
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -32,8 +63,14 @@ function PortfolioVideo({ src, stats }: PortfolioVideoProps) {
   };
 
   return (
-    <div className="space-y-8 flex flex-col items-center">
-      <div className="relative aspect-[9/16] w-full max-w-[400px] rounded-2xl overflow-hidden bg-transparent shadow-2xl group border border-white/5">
+    <div className="space-y-8 flex flex-col items-center w-full" ref={containerRef}>
+      <div 
+        className="relative w-full rounded-2xl overflow-hidden bg-transparent shadow-2xl group border border-white/5"
+        style={{ 
+          aspectRatio, 
+          maxWidth 
+        }}
+      >
         <video 
           ref={videoRef}
           src={src} 
@@ -91,6 +128,10 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         }
       );
     });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, [showContent]);
 
   return (
@@ -163,15 +204,23 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               One great edit is all it takes.
             </p>
             
-            <PortfolioVideo 
-              src="/videos/saint-9-tt-fr.mp4" 
-              stats="6.2M views • 916K likes • 192K+ reposts" 
-            />
+            <div className="portfolio-video-container w-full">
+              <PortfolioVideo 
+                src="/videos/saint-9-tt-fr.mp4" 
+                stats="6.2M views • 916K likes • 192K+ reposts" 
+                aspectRatio="9/16"
+                maxWidth="400px"
+              />
+            </div>
 
-            <PortfolioVideo 
-              src="/videos/saint-30-v2-tt.mp4" 
-              stats="560k views • 116k likes • saved by Canal+" 
-            />
+            <div className="portfolio-video-container w-full">
+              <PortfolioVideo 
+                src="/videos/saint-30-v2-tt.mp4" 
+                stats="560k views • 116k likes • saved by Canal+" 
+                aspectRatio="1.7/1"
+                maxWidth="800px"
+              />
+            </div>
           </div>
         </section>
 
