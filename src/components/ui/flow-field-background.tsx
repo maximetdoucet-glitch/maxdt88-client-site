@@ -82,9 +82,13 @@ export default function NeuralBackground({
         // Stabilized: Pattern remains consistent during scroll
         const angle = (Math.cos(this.x * 0.005) + Math.sin(this.y * 0.005)) * Math.PI;
         
-        this.vx += Math.cos(angle) * 0.15 * speed;
-        this.vy += Math.sin(angle) * 0.15 * speed;
-
+        this.vx += Math.cos(angle) * 0.22 * speed;
+        this.vy += Math.sin(angle) * 0.22 * speed;
+        
+        // Organic noise (v6)
+        this.vx += (Math.random() - 0.5) * 0.08;
+        this.vy += (Math.random() - 0.5) * 0.08;
+        
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
