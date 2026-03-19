@@ -31,7 +31,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] transition-all duration-700 ease-[cubic-bezier(0.21,0.47,0.32,0.98)]",
         scrolled
-          ? "bg-black/50 backdrop-blur-xl border-b border-white/10 py-4"
+          ? "bg-black/50 backdrop-blur-xl py-4"
           : "bg-transparent py-6"
       )}
     >
@@ -47,7 +47,7 @@ export function Navbar() {
             >
               <span className={cn(
                 "text-sm font-medium transition-colors duration-300",
-                "text-[#9ca3af] group-hover:text-[#f4ebd0]"
+                "text-white/70 group-hover:text-white"
               )}>
                 {item.name}
               </span>
@@ -64,7 +64,7 @@ export function Navbar() {
         <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2 w-full md:w-auto">
           <Link href="/" className="flex items-center group">
             <span className="text-white font-bold text-xl tracking-tight transition-transform duration-500 group-hover:scale-105">
-              max<TextShimmer baseColor="#ffffff10" shimmerColor="#ffffff" className="font-bold text-xl">.dt88</TextShimmer>
+              max<TextShimmer baseColor="#ffffff80" shimmerColor="#ffffff" className="font-bold text-xl">.dt88</TextShimmer>
             </span>
           </Link>
         </div>
@@ -80,7 +80,7 @@ export function Navbar() {
               >
                 <span className={cn(
                   "text-sm font-medium transition-colors duration-300",
-                  "text-white/40 group-hover:text-white"
+                  "text-white/80 group-hover:text-white"
                 )}>
                   {item.name}
                 </span>
@@ -136,11 +136,11 @@ export function Navbar() {
                   className="flex items-center justify-between py-2 group border-b border-white/5"
                 >
                   <span className={cn(
-                    "text-2xl font-bold tracking-tight transition-colors text-white/40 group-hover:text-white uppercase"
+                    "text-2xl font-bold tracking-tight transition-colors text-white/80 group-hover:text-white uppercase"
                   )}>
                     {item.name}
                   </span>
-                  <ArrowRight className="w-5 h-5 text-white/10 opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 duration-300" />
+                  <ArrowRight className="w-5 h-5 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 duration-300" />
                 </Link>
               ))}
               

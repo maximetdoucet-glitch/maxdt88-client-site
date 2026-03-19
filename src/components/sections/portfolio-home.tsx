@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import NeuralBackground from "@/components/ui/flow-field-background";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import gsap from "gsap";
@@ -16,10 +16,32 @@ interface PortfolioHomeProps {
 
 export function PortfolioHome({ showContent }: PortfolioHomeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
   
-  // Subtle parallax effect for background
-  const yBg = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  // Mouse parallax
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
+  
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { innerWidth, innerHeight } = window;
+      mouseX.set((e.clientX - innerWidth / 2) / 8);
+      mouseY.set((e.clientY - innerHeight / 2) / 8);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  // Pronounced parallax effect for background
+  const yBg = useTransform(scrollYProgress, [0, 1], [0, 500]);
+
+  // Combine transforms
+  const backgroundY = useTransform([yBg, springY], ([y1, y2]) => (y1 as number) + (y2 as number));
 
   useEffect(() => {
     if (!showContent) return;
@@ -48,17 +70,17 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
     <div ref={containerRef} className="relative w-full bg-black text-white selection:bg-[#0369a1]/30">
       {/* 1. BACKGROUND WITH PARALLAX */}
       <motion.div 
-        style={{ y: yBg }}
-        className="fixed inset-0 z-0 pointer-events-none"
+        style={{ y: backgroundY, x: springX }}
+        className="fixed inset-0 z-0 pointer-events-none scale-105"
       >
         <NeuralBackground 
-          color="#0369a1" 
+          color="#2563eb" // Vibrant Blue (no teal)
           particleCount={500}
           speed={0.6}
-          trailOpacity={0.015} // Darker
+          trailOpacity={0.015} 
           scrollProgress={scrollYProgress}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/40" />
+        {/* Removed gradient overlay to maintain True Black feel */}
       </motion.div>
 
       <div className="relative z-10 w-full">
@@ -75,7 +97,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 video editing.
               </h1>
               
-              <p className="max-w-xl mx-auto text-lg md:text-xl text-white/50 font-medium leading-relaxed mb-12">
+              <p className="max-w-xl mx-auto text-lg md:text-xl text-white/70 font-medium leading-relaxed mb-12">
                 For creators, athletes, and brands looking to improve engagement.
               </p>
 
@@ -96,12 +118,12 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 3. PROOF SECTION (MINIMAL) */}
         <section id="proof" className="py-24 px-6 bg-transparent">
           <div className="max-w-5xl mx-auto text-center space-y-12">
-            <h2 className="text-sm font-semibold text-white/30 tracking-[0.2em] uppercase">
+            <h2 className="text-sm font-semibold text-white/90 tracking-[0.2em] uppercase">
               Seen by creators, brands, and verified names
             </h2>
             <div className="flex flex-wrap justify-center gap-x-16 gap-y-8">
               {["ESPN UK", "Canal+", "Bash The Entertainer", "Sky Sports", "Red Bull"].map((name) => (
-                <span key={name} className="text-xl md:text-2xl font-bold text-white/20 hover:text-white/40 transition-colors uppercase tracking-wider">
+                <span key={name} className="text-xl md:text-2xl font-bold text-white/80 hover:text-white transition-colors uppercase tracking-wider">
                   {name}
                 </span>
               ))}
@@ -112,34 +134,34 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 4. VIDEO SECTION (MOST IMPORTANT) */}
         <section id="work" className="py-32 px-6 space-y-32 bg-transparent">
           <div className="max-w-6xl mx-auto text-center space-y-16">
-            <p className="text-sm font-semibold tracking-[0.3em] uppercase text-white/40">
+            <p className="text-sm font-semibold tracking-[0.3em] uppercase text-white/60">
               One great edit is all it takes.
             </p>
             
             {/* Video 1 */}
             <div className="space-y-8">
-              <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-white/5 border border-white/5 shadow-2xl">
+              <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-transparent shadow-2xl">
                 <video 
                   src="https://cdn.pixabay.com/video/2021/04/12/70874-537443198_large.mp4" 
                   autoPlay muted loop playsInline
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-sm md:text-base font-medium text-white/40 italic">
+              <p className="text-sm md:text-base font-medium text-white/60 italic">
                 6.2M views • 900K+ likes • 200K+ reposts
               </p>
             </div>
 
             {/* Video 2 */}
             <div className="space-y-8">
-              <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-white/5 border border-white/5 shadow-2xl">
+              <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-transparent shadow-2xl">
                 <video 
                   src="https://cdn.pixabay.com/video/2023/10/26/186595-878198695_large.mp4" 
                   autoPlay muted loop playsInline
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-sm md:text-base font-medium text-white/40 italic">
+              <p className="text-sm md:text-base font-medium text-white/60 italic">
                 500K views • 120K likes • saved by Canal+
               </p>
             </div>
@@ -220,22 +242,22 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 9. MINIMAL FOOTER */}
-        <footer className="py-24 px-6 border-t border-white/5 bg-transparent">
+        <footer className="py-24 px-6 bg-transparent">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
             <div className="space-y-4">
               <div className="text-2xl font-bold text-white tracking-tight">
                 max.dt88
               </div>
-              <p className="text-white/40 text-sm font-medium">
+              <p className="text-white/70 text-sm font-medium">
                 High-retention video editing
               </p>
             </div>
             
             <div className="space-y-2">
-              <a href="mailto:contact@maxdt88.com" className="text-lg font-semibold text-white/60 hover:text-[#0369a1] transition-colors">
+              <a href="mailto:contact@maxdt88.com" className="text-lg font-semibold text-white/80 hover:text-[#2563eb] transition-colors">
                 contact@maxdt88.com
               </a>
-              <p className="text-[10px] text-white/20 font-semibold tracking-widest uppercase mt-4">
+              <p className="text-[10px] text-white/40 font-semibold tracking-widest uppercase mt-4">
                 © 2026 MAXDT88. ALL RIGHTS RESERVED.
               </p>
             </div>

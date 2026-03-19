@@ -77,9 +77,8 @@ export default function NeuralBackground({
       }
 
       update() {
-        // High-interactivity: angle responds to both position and scroll
-        const scrollFactor = scrollRef.current * 10;
-        const angle = (Math.cos(this.x * 0.005 + scrollFactor) + Math.sin(this.y * 0.005 + scrollFactor * 0.5)) * Math.PI;
+        // Stabilized: Pattern remains consistent during scroll
+        const angle = (Math.cos(this.x * 0.005) + Math.sin(this.y * 0.005)) * Math.PI;
         
         this.vx += Math.cos(angle) * 0.12 * speed;
         this.vy += Math.sin(angle) * 0.12 * speed;
@@ -91,11 +90,10 @@ export default function NeuralBackground({
 
         if (distance < interactionRadius) {
           const force = (interactionRadius - distance) / interactionRadius;
-          // Subtler, more fluid mouse interaction
           this.vx += dx * force * 0.04; 
           this.vy += dy * force * 0.04;
           
-          this.currentColor = color;
+          this.currentColor = color; // Pure blue, no teal shift
         }
 
         if (clickPulse.strength > 0) {
@@ -136,10 +134,10 @@ export default function NeuralBackground({
       }
 
       draw(context: CanvasRenderingContext2D) {
-        context.fillStyle = this.currentColor;
-        const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.5; // Subtler
+        context.fillStyle = color; // Always use the prop color directly
+        const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.4; // Sharper, more subtle
         context.globalAlpha = alpha;
-        context.fillRect(this.x, this.y, 1.2, 1.2); // Sharper
+        context.fillRect(this.x, this.y, 1.0, 1.0); // Precision 1px particles
       }
     }
 
@@ -169,8 +167,8 @@ export default function NeuralBackground({
         if (clickPulse.strength < 0.1) clickPulse.strength = 0;
       }
 
-      ctx.shadowBlur = 2; // Subtler glow
-      ctx.shadowColor = color;
+      // Removed shadowBlur to prevent teal-ish "glow" bleed
+      ctx.shadowBlur = 0; 
 
       particles.forEach((p) => {
         p.update();
