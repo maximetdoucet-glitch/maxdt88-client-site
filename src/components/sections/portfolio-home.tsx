@@ -107,8 +107,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
           </div>
         </section>
 
-        {/* 3. WORK SECTION (Solid Background for Visual Design) */}
-        <section id="work" className="relative py-20 px-6 space-y-20 bg-black z-20">
+        {/* 3. WORK SECTION */}
+        <section id="work" className="relative py-20 px-6 space-y-20 bg-transparent z-10">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-xl font-bold text-[#0369a1] mb-12 tracking-[0.3em] uppercase opacity-70">Selected Work</h2>
             
@@ -203,7 +203,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 px-6 border-t border-white/5 text-center relative z-10 bg-black">
+        <footer className="py-12 px-6 border-t border-white/5 text-center relative z-10 bg-transparent">
           <p className="text-white/20 text-xs font-bold tracking-[0.5em] uppercase">
             © 2026 MAXDT88. CINEMATIC EXCELLENCE.
           </p>
