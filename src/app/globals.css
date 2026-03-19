@@ -49,7 +49,7 @@
     color: #f4f4f4; 
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-black tracking-tighter;
+    @apply font-bold tracking-tight;
     color: #ffffff;
   }
 
@@ -86,7 +86,7 @@
   filter: blur(120px);
 }
 .ellipse-glow-brand {
-  background: rgba(3, 105, 161, 0.08); /* Reduced from 0.15 */
+  background: rgba(3, 105, 161, 0.04); /* Further reduced */
 }
 .ellipse-glow-white {
   background: rgba(255, 255, 255, 0.03);
@@ -94,7 +94,7 @@
 
 /* Soft glow utilities */
 .glow-brand {
-  box-shadow: 0 0 60px rgba(3, 105, 161, 0.1), 0 0 120px rgba(3, 105, 161, 0.04); /* Reduced intensity */
+  box-shadow: 0 0 40px rgba(3, 105, 161, 0.06), 0 0 80px rgba(3, 105, 161, 0.02); /* Minimal intensity */
 }
 
 

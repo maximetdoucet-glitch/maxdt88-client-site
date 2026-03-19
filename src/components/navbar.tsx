@@ -63,8 +63,8 @@ export function Navbar() {
 
         <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2 w-full md:w-auto">
           <Link href="/" className="flex items-center group">
-            <span className="text-[#f4ebd0] font-black text-xl tracking-tight transition-transform duration-500 group-hover:scale-105">
-              max<TextShimmer baseColor="#ffffff20" shimmerColor="#ffffff" className="font-black text-xl">.dt88</TextShimmer>
+            <span className="text-white font-bold text-xl tracking-tight transition-transform duration-500 group-hover:scale-105">
+              max<TextShimmer baseColor="#ffffff10" shimmerColor="#ffffff" className="font-bold text-xl">.dt88</TextShimmer>
             </span>
           </Link>
         </div>
@@ -80,12 +80,12 @@ export function Navbar() {
               >
                 <span className={cn(
                   "text-sm font-medium transition-colors duration-300",
-                  "text-[#9ca3af] group-hover:text-[#f4ebd0]"
+                  "text-white/40 group-hover:text-white"
                 )}>
                   {item.name}
                 </span>
                 <motion.div 
-                  className="absolute bottom-0 left-0 w-full h-[1px] bg-white/20 rounded-t-full" /* Thinner, neutral */
+                  className="absolute bottom-0 left-0 w-full h-[1px] bg-white/10 rounded-t-full"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3, ease: "circOut" }}
@@ -98,11 +98,11 @@ export function Navbar() {
             <Link href="#contact">
               <ShimmerButton 
                 shimmerColor="#ffffff"
-                shimmerSize="0.1em"
+                shimmerSize="0.05em"
                 background="#0369a1"
-                className="px-5 py-2 rounded-full text-[#f4ebd0] text-xs font-black uppercase tracking-widest hover:shadow-[0_0_25px_rgba(3,105,161,0.2)] transition-all duration-300"
+                className="px-6 py-2 rounded-full text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300"
               >
-                Book a call
+                Share your vision
               </ShimmerButton>
             </Link>
           </div>
@@ -110,7 +110,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden relative z-50 p-2 text-[#f4ebd0]"
+          className="md:hidden relative z-50 p-2 text-white"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -125,26 +125,26 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            className="absolute top-full left-0 right-0 bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/10 md:hidden overflow-hidden shadow-2xl"
+            className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-3xl border-b border-white/5 md:hidden overflow-hidden shadow-2xl"
           >
-            <div className="p-8 flex flex-col gap-6">
+            <div className="p-10 flex flex-col gap-8">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-between py-3 group border-b border-white/5"
+                  className="flex items-center justify-between py-2 group border-b border-white/5"
                 >
                   <span className={cn(
-                    "text-xl font-black tracking-tight transition-colors text-[#f4ebd0] group-hover:text-[#0369a1] uppercase"
+                    "text-2xl font-bold tracking-tight transition-colors text-white/40 group-hover:text-white uppercase"
                   )}>
                     {item.name}
                   </span>
-                  <ArrowRight className="w-5 h-5 text-white/20 opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 duration-300" />
+                  <ArrowRight className="w-5 h-5 text-white/10 opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 duration-300" />
                 </Link>
               ))}
               
-              <div className="pt-4 flex flex-col gap-4">
+              <div className="pt-6 flex flex-col gap-4">
                 <Link
                   href="#contact"
                   onClick={() => setMobileOpen(false)}
@@ -153,9 +153,9 @@ export function Navbar() {
                     shimmerColor="#ffffff"
                     shimmerSize="0.1em"
                     background="#0369a1"
-                    className="w-full py-4 rounded-full text-[#f4ebd0] font-black uppercase tracking-widest text-xs shadow-[0_0_20px_rgba(3,105,161,0.15)]"
+                    className="w-full py-4 rounded-full text-white font-bold uppercase tracking-widest text-[10px]"
                   >
-                    Book a call
+                    Share your vision
                   </ShimmerButton>
                 </Link>
               </div>
