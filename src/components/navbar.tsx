@@ -12,7 +12,7 @@ import { ShimmerButton } from "./ui/shimmer-button";
 const navItems = [
   { name: "Work", href: "#work" },
   { name: "Services", href: "#services" },
-  { name: "For Who", href: "#target" },
+  { name: "Brands", href: "#target" },
 ];
 
 export function Navbar() {
@@ -102,7 +102,7 @@ export function Navbar() {
                 background="#0369a1"
                 className="px-5 py-2 rounded-full text-[#f4ebd0] text-sm font-semibold hover:shadow-[0_0_20px_rgba(3,105,161,0.3)] transition-all duration-300"
               >
-                Let&apos;s Talk
+                Increase engagement
               </ShimmerButton>
             </Link>
           </div>
@@ -155,7 +155,7 @@ export function Navbar() {
                     background="#0369a1"
                     className="w-full py-4 rounded-full text-[#f4ebd0] font-bold text-sm shadow-[0_0_20px_rgba(3,105,161,0.2)]"
                   >
-                    Let&apos;s Talk
+                    Increase engagement
                   </ShimmerButton>
                 </Link>
               </div>
