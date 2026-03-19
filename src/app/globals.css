@@ -85,16 +85,16 @@
   pointer-events: none;
   filter: blur(120px);
 }
-.ellipse-glow-orange {
-  background: rgba(232, 98, 44, 0.15);
+.ellipse-glow-brand {
+  background: rgba(3, 105, 161, 0.15);
 }
 .ellipse-glow-white {
   background: rgba(255, 255, 255, 0.03);
 }
 
 /* Soft glow utilities */
-.glow-orange {
-  box-shadow: 0 0 80px rgba(232, 98, 44, 0.15), 0 0 160px rgba(232, 98, 44, 0.06);
+.glow-brand {
+  box-shadow: 0 0 80px rgba(3, 105, 161, 0.15), 0 0 160px rgba(3, 105, 161, 0.06);
 }
 
 /* Grid Background */
@@ -219,9 +219,9 @@ html.lenis, html.lenis body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(232, 98, 44, 0.08) 40%,
-    rgba(232, 98, 44, 0.15) 50%,
-    rgba(232, 98, 44, 0.08) 60%,
+    rgba(3, 105, 161, 0.08) 40%,
+    rgba(3, 105, 161, 0.15) 50%,
+    rgba(3, 105, 161, 0.08) 60%,
     transparent 100%
   );
   background-size: 200% 100%;

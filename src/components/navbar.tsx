@@ -9,18 +9,11 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import { TextShimmer } from "./ui/text-shimmer";
 import { ShimmerButton } from "./ui/shimmer-button";
 
-const leftNavItems = [
-  { name: "Home", href: "/" },
-  { name: "Discipline Plan", href: "/#signup" },
+const navItems = [
+  { name: "Work", href: "#work" },
+  { name: "Services", href: "#services" },
+  { name: "For Who", href: "#target" },
 ];
-
-const rightNavItems = [
-  { name: "Equipment", href: "/products" },
-  { name: "Mission", href: "/about" },
-  { name: "About Us", href: "/about-us" },
-];
-
-const mobileNavItems = [...leftNavItems, ...rightNavItems];
 
 export function Navbar() {
   const pathname = usePathname();
@@ -46,7 +39,7 @@ export function Navbar() {
         
         {/* Left Nav */}
         <div className="hidden md:flex items-center gap-8 w-1/3">
-          {leftNavItems.map((item) => (
+          {navItems.slice(0, 2).map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -54,16 +47,13 @@ export function Navbar() {
             >
               <span className={cn(
                 "text-sm font-medium transition-colors duration-300",
-                pathname === item.href 
-                  ? "text-[#f4ebd0]" 
-                  : "text-[#9ca3af] group-hover:text-[#f4ebd0]"
+                "text-[#9ca3af] group-hover:text-[#f4ebd0]"
               )}>
                 {item.name}
               </span>
               <motion.div 
                 className="absolute bottom-0 left-0 w-full h-[2px] bg-[#0369a1] rounded-t-full"
                 initial={{ scaleX: 0 }}
-                animate={{ scaleX: pathname === item.href ? 1 : 0 }}
                 whileHover={{ scaleX: 1 }}
                 transition={{ duration: 0.3, ease: "circOut" }}
               />
@@ -82,7 +72,7 @@ export function Navbar() {
         {/* Right Nav */}
         <div className="hidden md:flex items-center justify-end gap-6 w-1/3">
           <div className="flex items-center gap-6 mr-4">
-            {rightNavItems.map((item) => (
+            {navItems.slice(2).map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -90,16 +80,13 @@ export function Navbar() {
               >
                 <span className={cn(
                   "text-sm font-medium transition-colors duration-300",
-                  pathname === item.href 
-                    ? "text-[#f4ebd0]" 
-                    : "text-[#9ca3af] group-hover:text-[#f4ebd0]"
+                  "text-[#9ca3af] group-hover:text-[#f4ebd0]"
                 )}>
                   {item.name}
                 </span>
                 <motion.div 
                   className="absolute bottom-0 left-0 w-full h-[2px] bg-[#0369a1] rounded-t-full"
                   initial={{ scaleX: 0 }}
-                  animate={{ scaleX: pathname === item.href ? 1 : 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3, ease: "circOut" }}
                 />
@@ -108,14 +95,14 @@ export function Navbar() {
           </div>
           
           <div className="flex items-center gap-3">
-            <Link href="/#signup">
+            <Link href="#contact">
               <ShimmerButton 
                 shimmerColor="#ffffff"
                 shimmerSize="0.1em"
                 background="#0369a1"
                 className="px-5 py-2 rounded-full text-[#f4ebd0] text-sm font-semibold hover:shadow-[0_0_20px_rgba(3,105,161,0.3)] transition-all duration-300"
               >
-                Get Started
+                Let&apos;s Talk
               </ShimmerButton>
             </Link>
           </div>
@@ -138,19 +125,18 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            className="absolute top-full left-0 right-0 bg-[#111]/95 backdrop-blur-xl border-b border-[#333] md:hidden overflow-hidden shadow-2xl"
+            className="absolute top-full left-0 right-0 bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/10 md:hidden overflow-hidden shadow-2xl"
           >
             <div className="p-8 flex flex-col gap-6">
-              {mobileNavItems.map((item) => (
+              {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-between py-3 group border-b border-[#f3f4f6]"
+                  className="flex items-center justify-between py-3 group border-b border-white/5"
                 >
                   <span className={cn(
-                    "text-xl font-bold tracking-tight transition-colors",
-                    pathname === item.href ? "text-[#0369a1]" : "text-[#f4ebd0] group-hover:text-[#0369a1]"
+                    "text-xl font-bold tracking-tight transition-colors text-[#f4ebd0] group-hover:text-[#0369a1]"
                   )}>
                     {item.name}
                   </span>
@@ -160,7 +146,7 @@ export function Navbar() {
               
               <div className="pt-4 flex flex-col gap-4">
                 <Link
-                  href="/#signup"
+                  href="#contact"
                   onClick={() => setMobileOpen(false)}
                 >
                   <ShimmerButton
@@ -169,7 +155,7 @@ export function Navbar() {
                     background="#0369a1"
                     className="w-full py-4 rounded-full text-[#f4ebd0] font-bold text-sm shadow-[0_0_20px_rgba(3,105,161,0.2)]"
                   >
-                    Get Started
+                    Let&apos;s Talk
                   </ShimmerButton>
                 </Link>
               </div>

@@ -46,6 +46,11 @@ module.exports = {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
+        brand: {
+          blue: "#0369a1",
+          glow: "rgba(3, 105, 161, 0.4)",
+          white: "#f4ebd0",
+        },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
