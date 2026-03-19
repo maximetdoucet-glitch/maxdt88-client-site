@@ -65,6 +65,7 @@ export default function NeuralBackground({
       age: number;
       life: number;
       currentColor: string;
+      isGlowing: boolean;
 
       constructor() {
         this.x = Math.random() * width;
@@ -74,14 +75,15 @@ export default function NeuralBackground({
         this.age = 0;
         this.life = Math.random() * 200 + 100; 
         this.currentColor = color;
+        this.isGlowing = Math.random() > 0.85; // 15% glow
       }
 
       update() {
         // Stabilized: Pattern remains consistent during scroll
         const angle = (Math.cos(this.x * 0.005) + Math.sin(this.y * 0.005)) * Math.PI;
         
-        this.vx += Math.cos(angle) * 0.12 * speed;
-        this.vy += Math.sin(angle) * 0.12 * speed;
+        this.vx += Math.cos(angle) * 0.15 * speed;
+        this.vy += Math.sin(angle) * 0.15 * speed;
 
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
@@ -129,13 +131,23 @@ export default function NeuralBackground({
         this.vy = 0;
         this.age = 0;
         this.life = Math.random() * 200 + 100;
+        // Keep the same "soul" (glow status) when resetting
       }
 
       draw(context: CanvasRenderingContext2D) {
-        context.fillStyle = color; // Always use the prop color directly
-        const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.4; // Sharper, more subtle
-        context.globalAlpha = alpha;
-        context.fillRect(this.x, this.y, 1.0, 1.0); // Precision 1px particles
+        if (this.isGlowing) {
+          context.shadowBlur = 8;
+          context.shadowColor = color;
+          context.fillStyle = "#ffffff"; // Brighter white/blue core
+          context.globalAlpha = 0.8;
+          context.fillRect(this.x, this.y, 1.2, 1.2);
+          context.shadowBlur = 0; // Reset immediately for efficiency
+        } else {
+          context.fillStyle = color;
+          const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.4;
+          context.globalAlpha = alpha;
+          context.fillRect(this.x, this.y, 1.0, 1.0);
+        }
       }
     }
 
@@ -165,15 +177,11 @@ export default function NeuralBackground({
         if (clickPulse.strength < 0.1) clickPulse.strength = 0;
       }
 
-      // Removed shadowBlur to prevent teal-ish "glow" bleed
-      ctx.shadowBlur = 0; 
-
       particles.forEach((p) => {
         p.update();
         p.draw(ctx);
       });
 
-      ctx.shadowBlur = 0;
       animationFrameId = requestAnimationFrame(animate);
     };
 
