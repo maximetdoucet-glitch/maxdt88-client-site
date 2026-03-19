@@ -13,9 +13,9 @@ interface NeuralBackgroundProps {
 export default function NeuralBackground({
   className,
   color = "#0369a1", 
-  trailOpacity = 0.1,
-  particleCount = 500,
-  speed = 0.8,
+  trailOpacity = 0.04,
+  particleCount = 1000,
+  speed = 1.3,
 }: NeuralBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -169,10 +169,17 @@ export default function NeuralBackground({
         if (clickPulse.strength < 0.1) clickPulse.strength = 0;
       }
 
+      // Add glow effect to all particles
+      ctx.shadowBlur = 4;
+      ctx.shadowColor = color;
+
       particles.forEach((p) => {
         p.update();
         p.draw(ctx);
       });
+
+      // Reset shadowBlur for next frame's clear
+      ctx.shadowBlur = 0;
 
       animationFrameId = requestAnimationFrame(animate);
     };
