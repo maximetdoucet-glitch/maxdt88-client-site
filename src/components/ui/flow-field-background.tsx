@@ -143,10 +143,8 @@ export default function NeuralBackground({
 
       draw(context: CanvasRenderingContext2D) {
         context.strokeStyle = color;
-        context.lineWidth = 1.4;
+        context.lineWidth = 1.2;
         context.lineCap = "round";
-        context.shadowBlur = 2;
-        context.shadowColor = color;
         const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.7;
         context.globalAlpha = alpha;
         // Prevent drawing lines when particle wraps around
@@ -158,8 +156,6 @@ export default function NeuralBackground({
           context.lineTo(this.x, this.y);
           context.stroke();
         }
-        
-        context.shadowBlur = 0;
       }
     }
 

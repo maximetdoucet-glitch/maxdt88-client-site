@@ -16,7 +16,7 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
   useEffect(() => {
     let start = Date.now();
-    const duration = 2200; // 2.2 second load
+    const duration = 800; // 0.8 second load
 
     const tick = () => {
       const elapsed = Date.now() - start;
@@ -28,8 +28,8 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
       if (pct < 1) {
         requestAnimationFrame(tick);
       } else {
-        setTimeout(() => setDone(true), 400);
-        setTimeout(() => onComplete(), 1200);
+        setTimeout(() => setDone(true), 100);
+        setTimeout(() => onComplete(), 300);
       }
     };
     requestAnimationFrame(tick);

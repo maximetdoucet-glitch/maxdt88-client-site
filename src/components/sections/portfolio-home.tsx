@@ -54,7 +54,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
       >
         <NeuralBackground 
           color="#0369a1" 
-          particleCount={600} // Original Marcel Density (v10)
+          particleCount={300} // Balanced for performance (v11)
           speed={1.2} 
           trailOpacity={0.025} // Clean original trails
           scrollProgress={scrollYProgress}
@@ -120,13 +120,14 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             <div className="space-y-8">
               <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-transparent shadow-2xl">
                 <video 
-                  src="https://cdn.pixabay.com/video/2021/04/12/70874-537443198_large.mp4" 
+                  src="/videos/saint-9-tt-fr.mp4" 
                   autoPlay muted loop playsInline
+                  preload="auto"
                   className="w-full h-full object-cover"
                 />
               </div>
               <p className="text-sm md:text-base font-medium text-white/60 italic">
-                6.2M views • 900K+ likes • 200K+ reposts
+                6.2M views • 916K likes • 192K+ reposts
               </p>
             </div>
 
@@ -134,13 +135,14 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             <div className="space-y-8">
               <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-transparent shadow-2xl">
                 <video 
-                  src="https://cdn.pixabay.com/video/2023/10/26/186595-878198695_large.mp4" 
+                  src="/videos/saint-30-v2-tt.mp4" 
                   autoPlay muted loop playsInline
+                  preload="auto"
                   className="w-full h-full object-cover"
                 />
               </div>
               <p className="text-sm md:text-base font-medium text-white/60 italic">
-                500K views • 120K likes • saved by Canal+
+                560k views • 116k likes • saved by Canal+
               </p>
             </div>
           </div>
