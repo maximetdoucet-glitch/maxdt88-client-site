@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import NeuralBackground from "@/components/ui/flow-field-background";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { Volume2, VolumeX } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
@@ -12,6 +13,52 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface PortfolioHomeProps {
   showContent: boolean;
+}
+
+interface PortfolioVideoProps {
+  src: string;
+  stats: string;
+}
+
+function PortfolioVideo({ src, stats }: PortfolioVideoProps) {
+  const [isMuted, setIsMuted] = React.useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
+  return (
+    <div className="space-y-8 flex flex-col items-center">
+      <div className="relative aspect-[9/16] w-full max-w-[400px] rounded-2xl overflow-hidden bg-transparent shadow-2xl group border border-white/5">
+        <video 
+          ref={videoRef}
+          src={src} 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover"
+        />
+        
+        {/* Sound Toggle Overlay */}
+        <button 
+          onClick={toggleMute}
+          className="absolute bottom-6 right-6 p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white/90 opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 z-20"
+          aria-label={isMuted ? "Unmute" : "Mute"}
+        >
+          {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+        </button>
+      </div>
+      <p className="text-sm md:text-base font-medium text-white/60 italic text-center">
+        {stats}
+      </p>
+    </div>
+  );
 }
 
 export function PortfolioHome({ showContent }: PortfolioHomeProps) {
@@ -116,35 +163,15 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               One great edit is all it takes.
             </p>
             
-            {/* Video 1 */}
-            <div className="space-y-8">
-              <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-transparent shadow-2xl">
-                <video 
-                  src="/videos/saint-9-tt-fr.mp4" 
-                  autoPlay muted loop playsInline
-                  preload="auto"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <p className="text-sm md:text-base font-medium text-white/60 italic">
-                6.2M views • 916K likes • 192K+ reposts
-              </p>
-            </div>
+            <PortfolioVideo 
+              src="/videos/saint-9-tt-fr.mp4" 
+              stats="6.2M views • 916K likes • 192K+ reposts" 
+            />
 
-            {/* Video 2 */}
-            <div className="space-y-8">
-              <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-transparent shadow-2xl">
-                <video 
-                  src="/videos/saint-30-v2-tt.mp4" 
-                  autoPlay muted loop playsInline
-                  preload="auto"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <p className="text-sm md:text-base font-medium text-white/60 italic">
-                560k views • 116k likes • saved by Canal+
-              </p>
-            </div>
+            <PortfolioVideo 
+              src="/videos/saint-30-v2-tt.mp4" 
+              stats="560k views • 116k likes • saved by Canal+" 
+            />
           </div>
         </section>
 
