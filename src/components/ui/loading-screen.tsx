@@ -69,23 +69,35 @@ const Logo = React.memo(() => (
     transition={{ duration: 0.6, ease: "easeOut" }}
     className="mb-16"
   >
-    <span className="text-[#f4ebd0] font-black text-3xl tracking-tight">
-      max<TextShimmer baseColor="#0369a1" shimmerColor="#ffffff" className="text-3xl font-black"> .dt88</TextShimmer>
-    </span>
+    <TextShimmer 
+      baseColor="#f4ebd0" 
+      shimmerColor="#ffffff" 
+      className="text-3xl font-black tracking-tight"
+      duration={1.5}
+    >
+      max.dt88
+    </TextShimmer>
   </motion.div>
 ));
 
 Logo.displayName = "Logo";
 
 const LoadingStatus = React.memo(({ isFull }: { isFull: boolean }) => (
-  <motion.span
+  <motion.div
     initial={{ opacity: 0 }}
-    animate={{ opacity: 0.4 }}
+    animate={{ opacity: 1 }}
     transition={{ delay: 0.3 }}
-    className="text-[#f4ebd0]/40 text-xs font-medium tracking-[0.2em] uppercase"
+    className="flex items-center gap-1"
   >
-    Loading Experience
-    <span className="inline-block w-4">
+    <TextShimmer 
+      baseColor="rgba(244, 235, 208, 0.3)" 
+      shimmerColor="rgba(244, 235, 208, 0.8)" 
+      className="text-xs font-medium tracking-[0.2em] uppercase"
+      duration={2}
+    >
+      Loading Experience
+    </TextShimmer>
+    <span className="inline-block w-4 text-[#f4ebd0]/40 text-xs">
       {!isFull && (
         <motion.span
           animate={{ opacity: [0, 1, 0] }}
@@ -93,7 +105,7 @@ const LoadingStatus = React.memo(({ isFull }: { isFull: boolean }) => (
         >…</motion.span>
       )}
     </span>
-  </motion.span>
+  </motion.div>
 ));
 
 LoadingStatus.displayName = "LoadingStatus";
