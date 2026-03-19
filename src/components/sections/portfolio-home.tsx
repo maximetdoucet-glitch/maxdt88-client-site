@@ -63,12 +63,12 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               animate={showContent ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.2, ease: "easeOut" }}
             >
-              <h1 className="text-5xl md:text-8xl lg:text-[7.5rem] font-black tracking-tighter leading-[0.9] text-[#f4ebd0] mb-8">
+              <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter leading-[0.95] text-[#f4ebd0] mb-8">
                 I create edits <br className="hidden md:block" />
                 that drive <span className="text-[#0369a1]">engagement.</span>
               </h1>
               
-              <p className="max-w-2xl mx-auto text-lg md:text-2xl text-white/50 font-medium leading-relaxed mb-12">
+              <p className="max-w-xl mx-auto text-base md:text-lg text-white/50 font-medium leading-relaxed mb-12">
                 High-retention editing for athletes, artists, and modern brands.
               </p>
 
@@ -76,7 +76,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 <Link href="#contact">
                   <ShimmerButton 
                     background="#0369a1"
-                    className="px-10 py-5 rounded-full text-[#f4ebd0] text-xl font-bold shadow-[0_0_40px_rgba(3,105,161,0.3)] hover:scale-105 transition-transform"
+                    className="px-8 py-4 rounded-full text-[#f4ebd0] text-lg font-bold shadow-[0_0_40px_rgba(3,105,161,0.2)] hover:scale-105 transition-transform"
                   >
                     Book a call
                   </ShimmerButton>
@@ -91,16 +91,16 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 2. PROOF SECTION */}
-        <section id="proof" className="py-24 px-6 relative z-10 overflow-hidden bg-transparent">
+        <section id="proof" className="py-20 px-6 relative z-10 overflow-hidden bg-transparent">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-10">
-              <div className="h-px w-24 bg-[#0369a1]/30" />
-              <p className="text-xl md:text-2xl text-[#f4ebd0] font-medium tracking-tight text-center opacity-80 uppercase tracking-[0.2em]">
+            <div className="flex flex-col items-center justify-center space-y-8">
+              <div className="h-px w-20 bg-[#0369a1]/30" />
+              <p className="text-sm md:text-md text-[#f4ebd0] font-bold tracking-[0.3em] text-center opacity-60 uppercase">
                 Seen by creators, brands, and verified names
               </p>
-              <div className="flex flex-wrap justify-center gap-x-16 gap-y-8 opacity-40 mt-4">
+              <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 opacity-40 mt-4">
                 {["ESPN UK", "Canal+", "Bash The Entertainer", "Verified Creators"].map((name) => (
-                  <span key={name} className="text-lg md:text-3xl font-black uppercase tracking-widest">{name}</span>
+                  <span key={name} className="text-lg md:text-xl font-black uppercase tracking-widest">{name}</span>
                 ))}
               </div>
             </div>
@@ -110,7 +110,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 3. WORK SECTION */}
         <section id="work" className="relative py-20 px-6 space-y-20 bg-transparent z-10">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-xl font-bold text-[#0369a1] mb-12 tracking-[0.3em] uppercase opacity-70">Selected Work</h2>
+            <h2 className="text-xs font-bold text-[#0369a1] mb-12 tracking-[0.4em] uppercase opacity-60">Selected Work</h2>
             
             <div className="space-y-32">
               <div className="group relative aspect-video w-full rounded-[2rem] overflow-hidden bg-white/5 border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.5)] transition-all duration-700 hover:border-[#0369a1]/30">
@@ -121,8 +121,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 </div>
                 <div className="absolute bottom-12 left-12 right-12 z-20">
                   <div className="p-8 rounded-3xl bg-black/40 backdrop-blur-xl border border-white/5 max-w-lg">
-                    <h3 className="text-4xl font-black text-[#f4ebd0] mb-2 tracking-tighter">Story-driven edit</h3>
-                    <p className="text-white/40 font-medium tracking-tight">Focusing on pacing and narrative flow.</p>
+                    <h3 className="text-2xl md:text-3xl font-black text-[#f4ebd0] mb-2 tracking-tighter">Story-driven edit</h3>
+                    <p className="text-white/40 font-medium tracking-tight text-sm">Focusing on pacing and narrative flow.</p>
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
@@ -136,8 +136,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 </div>
                 <div className="absolute bottom-12 left-12 right-12 z-20">
                   <div className="p-8 rounded-3xl bg-black/40 backdrop-blur-xl border border-white/5 max-w-lg ml-auto text-right">
-                    <h3 className="text-4xl font-black text-[#f4ebd0] mb-2 tracking-tighter">High-retention project</h3>
-                    <p className="text-white/40 font-medium tracking-tight">Engineered for maximum audience watch time.</p>
+                    <h3 className="text-2xl md:text-3xl font-black text-[#f4ebd0] mb-2 tracking-tighter">High-retention project</h3>
+                    <p className="text-white/40 font-medium tracking-tight text-sm">Engineered for maximum audience watch time.</p>
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
@@ -149,8 +149,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 4. WHAT I DO */}
         <section id="services" className="py-40 px-6 relative z-10 bg-transparent">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-xl font-bold text-[#0369a1] mb-8 tracking-[0.3em] uppercase opacity-70">What I do</h2>
-            <p className="text-3xl md:text-5xl lg:text-6xl font-black text-[#f4ebd0] tracking-tighter leading-[1.1]">
+            <h2 className="text-xs font-bold text-[#0369a1] mb-8 tracking-[0.4em] uppercase opacity-60">What I do</h2>
+            <p className="text-2xl md:text-4xl lg:text-5xl font-black text-[#f4ebd0] tracking-tighter leading-[1.1]">
               I create <span className="text-[#0369a1]">high-retention edits</span> designed to capture attention, increase watch time, and elevate your content.
             </p>
           </div>
@@ -159,21 +159,21 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 5. FOR WHO / BRANDS */}
         <section id="target" className="py-40 px-6 relative z-10 bg-transparent">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[#f4ebd0] mb-24 text-center">
-              Built for brands that <span className="text-[#0369a1]">value engagement.</span>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-[#f4ebd0] mb-24 text-center leading-none">
+              Built for brands that <br className="md:hidden" /><span className="text-[#0369a1]">value engagement.</span>
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 { title: "Athletes", desc: "Dynamic storytelling that captures the intensity of performance and builds a direct connection with your audience." },
                 { title: "Creative Artists", desc: "Elevating your distinct aesthetic with rhythmic editing and cinematic visuals that amplify your creative voice." },
                 { title: "Modern Brands", desc: "Strategic video content designed to dominate attention, increase watch time, and drive measurable brand growth." }
               ].map((tier, i) => (
-                <div key={i} className="p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-[#0369a1]/30 transition-all duration-500 group relative">
-                  <h3 className="text-3xl font-black text-[#f4ebd0] mb-6 uppercase tracking-tight">{tier.title}</h3>
-                  <p className="text-white/40 font-medium leading-relaxed mb-10 text-lg">{tier.desc}</p>
-                  <div className="flex items-center gap-2 text-[#0369a1] text-xs font-black tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">
-                    Partner with me <ArrowUpRight className="w-4 h-4" />
+                <div key={i} className="p-10 rounded-[2rem] bg-white/[0.02] border border-white/5 hover:border-[#0369a1]/30 transition-all duration-500 group relative">
+                  <h3 className="text-xl font-black text-[#f4ebd0] mb-4 uppercase tracking-tight">{tier.title}</h3>
+                  <p className="text-white/40 font-medium leading-relaxed mb-10 text-base">{tier.desc}</p>
+                  <div className="flex items-center gap-2 text-[#0369a1] text-[10px] font-black tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+                    Partner with me <ArrowUpRight className="w-3 h-3" />
                   </div>
                 </div>
               ))}
@@ -184,17 +184,17 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 6. FINAL CTA */}
         <section id="contact" className="py-48 px-6 text-center relative z-10 border-t border-white/5 bg-transparent">
           <div className="max-w-4xl mx-auto space-y-12">
-            <h2 className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.9] text-[#f4ebd0]">
+            <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.95] text-[#f4ebd0]">
               Ready to <br />
               <span className="text-[#0369a1]">elevate?</span>
             </h2>
-            <p className="text-xl md:text-2xl text-white/50 font-medium max-w-xl mx-auto">
+            <p className="text-lg md:text-xl text-white/50 font-medium max-w-xl mx-auto">
               Accepting a limited number of client projects.
             </p>
             <div className="pt-8">
               <ShimmerButton 
                 background="#0369a1"
-                className="px-12 py-6 rounded-full text-[#f4ebd0] text-2xl font-black shadow-[0_0_60px_rgba(3,105,161,0.4)]"
+                className="px-10 py-5 rounded-full text-[#f4ebd0] text-xl font-black shadow-[0_0_60px_rgba(3,105,161,0.3)]"
               >
                 Book a call
               </ShimmerButton>
@@ -204,7 +204,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
         {/* Footer */}
         <footer className="py-12 px-6 border-t border-white/5 text-center relative z-10 bg-transparent">
-          <p className="text-white/20 text-xs font-bold tracking-[0.5em] uppercase">
+          <p className="text-white/20 text-[10px] font-bold tracking-[0.6em] uppercase">
             © 2026 MAXDT88. CINEMATIC EXCELLENCE.
           </p>
         </footer>
