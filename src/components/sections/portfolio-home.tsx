@@ -55,7 +55,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
           color="#0369a1" 
           particleCount={500}
           speed={0.6}
-          trailOpacity={0.02}
+          trailOpacity={0.015} // Darker
+          scrollProgress={scrollYProgress}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/40" />
       </motion.div>

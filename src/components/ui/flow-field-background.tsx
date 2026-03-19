@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useMotionValueEvent } from "framer-motion";
 
 interface NeuralBackgroundProps {
   className?: string;
@@ -8,18 +9,25 @@ interface NeuralBackgroundProps {
   trailOpacity?: number;
   particleCount?: number;
   speed?: number;
+  scrollProgress?: any; // Accept MotionValue
 }
 
 export default function NeuralBackground({
   className,
   color = "#0369a1", 
-  trailOpacity = 0.04,
-  particleCount = 1000,
-  speed = 1.3,
+  trailOpacity = 0.012, // Even darker
+  particleCount = 500, // Sharper, fewer particles
+  speed = 0.8,
+  scrollProgress,
 }: NeuralBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const scrollRef = useRef(0);
+
+  useMotionValueEvent(scrollProgress, "change", (latest) => {
+    scrollRef.current = latest as number;
+  });
 
   useEffect(() => {
     const container = containerRef.current;
@@ -69,32 +77,24 @@ export default function NeuralBackground({
       }
 
       update() {
-        const angle = (Math.cos(this.x * 0.005) + Math.sin(this.y * 0.005)) * Math.PI;
-        this.vx += Math.cos(angle) * 0.2 * speed;
-        this.vy += Math.sin(angle) * 0.2 * speed;
+        // High-interactivity: angle responds to both position and scroll
+        const scrollFactor = scrollRef.current * 10;
+        const angle = (Math.cos(this.x * 0.005 + scrollFactor) + Math.sin(this.y * 0.005 + scrollFactor * 0.5)) * Math.PI;
+        
+        this.vx += Math.cos(angle) * 0.12 * speed;
+        this.vy += Math.sin(angle) * 0.12 * speed;
 
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const interactionRadius = 200;
+        const interactionRadius = 250; 
 
         if (distance < interactionRadius) {
           const force = (interactionRadius - distance) / interactionRadius;
-          this.vx += dx * force * 0.08; 
-          this.vy += dy * force * 0.08;
+          // Subtler, more fluid mouse interaction
+          this.vx += dx * force * 0.04; 
+          this.vy += dy * force * 0.04;
           
-          const r = parseInt(color.slice(1, 3), 16);
-          const g = parseInt(color.slice(3, 5), 16);
-          const b = parseInt(color.slice(5, 7), 16);
-          const targetR = 14; 
-          const targetG = 165;
-          const targetB = 233;
-          
-          const curR = Math.round(r + (targetR - r) * force);
-          const curG = Math.round(g + (targetG - g) * force);
-          const curB = Math.round(b + (targetB - b) * force);
-          this.currentColor = `rgb(${curR}, ${curG}, ${curB})`;
-        } else {
           this.currentColor = color;
         }
 
@@ -112,8 +112,8 @@ export default function NeuralBackground({
 
         this.x += this.vx;
         this.y += this.vy;
-        this.vx *= 0.94;
-        this.vy *= 0.94;
+        this.vx *= 0.95;
+        this.vy *= 0.95;
 
         this.age++;
         if (this.age > this.life) {
@@ -137,9 +137,9 @@ export default function NeuralBackground({
 
       draw(context: CanvasRenderingContext2D) {
         context.fillStyle = this.currentColor;
-        const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.7;
+        const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.5; // Subtler
         context.globalAlpha = alpha;
-        context.fillRect(this.x, this.y, 1.4, 1.4);
+        context.fillRect(this.x, this.y, 1.2, 1.2); // Sharper
       }
     }
 
@@ -154,14 +154,14 @@ export default function NeuralBackground({
       canvas.style.height = height + "px";
 
       particles = [];
-      const actualParticleCount = Math.min(particleCount, 400); 
+      const actualParticleCount = Math.min(particleCount, 500); 
       for (let i = 0; i < actualParticleCount; i++) {
         particles.push(new Particle());
       }
     };
 
     const animate = () => {
-      ctx.fillStyle = "rgba(10, 10, 10, " + trailOpacity + ")";
+      ctx.fillStyle = "rgba(0, 0, 0, " + trailOpacity + ")"; // True black tails
       ctx.fillRect(0, 0, width, height);
 
       if (clickPulse.strength > 0) {
@@ -169,8 +169,7 @@ export default function NeuralBackground({
         if (clickPulse.strength < 0.1) clickPulse.strength = 0;
       }
 
-      // Add glow effect to all particles
-      ctx.shadowBlur = 4;
+      ctx.shadowBlur = 2; // Subtler glow
       ctx.shadowColor = color;
 
       particles.forEach((p) => {
@@ -178,9 +177,7 @@ export default function NeuralBackground({
         p.draw(ctx);
       });
 
-      // Reset shadowBlur for next frame's clear
       ctx.shadowBlur = 0;
-
       animationFrameId = requestAnimationFrame(animate);
     };
 
@@ -221,10 +218,10 @@ export default function NeuralBackground({
       container.removeEventListener("mousedown", handleClick);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [color, trailOpacity, particleCount, speed, isVisible]);
+  }, [color, trailOpacity, particleCount, speed, isVisible, scrollProgress]);
 
   return (
-    <div ref={containerRef} className={cn("relative w-full h-full bg-[#0a0a0a] overflow-hidden", className)}>
+    <div ref={containerRef} className={cn("relative w-full h-full bg-black overflow-hidden", className)}>
       <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
   );
