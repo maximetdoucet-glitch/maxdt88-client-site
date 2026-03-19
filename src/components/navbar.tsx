@@ -64,7 +64,7 @@ export function Navbar() {
         <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2 w-full md:w-auto">
           <Link href="/" className="flex items-center group">
             <span className="text-white font-bold text-xl tracking-tight transition-transform duration-500 group-hover:scale-105">
-              max<TextShimmer baseColor="#ffffff80" shimmerColor="#ffffff" className="font-bold text-xl">.dt88</TextShimmer>
+              max<TextShimmer baseColor="#0369a1" shimmerColor="#ffffff" className="font-bold text-xl">.dt88</TextShimmer>
             </span>
           </Link>
         </div>
