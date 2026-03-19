@@ -21,27 +21,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
     offset: ["start start", "end end"]
   });
   
-  // Mouse parallax
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
-  
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { innerWidth, innerHeight } = window;
-      mouseX.set((e.clientX - innerWidth / 2) / 8);
-      mouseY.set((e.clientY - innerHeight / 2) / 8);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  // Pronounced parallax effect for background
-  const yBg = useTransform(scrollYProgress, [0, 1], [0, 500]);
-
-  // Combine transforms
-  const backgroundY = useTransform([yBg, springY], ([y1, y2]) => (y1 as number) + (y2 as number));
+  // No parallax: Endless background revealed by naturally scrolling the page
 
   useEffect(() => {
     if (!showContent) return;
@@ -68,20 +48,18 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
   return (
     <div ref={containerRef} className="relative w-full bg-black text-white selection:bg-[#0369a1]/30">
-      {/* 1. BACKGROUND WITH PARALLAX */}
-      <motion.div 
-        style={{ y: backgroundY, x: springX }}
-        className="fixed inset-0 z-0 pointer-events-none scale-105"
+      {/* 1. CONTINUOUS BACKGROUND (Revealed naturally as you scroll) */}
+      <div 
+        className="absolute inset-x-0 top-0 h-full z-0 overflow-hidden pointer-events-none"
       >
         <NeuralBackground 
-          color="#2563eb" // Vibrant Blue (no teal)
-          particleCount={500}
-          speed={0.6}
+          color="#2563eb" 
+          particleCount={800} // Increased for larger canvas
+          speed={0.5}
           trailOpacity={0.015} 
           scrollProgress={scrollYProgress}
         />
-        {/* Removed gradient overlay to maintain True Black feel */}
-      </motion.div>
+      </div>
 
       <div className="relative z-10 w-full">
         {/* 2. HERO SECTION */}

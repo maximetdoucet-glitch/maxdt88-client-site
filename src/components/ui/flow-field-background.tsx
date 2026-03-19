@@ -86,14 +86,12 @@ export default function NeuralBackground({
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const interactionRadius = 250; 
+        const interactionRadius = 300; // Slightly larger for better feel
 
         if (distance < interactionRadius) {
           const force = (interactionRadius - distance) / interactionRadius;
           this.vx += dx * force * 0.04; 
           this.vy += dy * force * 0.04;
-          
-          this.currentColor = color; // Pure blue, no teal shift
         }
 
         if (clickPulse.strength > 0) {
@@ -152,8 +150,8 @@ export default function NeuralBackground({
       canvas.style.height = height + "px";
 
       particles = [];
-      const actualParticleCount = Math.min(particleCount, 500); 
-      for (let i = 0; i < actualParticleCount; i++) {
+      // No more artificial cap to allow for better coverage on tall pages
+      for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
       }
     };
