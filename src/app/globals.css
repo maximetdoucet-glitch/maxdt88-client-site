@@ -86,7 +86,7 @@
   filter: blur(120px);
 }
 .ellipse-glow-brand {
-  background: rgba(3, 105, 161, 0.15);
+  background: rgba(3, 105, 161, 0.08); /* Reduced from 0.15 */
 }
 .ellipse-glow-white {
   background: rgba(255, 255, 255, 0.03);
@@ -94,7 +94,7 @@
 
 /* Soft glow utilities */
 .glow-brand {
-  box-shadow: 0 0 80px rgba(3, 105, 161, 0.15), 0 0 160px rgba(3, 105, 161, 0.06);
+  box-shadow: 0 0 60px rgba(3, 105, 161, 0.1), 0 0 120px rgba(3, 105, 161, 0.04); /* Reduced intensity */
 }
 
 
@@ -155,12 +155,12 @@ html.lenis, html.lenis body {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: conic-gradient(from var(--angle), transparent 40%, #0369a1 50%, transparent 60%);
+  background: conic-gradient(from var(--angle), transparent 60%, #0369a1 75%, transparent 90%); /* Sharper gradient */
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  animation: rotate-gradient 4s linear infinite;
+  animation: rotate-gradient 6s linear infinite; /* Slower, more premium */
 }
 
 /* Pulsing glow ring */
@@ -196,13 +196,13 @@ html.lenis, html.lenis body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(3, 105, 161, 0.08) 40%,
-    rgba(3, 105, 161, 0.15) 50%,
-    rgba(3, 105, 161, 0.08) 60%,
+    rgba(255, 255, 255, 0.03) 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 60%,
     transparent 100%
   );
   background-size: 200% 100%;
-  animation: shine-sweep 6s ease-in-out infinite;
+  animation: shine-sweep 8s ease-in-out infinite;
 }
 
 /* Breathing opacity */

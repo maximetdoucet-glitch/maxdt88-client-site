@@ -14,8 +14,8 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "max.dt88 — Build Your Foundation",
-  description: "Free 8-week home workout protocol for young men balancing school, work, and life. No gym needed. Built by a student who figured it out.",
+  title: "max.dt88 | Premium High-Retention Video Editing",
+  description: "High-end video editing for the next generation of digital-first brands and athletes. Engineering retention that converts.",
   manifest: "/site.webmanifest",
   appleWebApp: {
     capable: true,
@@ -49,19 +49,13 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
-                "@type": "SoftwareApplication",
+                "@type": "ProfessionalService",
                 "name": "max.dt88",
-                "operatingSystem": "Web",
-                "applicationCategory": "HealthApplication",
-                "offers": {
-                  "@type": "Offer",
-                  "price": "0",
-                  "priceCurrency": "USD"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "4.9",
-                  "reviewCount": "50214"
+                "image": "/logo.png",
+                "description": "High-end video editing for digital-first brands and athletes.",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "UK"
                 }
               }),
             }}
