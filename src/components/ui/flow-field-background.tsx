@@ -75,7 +75,7 @@ export default function NeuralBackground({
         this.age = 0;
         this.life = Math.random() * 200 + 100; 
         this.currentColor = color;
-        this.isGlowing = Math.random() > 0.85; // 15% glow
+        this.isGlowing = Math.random() > 0.65; // 35% glow for rich "Marcel" texture (v9)
       }
 
       update() {
@@ -114,8 +114,8 @@ export default function NeuralBackground({
 
         this.x += this.vx;
         this.y += this.vy;
-        this.vx *= 0.95;
-        this.vy *= 0.95;
+        this.vx *= 0.945; // Slightly more fluid (v9)
+        this.vy *= 0.945;
 
         this.age++;
         if (this.age > this.life) {
@@ -148,7 +148,8 @@ export default function NeuralBackground({
           context.shadowBlur = 0; // Reset immediately for efficiency
         } else {
           context.fillStyle = color;
-          const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.4;
+          // Richer base visibility (v9)
+          const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.5;
           context.globalAlpha = alpha;
           context.fillRect(this.x, this.y, 1.0, 1.0);
         }

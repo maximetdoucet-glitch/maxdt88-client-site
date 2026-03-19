@@ -54,9 +54,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
       >
         <NeuralBackground 
           color="#2563eb" 
-          particleCount={1200} // Richer density
-          speed={1.2} // High vitality (v6 speed)
-          trailOpacity={0.01} // Cinematic trails
+          particleCount={3000} // Ultra-dense silk flow (v9)
+          speed={1.2} // High vitality 
+          trailOpacity={0.007} // Long, cinematic trails
           scrollProgress={scrollYProgress}
         />
       </div>
