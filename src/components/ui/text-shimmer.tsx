@@ -13,7 +13,7 @@ interface TextShimmerProps {
   shimmerColor?: string;
 }
 
-export function TextShimmer({
+export const TextShimmer = React.memo(function TextShimmer({
   children,
   as: Component = 'p',
   className,
@@ -44,4 +44,4 @@ export function TextShimmer({
       {children}
     </MotionComponent>
   );
-}
+});

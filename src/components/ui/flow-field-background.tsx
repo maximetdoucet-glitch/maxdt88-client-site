@@ -62,6 +62,8 @@ export default function NeuralBackground({
       y: number;
       vx: number;
       vy: number;
+      px: number;
+      py: number;
       age: number;
       life: number;
       currentColor: string;
@@ -69,6 +71,8 @@ export default function NeuralBackground({
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
+        this.px = this.x;
+        this.py = this.y;
         this.vx = 0;
         this.vy = 0;
         this.age = 0;
@@ -108,6 +112,8 @@ export default function NeuralBackground({
           }
         }
 
+        this.px = this.x;
+        this.py = this.y;
         this.x += this.vx;
         this.y += this.vy;
         this.vx *= 0.94;
@@ -127,6 +133,8 @@ export default function NeuralBackground({
       reset() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
+        this.px = this.x;
+        this.py = this.y;
         this.vx = 0;
         this.vy = 0;
         this.age = 0;
@@ -134,12 +142,23 @@ export default function NeuralBackground({
       }
 
       draw(context: CanvasRenderingContext2D) {
-        context.fillStyle = color;
+        context.strokeStyle = color;
+        context.lineWidth = 1.4;
+        context.lineCap = "round";
         context.shadowBlur = 2;
         context.shadowColor = color;
         const alpha = (1 - Math.abs((this.age / this.life) - 0.5) * 2) * 0.7;
         context.globalAlpha = alpha;
-        context.fillRect(this.x, this.y, 1.4, 1.4);
+        // Prevent drawing lines when particle wraps around
+        const dx = Math.abs(this.x - this.px);
+        const dy = Math.abs(this.y - this.py);
+        if (dx < 100 && dy < 100) {
+          context.beginPath();
+          context.moveTo(this.px, this.py);
+          context.lineTo(this.x, this.y);
+          context.stroke();
+        }
+        
         context.shadowBlur = 0;
       }
     }
