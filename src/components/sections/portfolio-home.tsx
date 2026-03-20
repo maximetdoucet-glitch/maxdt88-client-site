@@ -197,7 +197,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <h1 className="text-4xl md:text-7xl font-bold tracking-tight leading-[1.1] text-white mb-6">
-                High-retention video edits.
+                High retention video editing.
               </h1>
               
               <div className="max-w-xl mx-auto text-lg md:text-xl text-white/70 font-medium leading-relaxed mb-12 space-y-4">
@@ -238,7 +238,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <section id="work" className="py-32 px-6 space-y-32 bg-transparent">
           <div className="max-w-6xl mx-auto text-center space-y-16">
             <p className="text-sm font-semibold tracking-[0.3em] uppercase text-white/60">
-              One great edit is all it takes to be seen by millions.
+              One edit is all it takes to be seen by millions.
             </p>
             
             <div className="portfolio-video-container w-full">
@@ -273,7 +273,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Creators</h3>
                 <div className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl space-y-2">
                   <p>Long-form editing (YouTube, vlogs).</p>
-                  <p>Clipping from your content across multiple platforms (2–5 posts daily).</p>
+                  <p>Clipping and posting across multiple platforms (2–5 posts daily).</p>
                 </div>
               </div>
               
@@ -288,7 +288,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               <div className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Brands</h3>
                 <div className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl space-y-2">
-                  <p>Content designed for social media with a focus on engagement.</p>
+                  <p>Content design for social media with a focus on engagement.</p>
                   <p>Content rollout strategies that perform better than traditional ads.</p>
                 </div>
               </div>
