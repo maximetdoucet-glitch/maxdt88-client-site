@@ -336,9 +336,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
         {/* 9. REDESIGNED FOOTER */}
         <footer className="py-24 px-6 bg-[#000000] border-t border-white/10">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24 items-start text-left">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24 items-start">
             {/* LEFT COLUMN */}
-            <div className="space-y-6">
+            <div className="space-y-6 text-left">
               <div className="text-2xl font-tight font-semibold text-white tracking-tight">
                 max<TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="text-2xl font-tight font-semibold" duration={3}>.dt88</TextShimmer>
               </div>
@@ -352,8 +352,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               </div>
             </div>
             
-            {/* MIDDLE COLUMN */}
-            <div className="space-y-6">
+            {/* MIDDLE COLUMN (Centered) */}
+            <div className="space-y-6 md:text-center">
               <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider">Contact</h4>
               <a 
                 href="mailto:max.doucet@icloud.com" 
@@ -363,10 +363,10 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               </a>
             </div>
             
-            {/* RIGHT COLUMN */}
-            <div className="space-y-6">
+            {/* RIGHT COLUMN (Far Right) */}
+            <div className="space-y-6 md:text-right">
               <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider">Socials</h4>
-              <nav className="flex flex-col gap-3">
+              <nav className="flex flex-col gap-3 items-start md:items-end">
                 <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
                 <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
                 <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">YouTube</a>
