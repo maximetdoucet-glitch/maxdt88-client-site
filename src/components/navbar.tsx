@@ -44,8 +44,8 @@ export function Navbar() {
         </div>
 
         {/* Right Nav */}
-        <div className="hidden md:flex items-center justify-end gap-12 w-full">
-          <div className="flex items-center gap-12 mr-6">
+        <div className="hidden md:flex items-center justify-end gap-8 w-full">
+          <div className="flex items-center gap-8 mr-6">
             {navItems.map((item) => (
               <Link
                 key={item.href}
