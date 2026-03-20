@@ -70,7 +70,7 @@ const Logo = React.memo(() => (
     className="mb-16"
   >
     <span className="text-[#f4ebd0] font-black text-3xl tracking-tight">
-      max<TextShimmer baseColor="#0369a1" shimmerColor="#ffffff" className="font-bold text-3xl">.dt88</TextShimmer>
+      max<TextShimmer baseColor="#0369a1" shimmerColor="#ffffff" className="font-black text-3xl" duration={1}>.dt88</TextShimmer>
     </span>
   </motion.div>
 ));
@@ -88,7 +88,7 @@ const LoadingStatus = React.memo(({ isFull }: { isFull: boolean }) => (
       baseColor="rgba(244, 235, 208, 0.3)" 
       shimmerColor="rgba(244, 235, 208, 0.8)" 
       className="text-xs font-medium tracking-[0.2em] uppercase"
-      duration={2}
+      duration={1.2}
     >
       Loading Experience
     </TextShimmer>
