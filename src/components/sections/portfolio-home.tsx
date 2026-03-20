@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import NeuralBackground from "@/components/ui/flow-field-background";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
-import { Volume2, VolumeX } from "lucide-react";
+import { Volume2, VolumeX, Play, Pause } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
@@ -24,6 +24,8 @@ interface PortfolioVideoProps {
 
 function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }: PortfolioVideoProps) {
   const [isMuted, setIsMuted] = React.useState(true);
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [isManuallyPaused, setIsManuallyPaused] = React.useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -31,18 +33,34 @@ function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (videoRef.current) {
-          const shouldBeActive = entry.isIntersecting && entry.intersectionRatio > 0.6;
-          const targetMuted = !shouldBeActive;
+          const inView = entry.isIntersecting && entry.intersectionRatio > 0.6;
           
-          // CRITICAL: Only update state if it has changed to avoid infinite loops
-          if (videoRef.current.muted !== targetMuted) {
-            videoRef.current.muted = targetMuted;
-            setIsMuted(targetMuted);
+          if (inView) {
+            // Auto-play when in view, but ONLY if not manually paused
+            if (!isManuallyPaused) {
+              videoRef.current.play().catch(() => {
+                setIsPlaying(false);
+              });
+              setIsPlaying(true);
+            }
+            
+            // Auto-unmute when in view
+            const targetMuted = false;
+            if (videoRef.current.muted !== targetMuted) {
+              videoRef.current.muted = targetMuted;
+              setIsMuted(targetMuted);
+            }
+          } else {
+            // Auto-pause when scrolling away
+            videoRef.current.pause();
+            setIsPlaying(false);
+            // We DON'T set isManuallyPaused to false here, 
+            // because we want to remember if the user paused it.
           }
         }
       },
       {
-        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0], // More granular tracking
+        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0],
       }
     );
 
@@ -53,9 +71,25 @@ function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [isManuallyPaused]); // Re-subscribe when manual pause state changes
 
-  const toggleMute = () => {
+  const togglePlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+        setIsManuallyPaused(true); // User manually paused
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+        setIsManuallyPaused(false); // User manually played
+      }
+    }
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
       setIsMuted(videoRef.current.muted);
@@ -65,23 +99,34 @@ function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }
   return (
     <div className="space-y-8 flex flex-col items-center w-full" ref={containerRef}>
       <div 
-        className="relative w-full rounded-2xl overflow-hidden bg-transparent shadow-2xl group border border-white/5"
+        className="relative w-full rounded-2xl overflow-hidden bg-transparent shadow-2xl group border border-white/5 cursor-pointer"
         style={{ 
           aspectRatio, 
           maxWidth 
         }}
+        onClick={togglePlay}
       >
         <video 
           ref={videoRef}
           src={src} 
-          autoPlay 
-          muted 
+          muted={isMuted}
           loop 
           playsInline
           preload="auto"
           className="w-full h-full object-cover"
         />
         
+        {/* Play/Pause Button Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+          <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/40 transform transition-all duration-300 group-hover:scale-110 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+            {isPlaying ? (
+              <Pause className="w-10 h-10 text-white fill-white" />
+            ) : (
+              <Play className="w-10 h-10 text-white fill-white translate-x-1" />
+            )}
+          </div>
+        </div>
+
         {/* Sound Toggle Overlay */}
         <button 
           onClick={toggleMute}
