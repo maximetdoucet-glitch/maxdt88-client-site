@@ -196,14 +196,14 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               animate={showContent ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <h1 className="text-5xl md:text-8xl font-bold tracking-tight leading-[0.9] text-white mb-6">
-                High-retention <br />
-                video editing.
+              <h1 className="text-4xl md:text-7xl font-bold tracking-tight leading-[1.1] text-white mb-6">
+                I provide high-retention video editing as a service.
               </h1>
               
-              <p className="max-w-xl mx-auto text-lg md:text-xl text-white/70 font-medium leading-relaxed mb-12">
-                For creators, athletes, and brands looking to improve engagement.
-              </p>
+              <div className="max-w-xl mx-auto text-lg md:text-xl text-white/70 font-medium leading-relaxed mb-12 space-y-4">
+                <p>I create, edit, and structure content for creators, athletes, and brands.</p>
+                <p>Clipping, long-form editing, and content designed for social media platforms.</p>
+              </div>
 
               <div className="flex justify-center">
                 <Link href="#contact">
@@ -211,7 +211,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                     background="#2196f3"
                     className="px-8 py-4 rounded-full text-white text-base font-semibold transition-transform hover:scale-105"
                   >
-                    Discuss your content
+                    Book a call to discuss your content
                   </ShimmerButton>
                 </Link>
               </div>
@@ -226,7 +226,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               Seen by creators, brands, and verified names
             </h2>
             <div className="flex flex-wrap justify-center gap-x-16 gap-y-8">
-              {["ESPN UK", "Canal+", "Bash The Entertainer", "Sky Sports", "Red Bull"].map((name) => (
+              {["ESPN UK", "Canal+", "Bash The Entertainer", "Monet McMichael"].map((name) => (
                 <span key={name} className="text-xl md:text-2xl font-bold text-white/80 hover:text-white transition-colors uppercase tracking-wider">
                   {name}
                 </span>
@@ -239,13 +239,13 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <section id="work" className="py-32 px-6 space-y-32 bg-transparent">
           <div className="max-w-6xl mx-auto text-center space-y-16">
             <p className="text-sm font-semibold tracking-[0.3em] uppercase text-white/60">
-              One great edit is all it takes.
+              One great edit is all it takes to be seen by millions.
             </p>
             
             <div className="portfolio-video-container w-full">
               <PortfolioVideo 
                 src="/videos/saint-9-tt-fr.mp4" 
-                stats="6.2M views • 916K likes • 192K+ reposts" 
+                stats="6.2M views • 900K+ likes • 200K+ reposts" 
                 aspectRatio="9/16"
                 maxWidth="400px"
               />
@@ -254,7 +254,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             <div className="portfolio-video-container w-full">
               <PortfolioVideo 
                 src="/videos/saint-30-v2-tt.mp4" 
-                stats="560k views • 116k likes • saved by Canal+" 
+                stats="560K views • 116K likes • saved by Canal+" 
                 aspectRatio="1.7/1"
                 maxWidth="800px"
               />
@@ -266,52 +266,46 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <section id="services" className="py-40 px-6 bg-transparent">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-20">
-              What I offer
+              Services provided
             </h2>
             
             <div className="space-y-24">
               <div className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Creators</h3>
-                <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl">
-                  Clipping and edits designed to increase watch time and engagement.
-                </p>
+                <div className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl space-y-2">
+                  <p>I edit long-form content such as YouTube videos and vlogs.</p>
+                  <p>I also generate clips from your content and can manage posting across multiple platforms (2–5 posts daily) for a monthly fee.</p>
+                </div>
               </div>
               
               <div className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Athletes</h3>
-                <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl">
-                  Edits that showcase performance and build presence online.
-                </p>
+                <div className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl space-y-2">
+                  <p>I create mixtapes and edit game footage or training footage.</p>
+                  <p>I also produce lifestyle content to help increase your visibility and attract brand opportunities.</p>
+                </div>
               </div>
               
               <div className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Brands</h3>
-                <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl">
-                  Content designed for social platforms — not ads that get ignored.
-                </p>
+                <div className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl space-y-2">
+                  <p>I create content designed for social media platforms with a focus on engagement.</p>
+                  <p>I can also build content rollout schedules that perform better than traditional ads.</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 6. BRAND INSIGHT SECTION */}
-        <section className="py-40 px-6 bg-transparent">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-4xl font-semibold tracking-tight leading-snug text-white/80">
-              Most brands post ads. <br className="hidden md:block" />
-              <span className="text-white">The ones that grow post content.</span>
-            </h2>
-          </div>
-        </section>
 
         {/* 7. FREE OFFER SECTION */}
         <section className="py-40 px-6 bg-transparent">
           <div className="max-w-4xl mx-auto space-y-8">
             <p className="text-lg md:text-2xl text-white/60 leading-relaxed">
-              I occasionally take on 1–2 projects to test new formats.
+              I am open to working on projects where I understand and align with the vision.
             </p>
             <p className="text-lg md:text-2xl text-white font-semibold">
-              If it’s a good fit, I’ll edit your first video free.
+              To make sure we are a good fit, I offer the first one or two videos for free.
             </p>
           </div>
         </section>
@@ -320,10 +314,10 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <section id="contact" className="py-60 px-6 text-center bg-transparent">
           <div className="max-w-3xl mx-auto space-y-12">
             <h2 className="text-4xl md:text-7xl font-bold tracking-tight text-white">
-              Ready to improve <br /> your content?
+              Ready to take your content <br /> in a new direction?
             </h2>
             <div className="pt-8">
-              <Link href="mailto:contact@maxdt88.com">
+              <Link href="mailto:max.dousey@icloud.com">
                 <ShimmerButton 
                   background="#2196f3"
                   className="px-10 py-5 rounded-full text-white text-xl font-semibold transition-transform hover:scale-105"
@@ -343,14 +337,21 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 max.dt88
               </div>
               <p className="text-white/70 text-sm font-medium">
-                High-retention video editing
+                Video editing built for engagement.
               </p>
             </div>
             
-            <div className="space-y-2">
-              <a href="mailto:contact@maxdt88.com" className="text-lg font-semibold text-white/80 hover:text-[#2563eb] transition-colors">
-                contact@maxdt88.com
-              </a>
+            <div className="space-y-4">
+              <div className="flex flex-col gap-2">
+                <a href="mailto:max.dousey@icloud.com" className="text-lg font-semibold text-white/80 hover:text-[#2196f3] transition-colors">
+                  max.dousey@icloud.com
+                </a>
+                <div className="flex justify-center md:justify-start gap-6 text-sm text-white/60 font-medium">
+                  <a href="#" className="hover:text-white transition-colors">TikTok</a>
+                  <a href="#" className="hover:text-white transition-colors">Instagram</a>
+                  <a href="#" className="hover:text-white transition-colors">YouTube</a>
+                </div>
+              </div>
               <p className="text-[10px] text-white/40 font-semibold tracking-widest uppercase mt-4">
                 © 2026 MAXDT88. ALL RIGHTS RESERVED.
               </p>

@@ -14,8 +14,8 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "max.dt88 | Premium High-Retention Video Editing",
-  description: "High-end video editing for the next generation of digital-first brands and athletes. Engineering retention that converts.",
+  title: "max.dt88 | Video Editing Built for Engagement",
+  description: "I provide high-retention video editing as a service for creators, athletes, and brands. Clipping, long-form editing, and content designed for social platforms.",
   manifest: "/site.webmanifest",
   appleWebApp: {
     capable: true,
@@ -52,7 +52,7 @@ export default function RootLayout({
                 "@type": "ProfessionalService",
                 "name": "max.dt88",
                 "image": "/logo.png",
-                "description": "High-end video editing for digital-first brands and athletes.",
+                "description": "I provide high-retention video editing as a service for creators, athletes, and brands.",
                 "address": {
                   "@type": "PostalAddress",
                   "addressCountry": "UK"
