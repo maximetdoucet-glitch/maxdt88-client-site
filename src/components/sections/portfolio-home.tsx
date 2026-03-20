@@ -335,7 +335,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 9. REDESIGNED FOOTER */}
-        <footer className="py-24 px-6 bg-[#000000] border-t border-white/10">
+        <footer className="py-12 px-6 bg-[#000000] border-t border-white/10">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24 items-start">
             {/* LEFT COLUMN */}
             <div className="space-y-6 text-left">
@@ -364,9 +364,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
             
             {/* RIGHT COLUMN (Far Right) */}
-            <div className="space-y-6 md:text-right">
+            <div className="space-y-6 md:justify-self-end text-left">
               <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider">Socials</h4>
-              <nav className="flex flex-col gap-3 items-start md:items-end">
+              <nav className="flex flex-col gap-3">
                 <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
                 <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
                 <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">YouTube</a>
@@ -374,7 +374,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
           </div>
           
-          <div className="max-w-6xl mx-auto mt-24">
+          <div className="max-w-6xl mx-auto mt-12">
             <p className="text-[10px] font-sans font-normal text-white/40 tracking-widest uppercase">
               © 2026 MAXDT88. ALL RIGHTS RESERVED.
             </p>
