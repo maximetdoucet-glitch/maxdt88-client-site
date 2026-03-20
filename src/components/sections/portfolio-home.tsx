@@ -91,7 +91,7 @@ function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }
   };
 
   return (
-    <div className="space-y-8 flex flex-col items-center w-full" ref={containerRef}>
+    <div className="space-y-12 flex flex-col items-center w-full" ref={containerRef}>
       <div 
         className="relative w-full rounded-2xl overflow-hidden bg-transparent shadow-2xl group border border-white/5 cursor-pointer"
         style={{ 
@@ -197,15 +197,15 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               animate={showContent ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <h1 className="text-5xl md:text-8xl font-tight font-semibold tracking-[-0.02em] leading-[0.95] text-white mb-8 shadow-blue-glow">
+              <h1 className="text-5xl md:text-8xl font-tight font-semibold tracking-[-0.02em] leading-[0.95] text-white mb-12 shadow-blue-glow">
                 High retention video editing.
               </h1>
               
-              <div className="max-w-xl mx-auto text-lg md:text-xl font-sans font-normal text-white/80 leading-[1.4] mb-12 space-y-4">
+              <div className="max-w-xl mx-auto text-lg md:text-xl font-sans font-normal text-white/80 leading-[1.4] mb-16 space-y-4">
                 <p>For creators, athletes, and brands.</p>
               </div>
 
-              <div className="flex justify-center">
+              <div className="flex justify-center pt-8">
                 <Link href="#contact">
                   <ShimmerButton 
                     background="#2196f3"
@@ -220,12 +220,12 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 3. PROOF SECTION (MINIMAL) */}
-        <section id="proof" className="py-24 px-6 bg-transparent">
-          <div className="max-w-5xl mx-auto text-center space-y-12">
+        <section id="proof" className="py-32 px-6 bg-transparent">
+          <div className="max-w-5xl mx-auto text-center space-y-20">
             <h2 className="text-sm font-tight font-semibold text-white tracking-tight uppercase">
               Seen by creators, brands, and verified names
             </h2>
-            <div className="flex flex-wrap justify-center gap-x-16 gap-y-8">
+            <div className="flex flex-wrap justify-center gap-x-32 gap-y-12">
               {["ESPN UK", "Canal+", "Bash The Entertainer", "Monet McMichael"].map((name) => (
                 <span key={name} className="text-xl md:text-2xl font-tight font-semibold text-white/80 hover:text-white transition-colors uppercase tracking-tight">
                   {name}
@@ -236,13 +236,13 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 4. VIDEO SECTION (MOST IMPORTANT) */}
-        <section id="work" className="py-32 px-6 space-y-32 bg-transparent">
-          <div className="max-w-6xl mx-auto text-center space-y-16">
-            <p className="text-sm font-sans font-medium tracking-tight uppercase text-white/80">
+        <section id="work" className="py-48 px-6 space-y-48 bg-transparent">
+          <div className="max-w-6xl mx-auto text-center space-y-24">
+            <p className="text-sm font-sans font-medium tracking-tight uppercase text-white/80 mb-20">
               One edit is all it takes to be seen by millions.
             </p>
             
-            <div className="portfolio-video-container w-full">
+            <div className="portfolio-video-container w-full space-y-32">
               <PortfolioVideo 
                 src="/videos/saint-9-tt-fr.mp4" 
                 stats="6.2M views • 900K+ likes • 200K+ reposts" 
@@ -251,7 +251,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               />
             </div>
 
-            <div className="portfolio-video-container w-full">
+            <div className="portfolio-video-container w-full pt-24">
               <PortfolioVideo 
                 src="/videos/saint-30-v2-tt.mp4" 
                 stats="560K views • 116K likes • saved by Canal+" 
@@ -263,44 +263,44 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 5. WHAT I OFFER (CLEAN MINIMAL LIST) */}
-        <section id="services" className="py-40 px-6 bg-transparent">
+        <section id="services" className="py-56 px-6 bg-transparent">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-tight font-semibold tracking-tight text-white mb-20">
+            <h2 className="text-3xl md:text-5xl font-tight font-semibold tracking-tight text-white mb-32">
               What I offer
             </h2>
             
-            <div className="space-y-24">
-              <div className="space-y-4">
+            <div className="space-y-32">
+              <div className="space-y-8">
                 <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">
                   <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
                     Creators
                   </TextShimmer>
                 </h3>
-                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-2">
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-4">
                   <p>Long-form editing (YouTube, vlogs).</p>
                   <p>Clipping and posting across multiple platforms (2–5 posts daily).</p>
                 </div>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-8">
                 <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">
                   <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
                     Athletes
                   </TextShimmer>
                 </h3>
-                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-2">
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-4">
                   <p>Mixtapes, game footage, and training edits.</p>
                   <p>Lifestyle content to increase visibility and attract brand opportunities.</p>
                 </div>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-8">
                 <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">
                   <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
                     Brands
                   </TextShimmer>
                 </h3>
-                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-2">
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-4">
                   <p>Content design for social media with a focus on engagement.</p>
                   <p>Content rollout strategies that perform better than traditional ads.</p>
                 </div>
@@ -311,9 +311,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
 
         {/* 7. FREE OFFER + CTA SECTION (COMBINED) */}
-        <section id="contact" className="py-60 px-6 text-center bg-transparent">
-          <div className="max-w-4xl mx-auto space-y-12">
-            <div className="space-y-4">
+        <section id="contact" className="py-80 px-6 text-center bg-transparent">
+          <div className="max-w-4xl mx-auto space-y-16">
+            <div className="space-y-8">
               <p className="text-lg md:text-2xl font-sans font-normal text-white/85 leading-relaxed">
                 I take on projects where I understand the vision.
               </p>
@@ -321,7 +321,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 If it’s a good fit, I’ll edit your first video for free.
               </p>
             </div>
-            <div className="pt-8">
+            <div className="pt-16">
               <Link href="mailto:max.doucet@icloud.com">
                 <ShimmerButton 
                   background="#2196f3"
@@ -337,14 +337,14 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 9. REDESIGNED FOOTER */}
         {/* 9. REDESIGNED FOOTER */}
         {/* 9. REDESIGNED FOOTER */}
-        <footer className="py-10 px-6 bg-[#000000] border-t border-white/10">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24 items-start">
+        <footer className="py-20 px-6 bg-[#000000] border-t border-white/10">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-32 items-start">
             {/* LEFT COLUMN */}
-            <div className="space-y-6 text-left">
+            <div className="space-y-8 text-left">
               <div className="text-2xl font-tight font-semibold text-white tracking-tight">
                 max<TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="text-2xl font-tight font-semibold" duration={3}>.dt88</TextShimmer>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-4">
                 <p className="text-sm font-sans font-normal text-white/75">
                   Video editing built for engagement.
                 </p>
@@ -355,7 +355,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
             
             {/* MIDDLE COLUMN (Centered) */}
-            <div className="space-y-6 md:text-center">
+            <div className="space-y-8 md:text-center">
               <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider">Contact</h4>
               <a 
                 href="mailto:max.doucet@icloud.com" 
@@ -366,9 +366,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
             
             {/* RIGHT COLUMN (Far Right Content - Left Aligned Text) */}
-            <div className="md:justify-self-end text-left space-y-6">
+            <div className="md:justify-self-end text-left space-y-8">
               <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider text-left">Socials</h4>
-              <nav className="flex flex-col gap-3 items-start text-left">
+              <nav className="flex flex-col gap-4 items-start text-left">
                 <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">TikTok</a>
                 <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">Instagram</a>
                 <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">YouTube</a>
@@ -376,7 +376,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
           </div>
           
-          <div className="max-w-6xl mx-auto mt-10 text-left">
+          <div className="max-w-6xl mx-auto mt-16 text-left">
             <p className="text-[10px] font-sans font-normal text-white/40 tracking-widest uppercase">
               © 2026 MAXDT88. ALL RIGHTS RESERVED.
             </p>
