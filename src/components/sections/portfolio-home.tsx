@@ -197,12 +197,11 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <h1 className="text-4xl md:text-7xl font-bold tracking-tight leading-[1.1] text-white mb-6">
-                I provide high-retention video editing as a service.
+                High-retention video edits.
               </h1>
               
               <div className="max-w-xl mx-auto text-lg md:text-xl text-white/70 font-medium leading-relaxed mb-12 space-y-4">
-                <p>I create, edit, and structure content for creators, athletes, and brands.</p>
-                <p>Clipping, long-form editing, and content designed for social media platforms.</p>
+                <p>For creators, athletes, and brands.</p>
               </div>
 
               <div className="flex justify-center">
@@ -211,7 +210,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                     background="#2196f3"
                     className="px-8 py-4 rounded-full text-white text-base font-semibold transition-transform hover:scale-105"
                   >
-                    Book a call to discuss your content
+                    Share your vision
                   </ShimmerButton>
                 </Link>
               </div>
@@ -266,31 +265,31 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <section id="services" className="py-40 px-6 bg-transparent">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-20">
-              Services provided
+              What I offer
             </h2>
             
             <div className="space-y-24">
               <div className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Creators</h3>
                 <div className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl space-y-2">
-                  <p>I edit long-form content such as YouTube videos and vlogs.</p>
-                  <p>I also generate clips from your content and can manage posting across multiple platforms (2–5 posts daily) for a monthly fee.</p>
+                  <p>Long-form editing (YouTube, vlogs).</p>
+                  <p>Clipping from your content across multiple platforms (2–5 posts daily).</p>
                 </div>
               </div>
               
               <div className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Athletes</h3>
                 <div className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl space-y-2">
-                  <p>I create mixtapes and edit game footage or training footage.</p>
-                  <p>I also produce lifestyle content to help increase your visibility and attract brand opportunities.</p>
+                  <p>Mixtapes, game footage, and training edits.</p>
+                  <p>Lifestyle content to increase visibility and attract brand opportunities.</p>
                 </div>
               </div>
               
               <div className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Brands</h3>
                 <div className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl space-y-2">
-                  <p>I create content designed for social media platforms with a focus on engagement.</p>
-                  <p>I can also build content rollout schedules that perform better than traditional ads.</p>
+                  <p>Content designed for social media with a focus on engagement.</p>
+                  <p>Content rollout strategies that perform better than traditional ads.</p>
                 </div>
               </div>
             </div>
@@ -298,26 +297,19 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
 
-        {/* 7. FREE OFFER SECTION */}
-        <section className="py-40 px-6 bg-transparent">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <p className="text-lg md:text-2xl text-white/60 leading-relaxed">
-              I am open to working on projects where I understand and align with the vision.
-            </p>
-            <p className="text-lg md:text-2xl text-white font-semibold">
-              To make sure we are a good fit, I offer the first one or two videos for free.
-            </p>
-          </div>
-        </section>
-
-        {/* 8. FINAL CTA */}
+        {/* 7. FREE OFFER + CTA SECTION (COMBINED) */}
         <section id="contact" className="py-60 px-6 text-center bg-transparent">
-          <div className="max-w-3xl mx-auto space-y-12">
-            <h2 className="text-4xl md:text-7xl font-bold tracking-tight text-white">
-              Ready to take your content <br /> in a new direction?
-            </h2>
+          <div className="max-w-4xl mx-auto space-y-12">
+            <div className="space-y-4">
+              <p className="text-lg md:text-2xl text-white/60 leading-relaxed">
+                I take on projects where I understand the vision.
+              </p>
+              <p className="text-lg md:text-2xl text-white font-semibold">
+                If it’s a good fit, I’ll edit your first video for free.
+              </p>
+            </div>
             <div className="pt-8">
-              <Link href="mailto:max.dousey@icloud.com">
+              <Link href="mailto:max.doucet@icloud.com">
                 <ShimmerButton 
                   background="#2196f3"
                   className="px-10 py-5 rounded-full text-white text-xl font-semibold transition-transform hover:scale-105"
@@ -343,8 +335,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             
             <div className="space-y-4">
               <div className="flex flex-col gap-2">
-                <a href="mailto:max.dousey@icloud.com" className="text-lg font-semibold text-white/80 hover:text-[#2196f3] transition-colors">
-                  max.dousey@icloud.com
+                <a href="mailto:max.doucet@icloud.com" className="text-lg font-semibold text-white/80 hover:text-[#2196f3] transition-colors">
+                  max.doucet@icloud.com
                 </a>
                 <div className="flex justify-center md:justify-start gap-6 text-sm text-white/60 font-medium">
                   <a href="#" className="hover:text-white transition-colors">TikTok</a>
