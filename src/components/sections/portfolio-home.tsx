@@ -334,33 +334,50 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
           </div>
         </section>
 
-        {/* 9. MINIMAL FOOTER */}
-        <footer className="py-24 px-6 bg-transparent">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
-            <div className="space-y-4">
+        {/* 9. REDESIGNED FOOTER */}
+        <footer className="py-24 px-6 bg-[#000000] border-t border-white/10">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24 items-start text-left">
+            {/* LEFT COLUMN */}
+            <div className="space-y-6">
               <div className="text-2xl font-tight font-semibold text-white tracking-tight">
                 max<TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="text-2xl font-tight font-semibold" duration={3}>.dt88</TextShimmer>
               </div>
-              <p className="text-white/70 text-sm font-sans font-normal">
-                Video editing built for engagement.
-              </p>
+              <div className="space-y-2">
+                <p className="text-sm font-sans font-normal text-white/75">
+                  Video editing built for engagement.
+                </p>
+                <p className="text-xs font-sans font-normal text-white/65">
+                  Available for select projects
+                </p>
+              </div>
             </div>
             
-            <div className="space-y-4">
-              <div className="flex flex-col gap-2">
-                  <a href="mailto:max.doucet@icloud.com" className="text-lg font-sans font-normal text-white/80 hover:text-white transition-colors">
-                    max.doucet@icloud.com
-                  </a>
-                  <div className="flex justify-center md:justify-start gap-6 text-sm font-sans font-normal text-white/60">
-                    <a href="#" className="hover:text-white transition-colors">TikTok</a>
-                    <a href="#" className="hover:text-white transition-colors">Instagram</a>
-                    <a href="#" className="hover:text-white transition-colors">YouTube</a>
-                  </div>
-                </div>
-                <p className="text-[10px] font-sans font-normal text-white/40 tracking-widest uppercase mt-4">
-                  © 2026 MAXDT88. ALL RIGHTS RESERVED.
-                </p>
+            {/* MIDDLE COLUMN */}
+            <div className="space-y-6">
+              <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider">Contact</h4>
+              <a 
+                href="mailto:max.doucet@icloud.com" 
+                className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 block"
+              >
+                max.doucet@icloud.com
+              </a>
             </div>
+            
+            {/* RIGHT COLUMN */}
+            <div className="space-y-6">
+              <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider">Socials</h4>
+              <nav className="flex flex-col gap-3">
+                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
+                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
+                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">YouTube</a>
+              </nav>
+            </div>
+          </div>
+          
+          <div className="max-w-6xl mx-auto mt-24">
+            <p className="text-[10px] font-sans font-normal text-white/40 tracking-widest uppercase">
+              © 2026 MAXDT88. ALL RIGHTS RESERVED.
+            </p>
           </div>
         </footer>
       </div>
