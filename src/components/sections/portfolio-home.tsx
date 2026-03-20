@@ -33,7 +33,8 @@ function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (videoRef.current) {
-          const inView = entry.isIntersecting && entry.intersectionRatio > 0.6;
+          // Lower threshold to 0.3 for faster response
+          const inView = entry.isIntersecting && entry.intersectionRatio > 0.3;
           
           if (inView) {
             // Auto-play when in view, but ONLY if not manually paused
@@ -43,24 +44,16 @@ function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }
               });
               setIsPlaying(true);
             }
-            
-            // Auto-unmute when in view
-            const targetMuted = false;
-            if (videoRef.current.muted !== targetMuted) {
-              videoRef.current.muted = targetMuted;
-              setIsMuted(targetMuted);
-            }
           } else {
             // Auto-pause when scrolling away
             videoRef.current.pause();
             setIsPlaying(false);
-            // We DON'T set isManuallyPaused to false here, 
-            // because we want to remember if the user paused it.
           }
         }
       },
       {
-        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0],
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+        rootMargin: "0px 0px -10% 0px" // Trigger slightly before it fully exits/enters
       }
     );
 
@@ -187,9 +180,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
       >
         <NeuralBackground 
           color="#2196f3" 
-          particleCount={300} // Balanced for performance (v11)
+          particleCount={150} // Reduced for significantly better performance
           speed={1.2} 
-          trailOpacity={0.025} // Clean original trails
+          trailOpacity={0.025} 
           scrollProgress={scrollYProgress}
         />
       </div>

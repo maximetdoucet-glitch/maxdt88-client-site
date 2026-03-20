@@ -16,7 +16,7 @@ export default function NeuralBackground({
   className,
   color = "#2196f3", 
   trailOpacity = 0.025, 
-  particleCount = 500, 
+  particleCount = 200, 
   speed = 1.2,
   scrollProgress,
 }: NeuralBackgroundProps) {
