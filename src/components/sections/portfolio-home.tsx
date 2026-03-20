@@ -339,7 +339,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
             <div className="space-y-4">
               <div className="text-2xl font-tight font-semibold text-white tracking-tight">
-                max<TextShimmer baseColor="#ffffff" shimmerColor="rgba(33, 150, 243, 0.3)" className="text-2xl font-tight font-semibold" duration={3}>.dt88</TextShimmer>
+                max<TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="text-2xl font-tight font-semibold" duration={3}>.dt88</TextShimmer>
               </div>
               <p className="text-white/70 text-sm font-sans font-normal">
                 Video editing built for engagement.
