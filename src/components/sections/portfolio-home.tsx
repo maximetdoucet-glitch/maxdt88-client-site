@@ -363,14 +363,16 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               </a>
             </div>
             
-            {/* RIGHT COLUMN (Far Right) */}
-            <div className="space-y-6 md:justify-self-end text-left">
-              <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider">Socials</h4>
-              <nav className="flex flex-col gap-3">
-                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
-                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
-                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">YouTube</a>
-              </nav>
+            {/* RIGHT COLUMN (Far Right Content - Left Aligned Text) */}
+            <div className="md:ml-auto w-fit">
+              <div className="space-y-6 text-left">
+                <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider">Socials</h4>
+                <nav className="flex flex-col gap-3">
+                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
+                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
+                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">YouTube</a>
+                </nav>
+              </div>
             </div>
           </div>
           
