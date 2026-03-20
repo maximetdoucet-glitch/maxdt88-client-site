@@ -335,14 +335,15 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 9. REDESIGNED FOOTER */}
-        <footer className="py-12 px-6 bg-[#000000] border-t border-white/10">
+        {/* 9. REDESIGNED FOOTER */}
+        <footer className="py-16 px-6 bg-[#000000] border-t border-white/10">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24 items-start">
             {/* LEFT COLUMN */}
             <div className="space-y-6 text-left">
-              <div className="text-2xl font-tight font-semibold text-white tracking-tight">
+              <div className="text-2xl font-tight font-semibold text-white tracking-tight text-left">
                 max<TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="text-2xl font-tight font-semibold" duration={3}>.dt88</TextShimmer>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 text-left">
                 <p className="text-sm font-sans font-normal text-white/75">
                   Video editing built for engagement.
                 </p>
@@ -353,7 +354,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
             
             {/* MIDDLE COLUMN (Centered) */}
-            <div className="space-y-6 md:text-center">
+            <div className="space-y-6 md:text-center text-center">
               <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider">Contact</h4>
               <a 
                 href="mailto:max.doucet@icloud.com" 
@@ -364,20 +365,20 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
             
             {/* RIGHT COLUMN (Far Right Content - Left Aligned Text) */}
-            <div className="md:ml-auto w-fit">
-              <div className="space-y-6 text-left">
-                <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider">Socials</h4>
-                <nav className="flex flex-col gap-3">
-                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
-                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
-                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">YouTube</a>
+            <div className="flex md:justify-end">
+              <div className="space-y-6 text-left w-fit">
+                <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider text-left">Socials</h4>
+                <nav className="flex flex-col gap-3 items-start">
+                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">TikTok</a>
+                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">Instagram</a>
+                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">YouTube</a>
                 </nav>
               </div>
             </div>
           </div>
           
-          <div className="max-w-6xl mx-auto mt-12">
-            <p className="text-[10px] font-sans font-normal text-white/40 tracking-widest uppercase">
+          <div className="max-w-6xl mx-auto mt-16">
+            <p className="text-[10px] font-sans font-normal text-white/40 tracking-widest uppercase text-left">
               © 2026 MAXDT88. ALL RIGHTS RESERVED.
             </p>
           </div>
