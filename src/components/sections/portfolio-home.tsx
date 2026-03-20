@@ -321,7 +321,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 If it’s a good fit, I’ll edit your first video for free.
               </p>
             </div>
-            <div className="pt-4">
+            <div className="pt-4 flex justify-center w-full">
               <Link href="mailto:max.doucet@icloud.com">
                 <ShimmerButton 
                   background="#2196f3"
