@@ -45,7 +45,7 @@ export function DownloadProtocol({ elementId, fileName }: DownloadProtocolProps)
       onClick={handleDownload}
       disabled={isCapturing}
       className={cn(
-        "inline-flex items-center gap-2 px-4 py-2 bg-[#0a0a0a] text-[#f4ebd0] rounded-xl text-[0.65rem] font-bold uppercase tracking-widest hover:bg-[#1d4ed8] transition-all duration-300 disabled:opacity-50",
+        "inline-flex items-center gap-2 px-4 py-2 bg-[#0a0a0a] text-[#f4ebd0] rounded-xl text-[0.65rem] font-bold uppercase tracking-widest hover:bg-[#3b82f6] transition-all duration-300 disabled:opacity-50",
         isCapturing && "cursor-wait"
       )}
     >

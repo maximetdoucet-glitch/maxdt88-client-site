@@ -32,7 +32,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         a = atan(p.y, p.x) + a + i * i;
         float sm = smoothstep(edge0, edge1, cos(a));
 
-        // Shifted color towards the accent #1d4ed8
+        // Shifted color towards the accent #3b82f6
         o += 0.05 / denom * sm * (1.2 + sin(a + i + vec4(0.0, 1.5, 3.0, 0.0))); 
     }
 

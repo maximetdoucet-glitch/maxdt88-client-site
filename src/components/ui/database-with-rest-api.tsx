@@ -230,7 +230,7 @@ const DatabaseWithRestApi = ({
           </mask>
           {/* Blue Grad */}
           <radialGradient id="db-blue-grad" fx="1">
-            <stop offset="0%" stopColor={lightColor || "#1d4ed8"} />
+            <stop offset="0%" stopColor={lightColor || "#3b82f6"} />
             <stop offset="100%" stopColor="transparent" />
           </radialGradient>
         </defs>
@@ -238,7 +238,7 @@ const DatabaseWithRestApi = ({
       {/* Main Box */}
       <div className="absolute bottom-10 flex w-full flex-col items-center">
         {/* bottom shadow */}
-        <div className="absolute -bottom-4 h-[100px] w-[62%] rounded-lg bg-[#1d4ed8]/10 blur-xl" />
+        <div className="absolute -bottom-4 h-[100px] w-[62%] rounded-lg bg-[#3b82f6]/10 blur-xl" />
         {/* box title */}
         <div className="absolute -top-3 z-20 flex items-center justify-center rounded-full border border-[#333] bg-[#111] px-4 py-1.5 sm:-top-4">
           <SparklesIcon className="size-3 text-[#0ea5e9]" />
@@ -263,28 +263,28 @@ const DatabaseWithRestApi = ({
           </div>
           {/* Circles */}
           <motion.div
-            className="absolute -bottom-14 h-[100px] w-[100px] rounded-full border-t border-[#1d4ed8]/40 bg-[#1d4ed8]/5"
+            className="absolute -bottom-14 h-[100px] w-[100px] rounded-full border-t border-[#3b82f6]/40 bg-[#3b82f6]/5"
             animate={{
               scale: [0.98, 1.02, 0.98, 1, 1, 1, 1, 1, 1],
             }}
             transition={{ duration: 2, repeat: Infinity }}
           />
           <motion.div
-            className="absolute -bottom-20 h-[145px] w-[145px] rounded-full border-t border-[#1d4ed8]/20 bg-[#1d4ed8]/5"
+            className="absolute -bottom-20 h-[145px] w-[145px] rounded-full border-t border-[#3b82f6]/20 bg-[#3b82f6]/5"
             animate={{
               scale: [1, 1, 1, 0.98, 1.02, 0.98, 1, 1, 1],
             }}
             transition={{ duration: 2, repeat: Infinity }}
           />
           <motion.div
-            className="absolute -bottom-[100px] h-[190px] w-[190px] rounded-full border-t border-[#1d4ed8]/10 bg-[#1d4ed8]/5"
+            className="absolute -bottom-[100px] h-[190px] w-[190px] rounded-full border-t border-[#3b82f6]/10 bg-[#3b82f6]/5"
             animate={{
               scale: [1, 1, 1, 1, 1, 0.98, 1.02, 0.98, 1, 1],
             }}
             transition={{ duration: 2, repeat: Infinity }}
           />
           <motion.div
-            className="absolute -bottom-[120px] h-[235px] w-[235px] rounded-full border-t border-[#1d4ed8]/5 bg-[#1d4ed8]/5"
+            className="absolute -bottom-[120px] h-[235px] w-[235px] rounded-full border-t border-[#3b82f6]/5 bg-[#3b82f6]/5"
             animate={{
               scale: [1, 1, 1, 1, 1, 1, 0.98, 1.02, 0.98, 1],
             }}
