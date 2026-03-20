@@ -223,9 +223,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <section id="proof" className="py-24 px-6 bg-transparent">
           <div className="max-w-5xl mx-auto text-center space-y-12">
             <h2 className="text-sm font-tight font-semibold text-white tracking-tight uppercase">
-              <TextShimmer baseColor="#ffffff" shimmerColor="rgba(33, 150, 243, 0.3)" duration={3}>
-                Seen by creators, brands, and verified names
-              </TextShimmer>
+              Seen by creators, brands, and verified names
             </h2>
             <div className="flex flex-wrap justify-center gap-x-16 gap-y-8">
               {["ESPN UK", "Canal+", "Bash The Entertainer", "Monet McMichael"].map((name) => (
@@ -268,14 +266,16 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <section id="services" className="py-40 px-6 bg-transparent">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-tight font-semibold tracking-tight text-white mb-20">
-              <TextShimmer baseColor="#ffffff" shimmerColor="rgba(33, 150, 243, 0.3)" duration={3}>
-                What I offer
-              </TextShimmer>
+              What I offer
             </h2>
             
             <div className="space-y-24">
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">Creators</h3>
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">
+                  <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
+                    Creators
+                  </TextShimmer>
+                </h3>
                 <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-2">
                   <p>Long-form editing (YouTube, vlogs).</p>
                   <p>Clipping and posting across multiple platforms (2–5 posts daily).</p>
@@ -283,7 +283,11 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               </div>
               
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">Athletes</h3>
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">
+                  <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
+                    Athletes
+                  </TextShimmer>
+                </h3>
                 <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-2">
                   <p>Mixtapes, game footage, and training edits.</p>
                   <p>Lifestyle content to increase visibility and attract brand opportunities.</p>
@@ -291,7 +295,11 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               </div>
               
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">Brands</h3>
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">
+                  <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
+                    Brands
+                  </TextShimmer>
+                </h3>
                 <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-2">
                   <p>Content design for social media with a focus on engagement.</p>
                   <p>Content rollout strategies that perform better than traditional ads.</p>
@@ -330,7 +338,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <footer className="py-24 px-6 bg-transparent">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
             <div className="space-y-4">
-              <div className="text-2xl font-tight font-semibold text-white tracking-tight">
+              <div className="text-2xl font-tight font-semibold text-[#2196f3] tracking-tight">
                 max.dt88
               </div>
               <p className="text-white/70 text-sm font-sans font-normal">

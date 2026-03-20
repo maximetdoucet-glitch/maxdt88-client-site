@@ -69,8 +69,10 @@ const Logo = React.memo(() => (
     transition={{ duration: 0.6, ease: "easeOut" }}
     className="mb-16"
   >
-    <span className="text-white font-tight font-semibold text-3xl tracking-tight">
-      max<TextShimmer baseColor="#ffffff" shimmerColor="rgba(33, 150, 243, 0.3)" className="font-tight font-semibold text-3xl" duration={3}>.dt88</TextShimmer>
+    <span className="font-tight font-semibold text-3xl tracking-tight">
+      <TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="font-tight font-semibold text-3xl" duration={3}>
+        max.dt88
+      </TextShimmer>
     </span>
   </motion.div>
 ));

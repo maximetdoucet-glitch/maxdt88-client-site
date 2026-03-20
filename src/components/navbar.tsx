@@ -10,9 +10,7 @@ import { TextShimmer } from "./ui/text-shimmer";
 import { ShimmerButton } from "./ui/shimmer-button";
 
 const navItems = [
-  { name: "Work", href: "#work" },
   { name: "Services", href: "#services" },
-  { name: "Brands", href: "#target" },
 ];
 
 export function Navbar() {
@@ -37,42 +35,20 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between relative">
         
-        {/* Left Nav */}
-        <div className="hidden md:flex items-center gap-8 w-1/3">
-          {navItems.slice(0, 2).map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="relative group py-2"
-            >
-              <span className={cn(
-                "text-sm font-sans font-normal transition-colors duration-300",
-                "text-white/70 group-hover:text-white"
-              )}>
-                {item.name}
-              </span>
-              <motion.div 
-                className="absolute bottom-0 left-0 w-full h-[1px] bg-white/20 rounded-t-full" /* Thinner, neutral */
-                initial={{ scaleX: 0 }}
-                whileHover={{ scaleX: 1 }}
-                transition={{ duration: 0.3, ease: "circOut" }}
-              />
-            </Link>
-          ))}
-        </div>
-
-        <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2 w-full md:w-auto">
+        <div className="flex items-center">
           <Link href="/" className="flex items-center group">
-            <span className="text-white font-tight font-semibold text-xl tracking-tight transition-transform duration-500 group-hover:scale-105">
-              max<TextShimmer baseColor="#ffffff" shimmerColor="rgba(33, 150, 243, 0.3)" className="font-tight font-semibold text-xl" duration={3}>.dt88</TextShimmer>
+            <span className="font-tight font-semibold text-xl tracking-tight transition-transform duration-500 group-hover:scale-105">
+              <TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="font-tight font-semibold text-xl" duration={3}>
+                max.dt88
+              </TextShimmer>
             </span>
           </Link>
         </div>
 
         {/* Right Nav */}
-        <div className="hidden md:flex items-center justify-end gap-6 w-1/3">
-          <div className="flex items-center gap-6 mr-4">
-            {navItems.slice(2).map((item) => (
+        <div className="hidden md:flex items-center gap-8">
+          <div className="flex items-center gap-8">
+            {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -94,18 +70,16 @@ export function Navbar() {
             ))}
           </div>
           
-          <div className="flex items-center gap-3">
-            <Link href="#contact">
-              <ShimmerButton 
-                shimmerColor="#ffffff"
-                shimmerSize="0.05em"
-                background="#2196f3"
-                className="px-6 py-2 rounded-full text-white text-[10px] font-sans font-medium uppercase tracking-widest transition-all duration-300 glow-button"
-              >
-                Share your vision
-              </ShimmerButton>
-            </Link>
-          </div>
+          <Link href="#contact">
+            <ShimmerButton 
+              shimmerColor="#ffffff"
+              shimmerSize="0.05em"
+              background="#2196f3"
+              className="px-6 py-2 rounded-full text-white text-[10px] font-sans font-medium uppercase tracking-widest transition-all duration-300 glow-button"
+            >
+              Share your vision
+            </ShimmerButton>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
