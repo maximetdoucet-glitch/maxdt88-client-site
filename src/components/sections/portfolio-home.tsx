@@ -366,15 +366,13 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
             
             {/* RIGHT COLUMN (Far Right Content - Left Aligned Text) */}
-            <div className="flex md:justify-end">
-              <div className="flex flex-col items-start gap-6">
-                <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider">Socials</h4>
-                <nav className="flex flex-col gap-3 items-start">
-                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
-                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
-                  <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300">YouTube</a>
-                </nav>
-              </div>
+            <div className="md:justify-self-end text-left space-y-6">
+              <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider text-left">Socials</h4>
+              <nav className="flex flex-col gap-3 items-start text-left">
+                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">TikTok</a>
+                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">Instagram</a>
+                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">YouTube</a>
+              </nav>
             </div>
           </div>
           
