@@ -338,8 +338,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <footer className="py-24 px-6 bg-transparent">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
             <div className="space-y-4">
-              <div className="text-2xl font-tight font-semibold text-[#2196f3] tracking-tight">
-                max.dt88
+              <div className="text-2xl font-tight font-semibold text-white tracking-tight">
+                max<TextShimmer baseColor="#ffffff" shimmerColor="rgba(33, 150, 243, 0.3)" className="text-2xl font-tight font-semibold" duration={3}>.dt88</TextShimmer>
               </div>
               <p className="text-white/70 text-sm font-sans font-normal">
                 Video editing built for engagement.
