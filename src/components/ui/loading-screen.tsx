@@ -70,7 +70,7 @@ const Logo = React.memo(() => (
     className="mb-16"
   >
     <span className="text-[#f4ebd0] font-black text-3xl tracking-tight">
-      max<TextShimmer baseColor="#3b82f6" shimmerColor="#ffffff" className="font-black text-3xl" duration={1}>.dt88</TextShimmer>
+      max<TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="font-black text-3xl" duration={1}>.dt88</TextShimmer>
     </span>
   </motion.div>
 ));
@@ -132,7 +132,7 @@ function ProgressBar({ progress }: { progress: any }) {
   return (
     <div className="w-full h-[2px] bg-white/5 rounded-full overflow-hidden">
       <motion.div
-        className="h-full bg-[#3b82f6] rounded-full"
+        className="h-full bg-[#2196f3] rounded-full"
         style={{ width }}
       />
     </div>

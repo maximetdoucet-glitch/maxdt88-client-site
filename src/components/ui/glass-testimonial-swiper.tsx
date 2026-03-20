@@ -95,7 +95,7 @@ export const TestimonialStack = ({ testimonials, visibleBehind = 2 }: Testimonia
         }
 
         const tagClasses = (type: 'featured' | 'default') => type === 'featured' 
-          ? 'bg-[#3b82f6]/20 text-[#3b82f6] border border-[#3b82f6]/30' 
+          ? 'bg-[#2196f3]/20 text-[#2196f3] border border-[#2196f3]/30' 
           : 'bg-white/5 text-[#f4ebd0]/60';
           
         return (

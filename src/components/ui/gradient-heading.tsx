@@ -12,11 +12,11 @@ const headingVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-t from-[#3b82f6] to-[#0ea5e9]",
+          "bg-gradient-to-t from-[#2196f3] to-[#0ea5e9]",
         pink: "bg-gradient-to-t from-[#f4ebd0] to-white",
         light: "bg-gradient-to-t from-neutral-200 to-neutral-300",
         secondary:
-          "bg-gradient-to-t from-[#3b82f6]/70 to-[#0ea5e9]/70",
+          "bg-gradient-to-t from-[#2196f3]/70 to-[#0ea5e9]/70",
         white: "bg-gradient-to-t from-white to-[#f4ebd0]",
       },
       size: {

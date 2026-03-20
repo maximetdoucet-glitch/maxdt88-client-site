@@ -18,7 +18,7 @@ export const SvgButton = ({
   white = false
 }: SvgButtonProps) => {
   const classes = cn(
-    "button relative inline-flex items-center justify-center h-11 transition-colors hover:text-[#3b82f6]",
+    "button relative inline-flex items-center justify-center h-11 transition-colors hover:text-[#2196f3]",
     px,
     white ? "text-[#0a0a0a]" : "text-[#f4ebd0]",
     className
@@ -52,15 +52,15 @@ const ButtonSvg = (white: boolean) => {
           d="M0 5 L5 0 L95 0 L100 5 L100 95 L95 100 L5 100 L0 95 Z"
         />
         <path
-          className="fill-none stroke-[#3b82f6]/20 stroke-[1]"
+          className="fill-none stroke-[#2196f3]/20 stroke-[1]"
           d="M0 5 L5 0 L95 0 L100 5 L100 95 L95 100 L5 100 L0 95 Z"
         />
       </svg>
       {/* Corner accents */}
-      <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#3b82f6] opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-[#3b82f6] opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[#3b82f6] opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#3b82f6] opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#2196f3] opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-[#2196f3] opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[#2196f3] opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#2196f3] opacity-0 group-hover:opacity-100 transition-opacity" />
     </>
   );
 };

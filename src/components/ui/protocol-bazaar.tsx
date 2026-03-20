@@ -201,7 +201,7 @@ export function ProtocolBazaar() {
             {activeCategory === category && (
               <motion.div
                 layoutId="activeCategory"
-                className="absolute inset-0 rounded-full bg-[#0a0a0a]/5 border border-[#3b82f6]/20"
+                className="absolute inset-0 rounded-full bg-[#0a0a0a]/5 border border-[#2196f3]/20"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
             )}

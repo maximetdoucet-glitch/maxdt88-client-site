@@ -180,13 +180,13 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
   }, [showContent]);
 
   return (
-    <div ref={containerRef} className="relative w-full bg-black text-white selection:bg-[#3b82f6]/30">
+    <div ref={containerRef} className="relative w-full bg-black text-white selection:bg-[#2196f3]/30">
       {/* 1. CONTINUOUS BACKGROUND (Revealed naturally as you scroll) */}
       <div 
         className="absolute inset-x-0 top-0 h-full z-0 overflow-hidden pointer-events-none"
       >
         <NeuralBackground 
-          color="#3b82f6" 
+          color="#2196f3" 
           particleCount={300} // Balanced for performance (v11)
           speed={1.2} 
           trailOpacity={0.025} // Clean original trails
@@ -215,7 +215,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               <div className="flex justify-center">
                 <Link href="#contact">
                   <ShimmerButton 
-                    background="#3b82f6"
+                    background="#2196f3"
                     className="px-8 py-4 rounded-full text-white text-base font-semibold transition-transform hover:scale-105"
                   >
                     Discuss your content
@@ -278,21 +278,21 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             
             <div className="space-y-24">
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-bold text-[#3b82f6]">Creators</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Creators</h3>
                 <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl">
                   Clipping and edits designed to increase watch time and engagement.
                 </p>
               </div>
               
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-bold text-[#3b82f6]">Athletes</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Athletes</h3>
                 <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl">
                   Edits that showcase performance and build presence online.
                 </p>
               </div>
               
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-bold text-[#3b82f6]">Brands</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Brands</h3>
                 <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl">
                   Content designed for social platforms — not ads that get ignored.
                 </p>
@@ -332,7 +332,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             <div className="pt-8">
               <Link href="mailto:contact@maxdt88.com">
                 <ShimmerButton 
-                  background="#3b82f6"
+                  background="#2196f3"
                   className="px-10 py-5 rounded-full text-white text-xl font-semibold transition-transform hover:scale-105"
                 >
                   Discuss your content

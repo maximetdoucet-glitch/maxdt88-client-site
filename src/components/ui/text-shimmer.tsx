@@ -19,7 +19,7 @@ export const TextShimmer = React.memo(function TextShimmer({
   className,
   duration = 3,
   spread = 2,
-  baseColor = '#3b82f6',
+  baseColor = '#2196f3',
   shimmerColor = '#ffffff',
 }: TextShimmerProps) {
   const MotionComponent = motion(Component as keyof JSX.IntrinsicElements);

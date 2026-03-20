@@ -98,7 +98,7 @@ export const MagneticGrid: React.FC<MagneticGridProps> = ({
         if (totalForce > 0.4) {
           this.color = "#0ea5e9";
         } else if (sForce > 0.2) {
-          this.color = "#3b82f6";
+          this.color = "#2196f3";
         } else {
           this.color = color;
         }

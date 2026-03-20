@@ -64,7 +64,7 @@ export function Navbar() {
         <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2 w-full md:w-auto">
           <Link href="/" className="flex items-center group">
             <span className="text-white font-bold text-xl tracking-tight transition-transform duration-500 group-hover:scale-105">
-              max<TextShimmer baseColor="#3b82f6" shimmerColor="#ffffff" className="font-bold text-xl">.dt88</TextShimmer>
+              max<TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="font-bold text-xl">.dt88</TextShimmer>
             </span>
           </Link>
         </div>
@@ -99,7 +99,7 @@ export function Navbar() {
               <ShimmerButton 
                 shimmerColor="#ffffff"
                 shimmerSize="0.05em"
-                background="#3b82f6"
+                background="#2196f3"
                 className="px-6 py-2 rounded-full text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300"
               >
                 Share your vision
@@ -152,7 +152,7 @@ export function Navbar() {
                   <ShimmerButton
                     shimmerColor="#ffffff"
                     shimmerSize="0.1em"
-                    background="#3b82f6"
+                    background="#2196f3"
                     className="w-full py-4 rounded-full text-white font-bold uppercase tracking-widest text-[10px]"
                   >
                     Share your vision

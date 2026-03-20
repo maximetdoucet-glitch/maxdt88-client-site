@@ -14,7 +14,7 @@ interface NeuralBackgroundProps {
 
 export default function NeuralBackground({
   className,
-  color = "#3b82f6", 
+  color = "#2196f3", 
   trailOpacity = 0.025, 
   particleCount = 500, 
   speed = 1.2,
