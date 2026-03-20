@@ -310,27 +310,15 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
 
-        {/* 7. FREE OFFER + CTA SECTION (COMBINED) */}
-        <section id="contact" className="py-48 px-6 text-center bg-transparent">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="space-y-2">
-              <p className="text-lg md:text-2xl font-sans font-normal text-white/85 leading-relaxed">
-                I take on projects where I understand the vision.
-              </p>
-              <p className="text-lg md:text-2xl font-tight font-semibold text-white">
-                If it’s a good fit, I’ll edit your first video for free.
-              </p>
-            </div>
-            <div className="pt-10">
-              <Link href="mailto:max.doucet@icloud.com">
-                <ShimmerButton 
-                  background="#2196f3"
-                  className="px-10 py-5 rounded-full text-white text-xl font-sans font-medium tracking-wider transition-transform hover:scale-105 glow-button"
-                >
-                  Discuss your content
-                </ShimmerButton>
-              </Link>
-            </div>
+        {/* 7. FREE OFFER SECTION */}
+        <section id="contact" className="py-24 px-6 text-center bg-transparent">
+          <div className="max-w-4xl mx-auto space-y-2">
+            <p className="text-lg md:text-2xl font-sans font-normal text-white/85 leading-relaxed">
+              I take on projects where I understand the vision.
+            </p>
+            <p className="text-lg md:text-2xl font-tight font-semibold text-white">
+              If it’s a good fit, I’ll edit your first video for free.
+            </p>
           </div>
         </section>
 
@@ -374,6 +362,18 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">YouTube</a>
               </nav>
             </div>
+          </div>
+
+          {/* Centered Bottom CTA */}
+          <div className="flex justify-center mt-12 mb-8">
+            <Link href="mailto:max.doucet@icloud.com">
+              <ShimmerButton 
+                background="#2196f3"
+                className="px-10 py-5 rounded-full text-white text-xl font-sans font-medium tracking-wider transition-transform hover:scale-105 glow-button"
+              >
+                Discuss your content
+              </ShimmerButton>
+            </Link>
           </div>
           
           <div className="max-w-6xl mx-auto mt-10 text-left">
