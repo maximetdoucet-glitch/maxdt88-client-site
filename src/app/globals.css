@@ -8,7 +8,7 @@
   :root {
     /* DARK PREMIUM PALETTE */
     --background: 0 0% 0%;          /* #000000 */
-    --foreground: 0 0% 98%;         /* #f4f4f4 */
+    --foreground: 0 0% 100%;        /* #ffffff */
     
     --card: 0 0% 3%;               /* Very dark gray for cards */
     --card-foreground: 0 0% 98%;
@@ -46,7 +46,7 @@
     @apply bg-background text-foreground font-sans;
     font-feature-settings: "cv11", "ss01";
     background-color: #000000;
-    color: #f4f4f4; 
+    color: #ffffff; 
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
@@ -390,6 +390,20 @@ html.lenis, html.lenis body {
   .xs\:text-5xl {
     font-size: 2.75rem;
     line-height: 1.1;
+  }
+
+  .shadow-blue-glow {
+    text-shadow: 0 0 20px rgba(33, 150, 243, 0.15);
+  }
+
+  .glow-button {
+    box-shadow: 0 0 15px rgba(33, 150, 243, 0.15);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 0 25px rgba(33, 150, 243, 0.35);
+    filter: brightness(1.1);
   }
 }
 

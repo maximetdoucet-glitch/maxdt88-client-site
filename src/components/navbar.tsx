@@ -46,7 +46,7 @@ export function Navbar() {
               className="relative group py-2"
             >
               <span className={cn(
-                "text-sm font-medium transition-colors duration-300",
+                "text-sm font-sans font-normal transition-colors duration-300",
                 "text-white/70 group-hover:text-white"
               )}>
                 {item.name}
@@ -63,8 +63,8 @@ export function Navbar() {
 
         <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2 w-full md:w-auto">
           <Link href="/" className="flex items-center group">
-            <span className="text-white font-bold text-xl tracking-tight transition-transform duration-500 group-hover:scale-105">
-              max<TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="font-bold text-xl">.dt88</TextShimmer>
+            <span className="text-white font-tight font-semibold text-xl tracking-tight transition-transform duration-500 group-hover:scale-105">
+              max<TextShimmer baseColor="#ffffff" shimmerColor="rgba(33, 150, 243, 0.3)" className="font-tight font-semibold text-xl" duration={3}>.dt88</TextShimmer>
             </span>
           </Link>
         </div>
@@ -79,7 +79,7 @@ export function Navbar() {
                 className="relative group py-2"
               >
                 <span className={cn(
-                  "text-sm font-medium transition-colors duration-300",
+                  "text-sm font-sans font-normal transition-colors duration-300",
                   "text-white/80 group-hover:text-white"
                 )}>
                   {item.name}
@@ -100,7 +100,7 @@ export function Navbar() {
                 shimmerColor="#ffffff"
                 shimmerSize="0.05em"
                 background="#2196f3"
-                className="px-6 py-2 rounded-full text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300"
+                className="px-6 py-2 rounded-full text-white text-[10px] font-sans font-medium uppercase tracking-widest transition-all duration-300 glow-button"
               >
                 Share your vision
               </ShimmerButton>
@@ -136,7 +136,7 @@ export function Navbar() {
                   className="flex items-center justify-between py-2 group border-b border-white/5"
                 >
                   <span className={cn(
-                    "text-2xl font-bold tracking-tight transition-colors text-white/80 group-hover:text-white uppercase"
+                    "text-2xl font-tight font-semibold tracking-tight transition-colors text-white/80 group-hover:text-white uppercase"
                   )}>
                     {item.name}
                   </span>
@@ -153,7 +153,7 @@ export function Navbar() {
                     shimmerColor="#ffffff"
                     shimmerSize="0.1em"
                     background="#2196f3"
-                    className="w-full py-4 rounded-full text-white font-bold uppercase tracking-widest text-[10px]"
+                    className="w-full py-4 rounded-full text-white font-sans font-medium uppercase tracking-widest text-[10px] glow-button"
                   >
                     Share your vision
                   </ShimmerButton>

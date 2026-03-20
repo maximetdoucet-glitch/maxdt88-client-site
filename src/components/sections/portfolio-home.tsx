@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import NeuralBackground from "@/components/ui/flow-field-background";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { TextShimmer } from "@/components/ui/text-shimmer";
 import { Volume2, VolumeX, Play, Pause } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -129,7 +130,7 @@ function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }
           {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
         </button>
       </div>
-      <p className="text-sm md:text-base font-medium text-white/60 italic text-center">
+      <p className="font-sans font-medium text-white/75 text-xs text-center">
         {stats}
       </p>
     </div>
@@ -196,11 +197,11 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               animate={showContent ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <h1 className="text-4xl md:text-7xl font-bold tracking-tight leading-[1.1] text-white mb-6">
+              <h1 className="text-5xl md:text-8xl font-tight font-semibold tracking-[-0.02em] leading-[0.95] text-white mb-8 shadow-blue-glow">
                 High retention video editing.
               </h1>
               
-              <div className="max-w-xl mx-auto text-lg md:text-xl text-white/70 font-medium leading-relaxed mb-12 space-y-4">
+              <div className="max-w-xl mx-auto text-lg md:text-xl font-sans font-normal text-white/80 leading-[1.4] mb-12 space-y-4">
                 <p>For creators, athletes, and brands.</p>
               </div>
 
@@ -208,7 +209,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 <Link href="#contact">
                   <ShimmerButton 
                     background="#2196f3"
-                    className="px-8 py-4 rounded-full text-white text-base font-semibold transition-transform hover:scale-105"
+                    className="px-8 py-4 rounded-full text-white text-base font-sans font-medium tracking-wider transition-transform hover:scale-105 glow-button"
                   >
                     Share your vision
                   </ShimmerButton>
@@ -221,12 +222,14 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 3. PROOF SECTION (MINIMAL) */}
         <section id="proof" className="py-24 px-6 bg-transparent">
           <div className="max-w-5xl mx-auto text-center space-y-12">
-            <h2 className="text-sm font-semibold text-white/90 tracking-[0.2em] uppercase">
-              Seen by creators, brands, and verified names
+            <h2 className="text-sm font-tight font-semibold text-white tracking-tight uppercase">
+              <TextShimmer baseColor="#ffffff" shimmerColor="rgba(33, 150, 243, 0.3)" duration={3}>
+                Seen by creators, brands, and verified names
+              </TextShimmer>
             </h2>
             <div className="flex flex-wrap justify-center gap-x-16 gap-y-8">
               {["ESPN UK", "Canal+", "Bash The Entertainer", "Monet McMichael"].map((name) => (
-                <span key={name} className="text-xl md:text-2xl font-bold text-white/80 hover:text-white transition-colors uppercase tracking-wider">
+                <span key={name} className="text-xl md:text-2xl font-tight font-semibold text-white/80 hover:text-white transition-colors uppercase tracking-tight">
                   {name}
                 </span>
               ))}
@@ -237,7 +240,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 4. VIDEO SECTION (MOST IMPORTANT) */}
         <section id="work" className="py-32 px-6 space-y-32 bg-transparent">
           <div className="max-w-6xl mx-auto text-center space-y-16">
-            <p className="text-sm font-semibold tracking-[0.3em] uppercase text-white/60">
+            <p className="text-sm font-sans font-medium tracking-tight uppercase text-white/80">
               One edit is all it takes to be seen by millions.
             </p>
             
@@ -264,30 +267,32 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 5. WHAT I OFFER (CLEAN MINIMAL LIST) */}
         <section id="services" className="py-40 px-6 bg-transparent">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-20">
-              What I offer
+            <h2 className="text-3xl md:text-5xl font-tight font-semibold tracking-tight text-white mb-20">
+              <TextShimmer baseColor="#ffffff" shimmerColor="rgba(33, 150, 243, 0.3)" duration={3}>
+                What I offer
+              </TextShimmer>
             </h2>
             
             <div className="space-y-24">
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Creators</h3>
-                <div className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl space-y-2">
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">Creators</h3>
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-2">
                   <p>Long-form editing (YouTube, vlogs).</p>
                   <p>Clipping and posting across multiple platforms (2–5 posts daily).</p>
                 </div>
               </div>
               
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Athletes</h3>
-                <div className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl space-y-2">
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">Athletes</h3>
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-2">
                   <p>Mixtapes, game footage, and training edits.</p>
                   <p>Lifestyle content to increase visibility and attract brand opportunities.</p>
                 </div>
               </div>
               
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-bold text-[#2196f3]">Brands</h3>
-                <div className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl space-y-2">
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">Brands</h3>
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-2">
                   <p>Content design for social media with a focus on engagement.</p>
                   <p>Content rollout strategies that perform better than traditional ads.</p>
                 </div>
@@ -301,10 +306,10 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <section id="contact" className="py-60 px-6 text-center bg-transparent">
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-4">
-              <p className="text-lg md:text-2xl text-white/60 leading-relaxed">
+              <p className="text-lg md:text-2xl font-sans font-normal text-white/85 leading-relaxed">
                 I take on projects where I understand the vision.
               </p>
-              <p className="text-lg md:text-2xl text-white font-semibold">
+              <p className="text-lg md:text-2xl font-tight font-semibold text-white">
                 If it’s a good fit, I’ll edit your first video for free.
               </p>
             </div>
@@ -312,7 +317,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               <Link href="mailto:max.doucet@icloud.com">
                 <ShimmerButton 
                   background="#2196f3"
-                  className="px-10 py-5 rounded-full text-white text-xl font-semibold transition-transform hover:scale-105"
+                  className="px-10 py-5 rounded-full text-white text-xl font-sans font-medium tracking-wider transition-transform hover:scale-105 glow-button"
                 >
                   Discuss your content
                 </ShimmerButton>
@@ -325,28 +330,28 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <footer className="py-24 px-6 bg-transparent">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
             <div className="space-y-4">
-              <div className="text-2xl font-bold text-white tracking-tight">
+              <div className="text-2xl font-tight font-semibold text-white tracking-tight">
                 max.dt88
               </div>
-              <p className="text-white/70 text-sm font-medium">
+              <p className="text-white/70 text-sm font-sans font-normal">
                 Video editing built for engagement.
               </p>
             </div>
             
             <div className="space-y-4">
               <div className="flex flex-col gap-2">
-                <a href="mailto:max.doucet@icloud.com" className="text-lg font-semibold text-white/80 hover:text-[#2196f3] transition-colors">
-                  max.doucet@icloud.com
-                </a>
-                <div className="flex justify-center md:justify-start gap-6 text-sm text-white/60 font-medium">
-                  <a href="#" className="hover:text-white transition-colors">TikTok</a>
-                  <a href="#" className="hover:text-white transition-colors">Instagram</a>
-                  <a href="#" className="hover:text-white transition-colors">YouTube</a>
+                  <a href="mailto:max.doucet@icloud.com" className="text-lg font-sans font-normal text-white/80 hover:text-white transition-colors">
+                    max.doucet@icloud.com
+                  </a>
+                  <div className="flex justify-center md:justify-start gap-6 text-sm font-sans font-normal text-white/60">
+                    <a href="#" className="hover:text-white transition-colors">TikTok</a>
+                    <a href="#" className="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" className="hover:text-white transition-colors">YouTube</a>
+                  </div>
                 </div>
-              </div>
-              <p className="text-[10px] text-white/40 font-semibold tracking-widest uppercase mt-4">
-                © 2026 MAXDT88. ALL RIGHTS RESERVED.
-              </p>
+                <p className="text-[10px] font-sans font-normal text-white/40 tracking-widest uppercase mt-4">
+                  © 2026 MAXDT88. ALL RIGHTS RESERVED.
+                </p>
             </div>
           </div>
         </footer>

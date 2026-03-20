@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SmoothScroll } from "@/components/smooth-scroll";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const interTight = Inter_Tight({ subsets: ["latin"], variable: "--font-inter-tight" });
 
 export const viewport = {
   width: "device-width",
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className={cn(
         inter.className, 
         inter.variable,
+        interTight.variable,
         "antialiased min-h-screen"
       )}>
         <ThemeProvider

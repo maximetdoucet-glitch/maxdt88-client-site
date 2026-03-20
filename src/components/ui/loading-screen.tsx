@@ -69,8 +69,8 @@ const Logo = React.memo(() => (
     transition={{ duration: 0.6, ease: "easeOut" }}
     className="mb-16"
   >
-    <span className="text-[#f4ebd0] font-black text-3xl tracking-tight">
-      max<TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="font-black text-3xl" duration={1}>.dt88</TextShimmer>
+    <span className="text-white font-tight font-semibold text-3xl tracking-tight">
+      max<TextShimmer baseColor="#ffffff" shimmerColor="rgba(33, 150, 243, 0.3)" className="font-tight font-semibold text-3xl" duration={3}>.dt88</TextShimmer>
     </span>
   </motion.div>
 ));
@@ -85,9 +85,9 @@ const LoadingStatus = React.memo(({ isFull }: { isFull: boolean }) => (
     className="flex items-center gap-1"
   >
     <TextShimmer 
-      baseColor="rgba(244, 235, 208, 0.3)" 
-      shimmerColor="rgba(244, 235, 208, 0.8)" 
-      className="text-xs font-medium tracking-[0.2em] uppercase"
+      baseColor="rgba(255, 255, 255, 0.3)" 
+      shimmerColor="rgba(255, 255, 255, 0.8)" 
+      className="text-xs font-sans font-medium tracking-widest uppercase"
       duration={1.2}
     >
       Loading Experience
@@ -119,7 +119,7 @@ function PercentageValue({ progress }: { progress: any }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2 }}
-      className="text-[#f4ebd0] text-sm font-bold tabular-nums"
+      className="text-white text-sm font-sans font-semibold tabular-nums"
     >
       <span ref={textRef}>0%</span>
     </motion.span>
@@ -132,7 +132,7 @@ function ProgressBar({ progress }: { progress: any }) {
   return (
     <div className="w-full h-[2px] bg-white/5 rounded-full overflow-hidden">
       <motion.div
-        className="h-full bg-[#2196f3] rounded-full"
+        className="h-full bg-white rounded-full"
         style={{ width }}
       />
     </div>
