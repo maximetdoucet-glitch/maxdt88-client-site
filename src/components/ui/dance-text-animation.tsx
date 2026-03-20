@@ -51,7 +51,7 @@ const DanceTextAnimation = ({ text = "DANCE TEXT", className = "" }: { text?: st
           }
 
           .dance-layer-1 {
-            color: #0369a1;
+            color: #1d4ed8;
             animation-delay: 0s;
             z-index: 1;
           }

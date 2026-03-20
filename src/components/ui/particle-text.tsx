@@ -203,7 +203,7 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
   fontSize,
   fontFamily = 'Inter, sans-serif',
   className = '',
-  primaryColor = [0.01, 0.41, 0.63], // #0369a1
+  primaryColor = [0.01, 0.41, 0.63], // #1d4ed8
   secondaryColor = [0.05, 0.65, 0.91], // #0ea5e9
   accentColor = [0.22, 0.74, 0.97], // #38bdf8
   glowColor = [0.96, 0.92, 0.82], // #f4ebd0 (cream)

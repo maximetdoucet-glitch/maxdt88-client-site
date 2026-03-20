@@ -42,8 +42,8 @@ const SKILLS = [
     name: "Deep Expand",
     description: "Broadens the scope with evidence-based details.",
     icon: Maximize2,
-    color: "text-[#0369a1]",
-    bg: "bg-[#0369a1]/10"
+    color: "text-[#1d4ed8]",
+    bg: "bg-[#1d4ed8]/10"
   }
 ];
 
@@ -90,12 +90,12 @@ export function AIAssistant({ isOpen, onClose }: AIAssistantProps) {
             <div className="p-6 border-b border-[#0a0a0a]/5 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-[#0a0a0a] rounded-xl flex items-center justify-center">
-                  <PenTool className="w-4 h-4 text-[#0369a1]" />
+                  <PenTool className="w-4 h-4 text-[#1d4ed8]" />
                 </div>
                 <div>
                   <h3 className="font-black text-[#0a0a0a] tracking-tight">Writing Assistant</h3>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0369a1] animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#1d4ed8] animate-pulse" />
                     <span className="text-[0.6rem] font-bold uppercase tracking-widest text-[#0a0a0a]/40">Refly Engine v1.0</span>
                   </div>
                 </div>
@@ -119,7 +119,7 @@ export function AIAssistant({ isOpen, onClose }: AIAssistantProps) {
                     className={cn(
                       "flex flex-col items-center gap-2 p-3 rounded-2xl transition-all duration-300 border",
                       activeTab === skill.id 
-                        ? "bg-white border-[#0369a1]/20 shadow-sm" 
+                        ? "bg-white border-[#1d4ed8]/20 shadow-sm" 
                         : "bg-transparent border-transparent hover:bg-[#0a0a0a]/5"
                     )}
                   >
@@ -142,7 +142,7 @@ export function AIAssistant({ isOpen, onClose }: AIAssistantProps) {
                   {inputValue && (
                      <button 
                       onClick={() => setInputValue("")}
-                      className="text-[0.6rem] font-bold text-[#0369a1] uppercase tracking-widest"
+                      className="text-[0.6rem] font-bold text-[#1d4ed8] uppercase tracking-widest"
                     >
                       Clear
                     </button>
@@ -152,7 +152,7 @@ export function AIAssistant({ isOpen, onClose }: AIAssistantProps) {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Paste your protocol thoughts here..."
-                  className="w-full h-32 bg-white/50 border border-[#0a0a0a]/5 rounded-2xl p-4 text-sm text-[#0a0a0a] placeholder-[#0a0a0a]/20 focus:outline-none focus:border-[#0369a1]/30 focus:bg-white transition-all resize-none"
+                  className="w-full h-32 bg-white/50 border border-[#0a0a0a]/5 rounded-2xl p-4 text-sm text-[#0a0a0a] placeholder-[#0a0a0a]/20 focus:outline-none focus:border-[#1d4ed8]/30 focus:bg-white transition-all resize-none"
                 />
               </div>
 
@@ -166,7 +166,7 @@ export function AIAssistant({ isOpen, onClose }: AIAssistantProps) {
                     ? "bg-[#0a0a0a]/5 text-[#0a0a0a]/20 cursor-not-allowed"
                     : isProcessing
                     ? "bg-[#0a0a0a] text-[#f4ebd0] opacity-80"
-                    : "bg-[#0a0a0a] text-[#f4ebd0] hover:bg-[#0369a1] shadow-lg shadow-[#0369a1]/10"
+                    : "bg-[#0a0a0a] text-[#f4ebd0] hover:bg-[#1d4ed8] shadow-lg shadow-[#1d4ed8]/10"
                 )}
               >
                 {isProcessing ? (
@@ -185,12 +185,12 @@ export function AIAssistant({ isOpen, onClose }: AIAssistantProps) {
               {/* Results Section */}
               {result && (
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                  <div className="bg-[#0369a1]/5 border border-[#0369a1]/10 rounded-2xl p-6">
+                  <div className="bg-[#1d4ed8]/5 border border-[#1d4ed8]/10 rounded-2xl p-6">
                     <div className="flex items-center gap-2 mb-4">
-                      <div className="w-6 h-6 bg-[#0369a1] rounded-lg flex items-center justify-center">
+                      <div className="w-6 h-6 bg-[#1d4ed8] rounded-lg flex items-center justify-center">
                         <Check className="w-3.5 h-3.5 text-[#f4ebd0]" />
                       </div>
-                      <span className="text-[0.65rem] font-black uppercase tracking-widest text-[#0369a1]">Optimization Complete</span>
+                      <span className="text-[0.65rem] font-black uppercase tracking-widest text-[#1d4ed8]">Optimization Complete</span>
                     </div>
                     <p className="text-sm text-[#0a0a0a]/80 leading-relaxed font-medium">
                       {result}

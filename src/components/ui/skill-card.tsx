@@ -27,7 +27,7 @@ export function SkillCard({
 }: SkillCardProps) {
   const difficultyColor = {
     Beginner: "text-green-600 bg-green-50",
-    Intermediate: "text-[#0369a1] bg-[#0369a1]/5",
+    Intermediate: "text-[#1d4ed8] bg-[#1d4ed8]/5",
     Advanced: "text-red-600 bg-red-50",
   }[difficulty];
 
@@ -36,12 +36,12 @@ export function SkillCard({
       whileHover={{ y: -5, scale: 1.02 }}
       transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
       className={cn(
-        "glass group relative overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:border-[#0369a1]/20 hover:shadow-2xl hover:shadow-[#0369a1]/5",
+        "glass group relative overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:border-[#1d4ed8]/20 hover:shadow-2xl hover:shadow-[#1d4ed8]/5",
         className
       )}
     >
       {/* Background Glow */}
-      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#0369a1]/5 blur-3xl transition-opacity group-hover:opacity-100 opacity-0" />
+      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#1d4ed8]/5 blur-3xl transition-opacity group-hover:opacity-100 opacity-0" />
 
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-6">
@@ -49,7 +49,7 @@ export function SkillCard({
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0a0a0a] text-[#f4ebd0] transition-transform group-hover:scale-110">
               <Icon className="h-5 w-5" />
             </div>
-            <TextShimmer baseColor="#0369a1" shimmerColor="#ffffff" className="text-xs font-bold uppercase tracking-widest">
+            <TextShimmer baseColor="#1d4ed8" shimmerColor="#ffffff" className="text-xs font-bold uppercase tracking-widest">
               {phase}
             </TextShimmer>
           </div>
@@ -74,7 +74,7 @@ export function SkillCard({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-lg border border-[#0a0a0a]/5 bg-[#0a0a0a]/2 px-2.5 py-1 text-[10px] font-semibold text-[#0a0a0a]/60 transition-colors group-hover:border-[#0369a1]/20 group-hover:text-[#0a0a0a]"
+              className="rounded-lg border border-[#0a0a0a]/5 bg-[#0a0a0a]/2 px-2.5 py-1 text-[10px] font-semibold text-[#0a0a0a]/60 transition-colors group-hover:border-[#1d4ed8]/20 group-hover:text-[#0a0a0a]"
             >
               {tag}
             </span>

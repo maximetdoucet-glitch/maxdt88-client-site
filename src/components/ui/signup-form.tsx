@@ -60,8 +60,8 @@ export function SignupForm({
                   shimmerColor="#ffffff"
                   shimmerSize="0.1em"
                   shimmerDuration="2s"
-                  background="#0369a1"
-                  className="px-6 py-4 text-[#f4ebd0] font-bold text-sm rounded-[1.5rem] sm:rounded-2xl hover:shadow-lg hover:shadow-[#0369a1]/20 transition-all duration-300 whitespace-nowrap h-14 flex-shrink-0"
+                  background="#1d4ed8"
+                  className="px-6 py-4 text-[#f4ebd0] font-bold text-sm rounded-[1.5rem] sm:rounded-2xl hover:shadow-lg hover:shadow-[#1d4ed8]/20 transition-all duration-300 whitespace-nowrap h-14 flex-shrink-0"
                 >
                   {buttonText}
                 </ShimmerButton>
@@ -71,10 +71,10 @@ export function SignupForm({
             {/* Trust & Social Proof */}
             <div className="flex flex-col items-center gap-3">
               <div className="flex items-center gap-2 text-[0.7rem] font-bold tracking-wider uppercase text-[#6b7280]">
-                <Users className="w-3 h-3 text-[#0369a1]" />
+                <Users className="w-3 h-3 text-[#1d4ed8]" />
                 Join 500+ who already started
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 bg-[#0369a1]/5 border border-[#0369a1]/10 rounded-full text-[0.65rem] font-bold text-[#0369a1] uppercase tracking-tighter">
+              <div className="flex items-center gap-1.5 px-3 py-1 bg-[#1d4ed8]/5 border border-[#1d4ed8]/10 rounded-full text-[0.65rem] font-bold text-[#1d4ed8] uppercase tracking-tighter">
                 <ShieldCheck className="w-3 h-3" />
                 Privacy First · No spam. Ever.
               </div>
@@ -101,7 +101,7 @@ export function SignupForm({
                   className={cn(
                     "w-full flex items-center gap-4 p-4 rounded-2xl border transition-all duration-300 text-left group",
                     goal === g.id
-                      ? "bg-[#0369a1] border-[#0369a1] text-[#f4ebd0] shadow-md shadow-[#0369a1]/20"
+                      ? "bg-[#1d4ed8] border-[#1d4ed8] text-[#f4ebd0] shadow-md shadow-[#1d4ed8]/20"
                       : "bg-white border-[#e5e7eb] text-[#111111] hover:border-[#d1d5db] hover:shadow-sm"
                   )}
                 >
@@ -137,7 +137,7 @@ export function SignupForm({
             animate={{ opacity: 1, scale: 1 }}
             className="text-center py-8"
           >
-            <div className="w-16 h-16 bg-[#0369a1] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#0369a1]/20">
+            <div className="w-16 h-16 bg-[#1d4ed8] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#1d4ed8]/20">
               <Check className="w-8 h-8 text-[#f4ebd0]" />
             </div>
             <h3 className="text-2xl font-black tracking-tight text-[#111111] mb-3">
@@ -150,7 +150,7 @@ export function SignupForm({
               onClick={() => window.location.reload()}
               className="hover:underline"
             >
-              <TextShimmer baseColor="#0369a1" shimmerColor="#ffffff" className="text-xs font-bold uppercase tracking-widest">
+              <TextShimmer baseColor="#1d4ed8" shimmerColor="#ffffff" className="text-xs font-bold uppercase tracking-widest">
                 Reset form
               </TextShimmer>
             </button>

@@ -68,7 +68,7 @@ export function FeatureSteps({
                   className={cn(
                     "w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border-2",
                     index === currentFeature
-                      ? "bg-[#0369a1] border-[#0369a1] text-[#f4ebd0] scale-110"
+                      ? "bg-[#1d4ed8] border-[#1d4ed8] text-[#f4ebd0] scale-110"
                       : "bg-[#111] border-[#333] text-[#f4ebd0]",
                   )}
                 >

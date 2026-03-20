@@ -73,7 +73,7 @@ const SectionWithMockup: React.FC<SectionWithMockupProps> = ({
                     >
                         {/* Decorative Background Element */}
                         <motion.div
-                             className={`absolute w-[300px] h-[317px] md:w-[472px] md:h-[500px] bg-[#0369a1]/10 rounded-[32px] z-0`}
+                             className={`absolute w-[300px] h-[317px] md:w-[472px] md:h-[500px] bg-[#1d4ed8]/10 rounded-[32px] z-0`}
                              style={{
                                 top: reverseLayout ? 'auto' : '10%',
                                 bottom: reverseLayout ? '10%' : 'auto',
