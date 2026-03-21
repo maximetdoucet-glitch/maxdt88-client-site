@@ -363,7 +363,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
             
             {/* RIGHT SIDE - INFO STACK */}
-            <div className="flex flex-col space-y-10 text-left md:text-right md:items-end w-full md:w-auto">
+            <div className="flex flex-col space-y-6 text-left md:text-right md:items-end w-full md:w-auto">
               <div className="space-y-3">
                 <h4 className="text-[10px] font-tight font-semibold text-white/50 uppercase tracking-widest">Contact</h4>
                 <a 
