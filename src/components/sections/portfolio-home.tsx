@@ -91,7 +91,7 @@ function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }
   };
 
   return (
-    <div className="space-y-12 flex flex-col items-center w-full" ref={containerRef}>
+    <div className="space-y-6 flex flex-col items-center w-full" ref={containerRef}>
       <div 
         className="relative w-full rounded-2xl overflow-hidden bg-transparent shadow-[0_0_80px_rgba(255,255,255,0.35)] group border border-white/5 cursor-pointer"
         style={{ 
@@ -236,7 +236,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 4. VIDEO SECTION (MOST IMPORTANT) */}
-        <section id="work" className="pt-6 pb-20 px-6 space-y-16 bg-transparent">
+        <section id="work" className="pt-6 pb-44 px-6 space-y-16 bg-transparent">
           <div className="max-w-6xl mx-auto text-center space-y-16">
             <p className="text-sm font-sans font-medium tracking-tight uppercase text-white/80 mb-8">
               One edit is all it takes to be seen by millions.
@@ -251,7 +251,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               />
             </div>
 
-            <div className="portfolio-video-container w-full pt-16">
+            <div className="portfolio-video-container w-full pt-28">
               <PortfolioVideo 
                 src="/videos/saint-30-v2-tt.mp4" 
                 stats="560K views • 116K likes • saved by Canal+" 
