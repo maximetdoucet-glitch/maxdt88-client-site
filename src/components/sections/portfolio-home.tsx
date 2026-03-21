@@ -201,8 +201,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 High retention video editing.
               </h1>
               
-              <div className="max-w-xl mx-auto text-lg md:text-xl font-sans font-normal text-white/80 leading-[1.4] mb-8 space-y-4">
-                <p>Built for creators, athletes, and brands who want to stand out.</p>
+              <div className="max-w-xl mx-auto text-base md:text-lg font-sans font-normal text-white/80 leading-[1.4] mb-8 space-y-4">
+                <p>For creators, athletes, and brands that want to stand out.</p>
               </div>
 
               <div className="flex justify-center pt-6">
