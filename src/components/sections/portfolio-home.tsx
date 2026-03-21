@@ -202,7 +202,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               </h1>
               
               <div className="max-w-xl mx-auto text-lg md:text-xl font-sans font-normal text-white/80 leading-[1.4] mb-8 space-y-4">
-                <p>For creators, athletes, and brands.</p>
+                <p>Built for creators, athletes, and brands who want to stand out.</p>
               </div>
 
               <div className="flex justify-center pt-6">
@@ -313,12 +313,15 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 7. FREE OFFER + CTA SECTION (COMBINED) */}
         <section id="contact" className="pt-32 pb-20 px-6 text-center bg-transparent">
           <div className="max-w-4xl mx-auto space-y-8">
-            <div className="space-y-2">
+            <div className="space-y-4">
               <p className="text-lg md:text-2xl font-sans font-normal text-white/85 leading-relaxed">
-                I take on projects where I understand the vision.
+                If it makes sense, we can work.
+              </p>
+              <p className="text-lg md:text-2xl font-sans font-normal text-white/85 leading-relaxed">
+                I take on projects where the vision is clear.
               </p>
               <p className="text-lg md:text-2xl font-tight font-semibold text-white">
-                If it’s a good fit, I’ll edit your first video for free.
+                First video’s on me.
               </p>
             </div>
             <div className="pt-4 flex justify-center w-full">
