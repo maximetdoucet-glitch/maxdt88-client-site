@@ -220,12 +220,12 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 3. PROOF SECTION (MINIMAL) */}
-        <section id="proof" className="py-16 px-6 bg-transparent">
-          <div className="max-w-5xl mx-auto text-center space-y-8">
+        <section id="proof" className="pt-8 pb-10 px-6 bg-transparent">
+          <div className="max-w-5xl mx-auto text-center space-y-6">
             <h2 className="text-sm font-tight font-semibold text-white tracking-tight uppercase">
               Seen by creators, brands, and verified names
             </h2>
-            <div className="flex flex-wrap justify-center gap-x-16 gap-y-12">
+            <div className="flex flex-wrap justify-center gap-x-16 gap-y-6">
               {["ESPN UK", "Canal+", "Bash The Entertainer", "Monet McMichael"].map((name) => (
                 <span key={name} className="text-xl md:text-2xl font-tight font-semibold text-white/80 hover:text-white transition-all duration-200 ease-out uppercase tracking-tight cursor-pointer hover:scale-[1.02]">
                   {name}
@@ -236,8 +236,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 4. VIDEO SECTION (MOST IMPORTANT) */}
-        <section id="work" className="py-20 px-6 space-y-16 bg-transparent">
-          <div className="max-w-6xl mx-auto text-center space-y-32">
+        <section id="work" className="pt-6 pb-20 px-6 space-y-16 bg-transparent">
+          <div className="max-w-6xl mx-auto text-center space-y-16">
             <p className="text-sm font-sans font-medium tracking-tight uppercase text-white/80 mb-8">
               One edit is all it takes to be seen by millions.
             </p>
