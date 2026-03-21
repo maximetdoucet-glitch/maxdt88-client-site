@@ -264,43 +264,46 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
         {/* 5. WHAT I OFFER (CLEAN MINIMAL LIST) */}
         <section id="services" className="py-32 px-6 bg-transparent">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-tight font-semibold tracking-tight text-white mb-12">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-tight font-semibold tracking-tight text-white mb-16">
               What I offer
             </h2>
             
-            <div className="space-y-24">
-              <div className="space-y-2">
-                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Creators Box */}
+              <div className="p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col h-full text-left transition-all hover:bg-white/[0.04]">
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-6">
                   <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
                     Creators
                   </TextShimmer>
                 </h3>
-                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-4">
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-4">
                   <p>Long-form editing (YouTube, vlogs).</p>
                   <p>Clipping and posting across multiple platforms (2–5 posts daily).</p>
                 </div>
               </div>
               
-              <div className="space-y-2">
-                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">
+              {/* Athletes Box */}
+              <div className="p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col h-full text-left transition-all hover:bg-white/[0.04]">
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-6">
                   <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
                     Athletes
                   </TextShimmer>
                 </h3>
-                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-4">
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-4">
                   <p>Mixtapes, game footage, and training edits.</p>
                   <p>Lifestyle content to increase visibility and attract brand opportunities.</p>
                 </div>
               </div>
               
-              <div className="space-y-2">
-                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">
+              {/* Brands Box */}
+              <div className="p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col h-full text-left transition-all hover:bg-white/[0.04]">
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-6">
                   <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
                     Brands
                   </TextShimmer>
                 </h3>
-                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed max-w-2xl space-y-4">
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-4">
                   <p>Content design for social media with a focus on engagement.</p>
                   <p>Content rollout strategies that perform better than traditional ads.</p>
                 </div>
