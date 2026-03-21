@@ -68,7 +68,7 @@ export function Navbar() {
             ))}
           </div>
           
-          <Link href="#contact">
+          <Link href="mailto:max.doucet@icloud.com?subject=Content%20Inquiry&body=Hi%20Max%2C%0A%0AI%20came%20across%20your%20work%20and%20I%E2%80%99m%20interested%20in%20working%20together.%0A%0AHere%E2%80%99s%20what%20I%E2%80%99m%20looking%20for%3A%0A%0AName%3A%0APlatform%20(TikTok%20%2F%20YouTube%20%2F%20Brand)%3A%0AType%20of%20content%3A%0AGoal%3A">
             <ShimmerButton 
               shimmerColor="#ffffff"
               shimmerSize="0.05em"
@@ -118,7 +118,7 @@ export function Navbar() {
               
               <div className="pt-6 flex flex-col gap-4">
                 <Link
-                  href="#contact"
+                  href="mailto:max.doucet@icloud.com?subject=Content%20Inquiry&body=Hi%20Max%2C%0A%0AI%20came%20across%20your%20work%20and%20I%E2%80%99m%20interested%20in%20working%20together.%0A%0AHere%E2%80%99s%20what%20I%E2%80%99m%20looking%20for%3A%0A%0AName%3A%0APlatform%20(TikTok%20%2F%20YouTube%20%2F%20Brand)%3A%0AType%20of%20content%3A%0AGoal%3A"
                   onClick={() => setMobileOpen(false)}
                 >
                   <ShimmerButton

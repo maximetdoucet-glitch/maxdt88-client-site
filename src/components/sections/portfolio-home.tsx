@@ -206,7 +206,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               </div>
 
               <div className="flex justify-center pt-6">
-                <Link href="#contact">
+                <Link href="mailto:max.doucet@icloud.com?subject=Content%20Inquiry&body=Hi%20Max%2C%0A%0AI%20came%20across%20your%20work%20and%20I%E2%80%99m%20interested%20in%20working%20together.%0A%0AHere%E2%80%99s%20what%20I%E2%80%99m%20looking%20for%3A%0A%0AName%3A%0APlatform%20(TikTok%20%2F%20YouTube%20%2F%20Brand)%3A%0AType%20of%20content%3A%0AGoal%3A">
                   <ShimmerButton 
                     background="#2196f3"
                     className="px-8 py-4 rounded-full text-white text-base font-sans font-medium tracking-wider transition-transform hover:scale-105 glow-button"
@@ -333,7 +333,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
 
             <div className="pt-4 flex justify-center w-full">
-              <Link href="mailto:max.doucet@icloud.com">
+              <Link href="mailto:max.doucet@icloud.com?subject=Content%20Inquiry&body=Hi%20Max%2C%0A%0AI%20came%20across%20your%20work%20and%20I%E2%80%99m%20interested%20in%20working%20together.%0A%0AHere%E2%80%99s%20what%20I%E2%80%99m%20looking%20for%3A%0A%0AName%3A%0APlatform%20(TikTok%20%2F%20YouTube%20%2F%20Brand)%3A%0AType%20of%20content%3A%0AGoal%3A">
                 <ShimmerButton 
                   background="#2196f3"
                   className="px-10 py-5 rounded-full text-white text-xl font-sans font-medium tracking-wider transition-transform hover:scale-105 glow-button"
@@ -346,8 +346,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 9. REDESIGNED FOOTER */}
-        {/* 9. REDESIGNED FOOTER */}
-        {/* 9. REDESIGNED FOOTER */}
+
         <footer className="py-6 px-6 bg-[#000000] border-t border-white/10">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
             {/* LEFT SIDE - BRAND */}
