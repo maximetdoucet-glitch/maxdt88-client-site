@@ -311,19 +311,24 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
 
         {/* 7. FREE OFFER + CTA SECTION (COMBINED) */}
-        <section id="contact" className="pt-32 pb-32 px-6 text-center bg-transparent">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="space-y-4">
-              <p className="text-lg md:text-2xl font-sans font-normal text-white/85 leading-relaxed">
+        <section id="contact" className="pt-32 pb-40 px-6 text-center bg-transparent">
+          <div className="max-w-4xl mx-auto space-y-10">
+            <h2 className="text-3xl md:text-5xl font-tight font-semibold text-white">
+              We can work together.
+            </h2>
+            
+            <div className="space-y-2">
+              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
                 If it makes sense, we can work.
               </p>
-              <p className="text-lg md:text-2xl font-sans font-normal text-white/85 leading-relaxed">
+              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
                 I take on projects where the vision is clear.
               </p>
-              <p className="text-lg md:text-2xl font-tight font-semibold text-white">
+              <p className="text-lg md:text-xl font-tight font-semibold text-white pt-2">
                 First video’s on me.
               </p>
             </div>
+
             <div className="pt-4 flex justify-center w-full">
               <Link href="mailto:max.doucet@icloud.com">
                 <ShimmerButton 
