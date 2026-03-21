@@ -269,7 +269,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               What I offer
             </h2>
             
-            <div className="space-y-16">
+            <div className="space-y-24">
               <div className="space-y-2">
                 <h3 className="text-xl md:text-2xl font-tight font-semibold text-white">
                   <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
