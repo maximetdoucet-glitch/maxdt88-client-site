@@ -379,9 +379,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               <div className="space-y-3">
                 <h4 className="text-[10px] font-tight font-semibold text-white/50 uppercase tracking-widest">Socials</h4>
                 <nav className="flex flex-col gap-2 items-start md:items-end">
-                  <a href="#" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
-                  <a href="#" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
-                  <a href="#" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">YouTube</a>
+                  <a href="https://www.tiktok.com/@max.dt88?_r=1&_t=ZN-94sSG2dY6SM" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
+                  <a href="https://www.instagram.com/max.dt88?igsh=YW9lenBseGM0Z3Zu&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
+                  <a href="https://www.youtube.com/@Max.DT88/shorts" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">YouTube</a>
                 </nav>
               </div>
             </div>
