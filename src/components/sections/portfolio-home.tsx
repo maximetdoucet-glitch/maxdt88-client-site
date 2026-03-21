@@ -197,7 +197,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               animate={showContent ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <h1 className="text-5xl md:text-8xl font-tight font-semibold tracking-[-0.02em] leading-[0.95] text-white mb-6 shadow-blue-glow">
+              <h1 className="text-[40px] md:text-8xl font-tight font-semibold tracking-[-0.02em] leading-[1.1] md:leading-[0.95] text-white mb-6 shadow-blue-glow">
                 High retention video editing.
               </h1>
               
@@ -225,9 +225,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             <h2 className="text-sm font-tight font-semibold text-white tracking-tight uppercase">
               Seen by creators, brands, and verified names
             </h2>
-            <div className="flex flex-wrap justify-center gap-x-16 gap-y-6">
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 md:gap-x-16 md:gap-y-6">
               {["ESPN UK", "Canal+", "Bash The Entertainer", "Monet McMichael"].map((name) => (
-                <span key={name} className="text-xl md:text-2xl font-tight font-semibold text-white/80 hover:text-white transition-all duration-200 ease-out uppercase tracking-tight cursor-pointer hover:scale-[1.02]">
+                <span key={name} className="text-lg md:text-2xl font-tight font-semibold text-white/80 hover:text-white transition-all duration-200 ease-out uppercase tracking-tight cursor-pointer hover:scale-[1.02]">
                   {name}
                 </span>
               ))}
@@ -238,7 +238,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 4. VIDEO SECTION (MOST IMPORTANT) */}
         <section id="work" className="pt-6 pb-44 px-6 space-y-16 bg-transparent">
           <div className="max-w-6xl mx-auto text-center space-y-16">
-            <p className="text-sm font-sans font-medium tracking-tight uppercase text-white/80 mb-8">
+            <p className="text-[10px] md:text-sm font-sans font-medium tracking-widest uppercase text-white/80 mb-8 px-4">
               One edit is all it takes to be seen by millions.
             </p>
             
@@ -314,8 +314,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
 
         {/* 7. FREE OFFER + CTA SECTION (COMBINED) */}
-        <section id="contact" className="pt-32 pb-40 px-6 text-center bg-transparent">
-          <div className="max-w-4xl mx-auto space-y-10">
+        <section id="contact" className="pt-24 pb-32 md:pt-32 md:pb-40 px-6 text-center bg-transparent">
+          <div className="max-w-4xl mx-auto space-y-8 md:space-y-10">
             <h2 className="text-3xl md:text-5xl font-tight font-semibold text-white">
               We can work together.
             </h2>
@@ -347,10 +347,10 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
         {/* 9. REDESIGNED FOOTER */}
 
-        <footer className="py-6 px-6 bg-[#000000] border-t border-white/10">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+        <footer className="py-12 px-6 bg-[#000000] border-t border-white/10">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16 md:gap-12">
             {/* LEFT SIDE - BRAND */}
-            <div className="space-y-6 text-left">
+            <div className="space-y-6 text-left w-full md:w-auto">
               <div className="text-2xl font-tight font-semibold text-white tracking-tight">
                 max<TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="text-2xl font-tight font-semibold" duration={3}>.dt88</TextShimmer>
               </div>
