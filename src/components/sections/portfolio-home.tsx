@@ -93,7 +93,7 @@ function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }
   return (
     <div className="space-y-12 flex flex-col items-center w-full" ref={containerRef}>
       <div 
-        className="relative w-full rounded-2xl overflow-hidden bg-transparent shadow-2xl group border border-white/5 cursor-pointer"
+        className="relative w-full rounded-2xl overflow-hidden bg-transparent shadow-[0_0_50px_rgba(255,255,255,0.15)] group border border-white/5 cursor-pointer"
         style={{ 
           aspectRatio, 
           maxWidth 
@@ -311,7 +311,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
 
         {/* 7. FREE OFFER + CTA SECTION (COMBINED) */}
-        <section id="contact" className="py-24 px-6 text-center bg-transparent">
+        <section id="contact" className="pt-32 pb-20 px-6 text-center bg-transparent">
           <div className="max-w-4xl mx-auto space-y-8">
             <div className="space-y-2">
               <p className="text-lg md:text-2xl font-sans font-normal text-white/85 leading-relaxed">
