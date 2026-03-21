@@ -227,7 +227,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </h2>
             <div className="flex flex-wrap justify-center gap-x-16 gap-y-12">
               {["ESPN UK", "Canal+", "Bash The Entertainer", "Monet McMichael"].map((name) => (
-                <span key={name} className="text-xl md:text-2xl font-tight font-semibold text-white/80 hover:text-white transition-colors uppercase tracking-tight">
+                <span key={name} className="text-xl md:text-2xl font-tight font-semibold text-white/80 hover:text-white transition-all duration-200 ease-out uppercase tracking-tight cursor-pointer hover:scale-[1.02]">
                   {name}
                 </span>
               ))}
