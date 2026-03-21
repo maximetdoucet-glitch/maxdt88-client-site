@@ -340,7 +340,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         {/* 9. REDESIGNED FOOTER */}
         {/* 9. REDESIGNED FOOTER */}
         {/* 9. REDESIGNED FOOTER */}
-        <footer className="py-10 px-6 bg-[#000000] border-t border-white/10">
+        <footer className="py-8 px-6 bg-[#000000] border-t border-white/10">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-32 items-start">
             {/* LEFT COLUMN */}
             <div className="space-y-6 text-left">
@@ -369,12 +369,12 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
             
             {/* RIGHT COLUMN (Far Right Content - Left Aligned Text) */}
-            <div className="md:justify-self-end text-left space-y-6">
+            <div className="md:justify-self-end text-left space-y-4">
               <h4 className="text-base font-tight font-semibold text-white uppercase tracking-wider text-left">Socials</h4>
-              <nav className="flex flex-col gap-4 items-start text-left">
-                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">TikTok</a>
-                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">Instagram</a>
-                <a href="#" className="text-base font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">YouTube</a>
+              <nav className="flex flex-col gap-2 items-start text-left">
+                <a href="#" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">TikTok</a>
+                <a href="#" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">Instagram</a>
+                <a href="#" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300 text-left">YouTube</a>
               </nav>
             </div>
           </div>
