@@ -311,7 +311,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
 
         {/* 7. FREE OFFER + CTA SECTION (COMBINED) */}
-        <section id="contact" className="pt-32 pb-20 px-6 text-center bg-transparent">
+        <section id="contact" className="pt-32 pb-32 px-6 text-center bg-transparent">
           <div className="max-w-4xl mx-auto space-y-8">
             <div className="space-y-4">
               <p className="text-lg md:text-2xl font-sans font-normal text-white/85 leading-relaxed">
