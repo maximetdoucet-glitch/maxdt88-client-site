@@ -237,7 +237,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
         {/* 4. VIDEO SECTION (MOST IMPORTANT) */}
         <section id="work" className="py-20 px-6 space-y-16 bg-transparent">
-          <div className="max-w-6xl mx-auto text-center space-y-16">
+          <div className="max-w-6xl mx-auto text-center space-y-32">
             <p className="text-sm font-sans font-medium tracking-tight uppercase text-white/80 mb-8">
               One edit is all it takes to be seen by millions.
             </p>
@@ -251,7 +251,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               />
             </div>
 
-            <div className="portfolio-video-container w-full pt-8">
+            <div className="portfolio-video-container w-full pt-16">
               <PortfolioVideo 
                 src="/videos/saint-30-v2-tt.mp4" 
                 stats="560K views • 116K likes • saved by Canal+" 
