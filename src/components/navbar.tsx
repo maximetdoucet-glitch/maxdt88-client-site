@@ -10,7 +10,8 @@ import { TextShimmer } from "./ui/text-shimmer";
 import { ShimmerButton } from "./ui/shimmer-button";
 
 const navItems = [
-  { name: "Services", href: "#services" },
+  { name: "Services", href: "/#services" },
+  { name: "About Me", href: "/about" },
 ];
 
 export function Navbar() {
