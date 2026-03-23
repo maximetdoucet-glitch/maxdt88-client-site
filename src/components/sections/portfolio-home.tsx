@@ -317,18 +317,24 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <section id="contact" className="pt-24 pb-32 md:pt-32 md:pb-40 px-6 text-center bg-transparent">
           <div className="max-w-4xl mx-auto space-y-8 md:space-y-10">
             <h2 className="text-3xl md:text-5xl font-tight font-semibold text-white">
-              We can work together.
+              How it works
             </h2>
             
-            <div className="space-y-2">
+            <div className="space-y-6">
               <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                If it makes sense, we can work.
+                Send a quick overview of your vision by email,<br />
+                or reach out to set up a call.
               </p>
               <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                I take on projects where the vision is clear.
+                We’ll go deeper into what you’re trying to build<br />
+                and whether you need short-term or long-term editing.
               </p>
               <p className="text-lg md:text-xl font-tight font-semibold text-white pt-2">
-                First video’s on me.
+                If it makes sense,<br />
+                I’ll edit your first video for free.
+              </p>
+              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
+                If it works, we move forward.
               </p>
             </div>
 
