@@ -31,11 +31,6 @@ export default function AboutPage() {
       <div className="relative z-10 w-full pt-40 pb-20">
         <div className="max-w-3xl mx-auto px-6 space-y-20 md:space-y-24">
           
-          {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-tight font-semibold text-white mb-16 px-0 leading-[1.1] md:leading-[1.05]">
-            About Me
-          </h1>
-
           {/* Section 1 — Who I Am */}
           <section id="identity" className="text-left space-y-5 pt-10 border-t border-white/5 first:border-t-0 first:pt-0">
             <h2 className="text-xl md:text-2xl font-tight font-semibold text-white">
