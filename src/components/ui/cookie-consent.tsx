@@ -29,51 +29,57 @@ export function CookieConsent() {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.95 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:w-[400px] z-[100]"
-        >
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/80 backdrop-blur-xl p-6 shadow-2xl shadow-blue-500/10">
-            <button 
-              onClick={handleDecline}
-              className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors"
-              aria-label="Close"
+        <>
+          {/* Backdrop Overlay */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90]"
+            onClick={handleDecline}
+          />
+
+          {/* Centered Modal */}
+          <div className="fixed inset-0 flex items-center justify-center p-4 md:p-6 z-[100] pointer-events-none">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full max-w-[440px] pointer-events-auto"
             >
-              <X size={18} />
-            </button>
+              <div className="relative overflow-hidden rounded-[24px] bg-[#111111] border border-white/5 p-8 md:p-10 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.5)]">
+                <div className="space-y-8">
+                  <div className="space-y-4">
+                    <h3 className="text-2xl md:text-3xl font-tight font-bold text-white tracking-tight leading-tight">
+                      Data improves your experience
+                    </h3>
+                    <p className="text-[15px] text-white/60 leading-relaxed font-sans">
+                      We use cookies to enhance your experience, show you more relevant information, and help us understand how you use our site. By clicking &quot;Accept All&quot;, you agree to our use of cookies.
+                    </p>
+                  </div>
 
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <h3 className="text-lg font-tight font-semibold text-white">
-                  Privacy & Experience
-                </h3>
-                <p className="text-sm text-white/60 leading-relaxed">
-                  I use minimal tracking to understand how you navigate the site and improve the experience. No personal data is sold or used for ads.
-                </p>
+                  <div className="flex flex-col gap-3 pt-2">
+                    <Button 
+                      onClick={handleAccept}
+                      variant="default"
+                      className="w-full bg-white text-black hover:bg-white/90 font-bold py-7 rounded-full text-base transition-transform active:scale-[0.98]"
+                    >
+                      Accept All
+                    </Button>
+                    <Button 
+                      onClick={handleDecline}
+                      variant="ghost"
+                      className="w-full text-white/50 hover:text-white hover:bg-white/5 font-medium py-6 rounded-full text-sm transition-colors"
+                    >
+                      Decline All
+                    </Button>
+                  </div>
+                </div>
               </div>
-
-              <div className="flex items-center gap-3 pt-2">
-                <Button 
-                  onClick={handleAccept}
-                  variant="default"
-                  className="bg-white text-black hover:bg-white/90 font-medium px-6"
-                >
-                  Accept
-                </Button>
-                <Button 
-                  onClick={handleDecline}
-                  variant="outline"
-                  className="border-white/10 text-white/60 hover:text-white hover:border-white/20 px-6"
-                >
-                  Decline
-                </Button>
-              </div>
-            </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </>
       )}
     </AnimatePresence>
   );
