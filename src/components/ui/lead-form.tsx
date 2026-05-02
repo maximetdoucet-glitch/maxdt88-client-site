@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
+import { track } from "@vercel/analytics";
 
 const FALLBACK_EMAIL = "max.doucet@icloud.com";
 // Web3Forms keys are public by design (client-submitted, server-side spam filtering).
@@ -13,14 +14,8 @@ const WEB3FORMS_KEY =
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-interface LeadFormProps {
-  variant?: "dark" | "light";
-}
-
-export function LeadForm({ variant = "dark" }: LeadFormProps) {
-  const [name, setName] = useState("");
+export function LeadForm() {
   const [email, setEmail] = useState("");
-  const [type, setType] = useState("");
   const [goal, setGoal] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
@@ -29,12 +24,8 @@ export function LeadForm({ variant = "dark" }: LeadFormProps) {
     "w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3.5 text-base text-white placeholder:text-white/40 focus:outline-none focus:border-[#2196f3]/60 focus:bg-white/[0.06] transition-all duration-200";
 
   const buildMailto = () => {
-    const subject = encodeURIComponent(
-      `New inquiry — ${name || "(no name)"} • ${type || "creator"}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nType: ${type}\n\nGoal:\n${goal}`
-    );
+    const subject = encodeURIComponent(`New inquiry · ${email}`);
+    const body = encodeURIComponent(`Email: ${email}\n\nGoal:\n${goal}`);
     return `mailto:${FALLBACK_EMAIL}?subject=${subject}&body=${body}`;
   };
 
@@ -47,7 +38,7 @@ export function LeadForm({ variant = "dark" }: LeadFormProps) {
       return;
     }
     if (!goal.trim()) {
-      setError("Tell me one line about what you want to build.");
+      setError("One line about what you're building.");
       return;
     }
 
@@ -60,17 +51,16 @@ export function LeadForm({ variant = "dark" }: LeadFormProps) {
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify({
             access_key: WEB3FORMS_KEY,
-            subject: `New inquiry — ${name || "(no name)"} • ${type || "creator"}`,
-            from_name: name || "max.dt88 site",
+            subject: `New inquiry · ${email}`,
+            from_name: email,
             email,
-            name,
-            type,
             goal,
             botcheck: "",
           }),
         });
         const data = await res.json();
         if (data.success) {
+          track("lead_submit", { source: "form_web3forms" });
           setStatus("success");
           return;
         }
@@ -80,7 +70,7 @@ export function LeadForm({ variant = "dark" }: LeadFormProps) {
       }
     }
 
-    // Fallback: open mail client with prefilled message
+    track("lead_submit", { source: "form_mailto_fallback" });
     if (typeof window !== "undefined") {
       window.location.href = buildMailto();
     }
@@ -99,8 +89,8 @@ export function LeadForm({ variant = "dark" }: LeadFormProps) {
         </div>
         <h3 className="text-2xl font-semibold text-white">Got it.</h3>
         <p className="text-base text-white/70 max-w-md mx-auto">
-          I&apos;ll get back to you within 24 hours with next steps. If your project is
-          a fit, your first edit is on me.
+          I&apos;ll get back to you within 24 hours. If your project&apos;s a fit,
+          your first edit is on me.
         </p>
       </motion.div>
     );
@@ -108,51 +98,23 @@ export function LeadForm({ variant = "dark" }: LeadFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-3 text-left">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <input
-          type="text"
-          inputMode="text"
-          placeholder="Name or @handle"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className={inputBase}
-          autoComplete="name"
-        />
-        <input
-          type="email"
-          inputMode="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={inputBase}
-          required
-          autoComplete="email"
-        />
-      </div>
+      <input
+        type="email"
+        inputMode="email"
+        placeholder="Your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className={inputBase}
+        required
+        autoComplete="email"
+      />
 
-      <div className="grid grid-cols-3 gap-2">
-        {["Creator", "Athlete", "Brand"].map((opt) => (
-          <button
-            key={opt}
-            type="button"
-            onClick={() => setType(opt)}
-            className={`py-3 rounded-xl text-sm font-medium border transition-all duration-200 ${
-              type === opt
-                ? "bg-[#2196f3] border-[#2196f3] text-white"
-                : "bg-white/[0.03] border-white/10 text-white/70 hover:bg-white/[0.06] hover:text-white"
-            }`}
-          >
-            {opt}
-          </button>
-        ))}
-      </div>
-
-      <textarea
-        placeholder="What are you building? (one line is enough)"
+      <input
+        type="text"
+        placeholder="What are you building? (one line)"
         value={goal}
         onChange={(e) => setGoal(e.target.value)}
-        rows={3}
-        className={`${inputBase} resize-none`}
+        className={inputBase}
         required
       />
 

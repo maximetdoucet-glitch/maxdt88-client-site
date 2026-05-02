@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { TextShimmer } from "./ui/text-shimmer";
 import { ShimmerButton } from "./ui/shimmer-button";
+import { track } from "@vercel/analytics";
 
 const navItems = [
   { name: "Services", href: "/#services" },
@@ -69,7 +70,10 @@ export function Navbar() {
             ))}
           </div>
           
-          <Link href={pathname === "/" ? "#contact" : "/#contact"}>
+          <Link
+            href={pathname === "/" ? "#contact" : "/#contact"}
+            onClick={() => track("cta_click", { source: "navbar_desktop" })}
+          >
             <ShimmerButton
               shimmerColor="#ffffff"
               shimmerSize="0.05em"
@@ -121,7 +125,10 @@ export function Navbar() {
               <div className="pt-6 flex flex-col gap-4">
                 <Link
                   href={pathname === "/" ? "#contact" : "/#contact"}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() => {
+                    track("cta_click", { source: "navbar_mobile_menu" });
+                    setMobileOpen(false);
+                  }}
                 >
                   <ShimmerButton
                     shimmerColor="#ffffff"

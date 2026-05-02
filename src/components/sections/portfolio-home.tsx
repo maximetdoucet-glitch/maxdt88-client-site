@@ -6,8 +6,9 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePres
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { TextShimmer } from "@/components/ui/text-shimmer";
 import { LeadForm } from "@/components/ui/lead-form";
-import { Volume2, VolumeX, Play, Pause } from "lucide-react";
+import { Volume2, VolumeX, Play, Pause, Maximize2 } from "lucide-react";
 import { IconBrandInstagram } from "@tabler/icons-react";
+import { track } from "@vercel/analytics";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
@@ -96,6 +97,22 @@ function PortfolioVideo({ src, stats, label, aspectRatio = "9/16", maxWidth = "4
     }
   };
 
+  const enterFullscreen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const v = videoRef.current as HTMLVideoElement & {
+      webkitEnterFullscreen?: () => void;
+    } | null;
+    if (!v) return;
+    // Unmute on fullscreen — full-screen viewing should have sound by default
+    v.muted = false;
+    setIsMuted(false);
+    if (typeof v.webkitEnterFullscreen === "function") {
+      v.webkitEnterFullscreen(); // iOS Safari
+    } else if (v.requestFullscreen) {
+      v.requestFullscreen().catch(() => {});
+    }
+  };
+
   return (
     <div className="flex flex-col items-center w-full" ref={containerRef} style={{ maxWidth }}>
       <div className="relative w-full mx-auto" style={{ maxWidth }}>
@@ -136,7 +153,7 @@ function PortfolioVideo({ src, stats, label, aspectRatio = "9/16", maxWidth = "4
           )}
 
           {/* Stats overlay (bottom) */}
-          <div className="absolute bottom-2 left-2 right-10 sm:bottom-3 sm:left-3 sm:right-14 md:bottom-4 md:left-4 md:right-20 z-20">
+          <div className="absolute bottom-2 left-2 right-20 sm:bottom-3 sm:left-3 sm:right-24 md:bottom-4 md:left-4 md:right-32 z-20">
             <p className="text-[10px] sm:text-xs md:text-sm font-medium text-white/95 leading-snug drop-shadow-md">
               {stats}
             </p>
@@ -153,15 +170,25 @@ function PortfolioVideo({ src, stats, label, aspectRatio = "9/16", maxWidth = "4
             </div>
           </div>
 
-          {/* Sound Toggle */}
-          <button
-            type="button"
-            onClick={toggleMute}
-            className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 md:bottom-4 md:right-4 p-1.5 sm:p-2 md:p-2.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 text-white/90 transition-all hover:scale-110 hover:bg-black/70 active:scale-95 z-20"
-            aria-label={isMuted ? "Unmute" : "Mute"}
-          >
-            {isMuted ? <VolumeX className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" /> : <Volume2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" />}
-          </button>
+          {/* Bottom-right controls */}
+          <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 md:bottom-4 md:right-4 flex items-center gap-1.5 sm:gap-2 z-20">
+            <button
+              type="button"
+              onClick={enterFullscreen}
+              className="p-1.5 sm:p-2 md:p-2.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 text-white/90 transition-all hover:scale-110 hover:bg-black/70 active:scale-95"
+              aria-label="View fullscreen"
+            >
+              <Maximize2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={toggleMute}
+              className="p-1.5 sm:p-2 md:p-2.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 text-white/90 transition-all hover:scale-110 hover:bg-black/70 active:scale-95"
+              aria-label={isMuted ? "Unmute" : "Mute"}
+            >
+              {isMuted ? <VolumeX className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" /> : <Volume2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" />}
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -271,6 +298,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                   href="https://ig.me/m/max.dt88"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track("cta_click", { source: "hero_dm" })}
                   className="w-full sm:w-auto"
                 >
                   <ShimmerButton
@@ -285,6 +313,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 </Link>
                 <Link
                   href="#contact"
+                  onClick={() => track("cta_click", { source: "hero_form" })}
                   className="w-full sm:w-auto px-8 py-4 rounded-full text-white/85 text-base font-sans font-medium tracking-tight border border-white/15 hover:border-white/40 hover:text-white transition-all flex items-center justify-center gap-2"
                 >
                   Claim my free edit
@@ -372,6 +401,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 href="https://ig.me/m/max.dt88"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track("cta_click", { source: "midpage_dm" })}
                 className="inline-flex"
               >
                 <ShimmerButton
@@ -470,6 +500,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 href="https://ig.me/m/max.dt88"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track("cta_click", { source: "contact_dm_secondary" })}
                 className="inline-flex items-center gap-1.5 text-white/85 hover:text-white border-b border-white/20 hover:border-white/60 pb-0.5 transition-all"
               >
                 <IconBrandInstagram className="w-3.5 h-3.5" />

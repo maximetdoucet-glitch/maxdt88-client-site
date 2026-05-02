@@ -4,6 +4,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { Navbar } from "@/components/navbar";
 import { LoadingScreen } from "@/components/ui/loading-screen";
 import { PortfolioHome } from "@/components/sections/portfolio-home";
+import { StickyMobileCTA } from "@/components/ui/sticky-mobile-cta";
 import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
       <main id="main-content-root" className="relative bg-black min-h-screen text-white overflow-x-hidden">
         <Navbar />
         <PortfolioHome showContent={showContent} />
+        {showContent && <StickyMobileCTA />}
       </main>
     </>
   );
