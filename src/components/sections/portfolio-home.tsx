@@ -1,14 +1,19 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import NeuralBackground from "@/components/ui/flow-field-background";
+import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+// import NeuralBackground from "@/components/ui/flow-field-background";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { TextShimmer } from "@/components/ui/text-shimmer";
+import { LeadForm } from "@/components/ui/lead-form";
 import { Volume2, VolumeX, Play, Pause } from "lucide-react";
+import { IconBrandInstagram } from "@tabler/icons-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const NeuralBackground = dynamic(() => import("@/components/ui/flow-field-background"), { ssr: false });
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,11 +24,12 @@ interface PortfolioHomeProps {
 interface PortfolioVideoProps {
   src: string;
   stats: string;
+  label?: string;
   aspectRatio?: string;
   maxWidth?: string;
 }
 
-function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }: PortfolioVideoProps) {
+function PortfolioVideo({ src, stats, label, aspectRatio = "9/16", maxWidth = "400px" }: PortfolioVideoProps) {
   const [isMuted, setIsMuted] = React.useState(true);
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isManuallyPaused, setIsManuallyPaused] = React.useState(false);
@@ -91,48 +97,73 @@ function PortfolioVideo({ src, stats, aspectRatio = "9/16", maxWidth = "400px" }
   };
 
   return (
-    <div className="space-y-6 flex flex-col items-center w-full" ref={containerRef}>
-      <div 
-        className="relative w-full rounded-2xl overflow-hidden bg-transparent shadow-[0_0_80px_rgba(255,255,255,0.35)] group border border-white/5 cursor-pointer"
-        style={{ 
-          aspectRatio, 
-          maxWidth 
-        }}
-        onClick={togglePlay}
-      >
-        <video 
-          ref={videoRef}
-          src={src} 
-          muted={isMuted}
-          loop 
-          playsInline
-          preload="auto"
-          className="w-full h-full object-cover"
+    <div className="flex flex-col items-center w-full" ref={containerRef} style={{ maxWidth }}>
+      <div className="relative w-full mx-auto" style={{ maxWidth }}>
+        {/* Soft ambient glow — premium, not flashy */}
+        <div
+          className="absolute -inset-x-6 -inset-y-6 sm:-inset-x-10 sm:-inset-y-10 bg-[#2196f3]/20 blur-3xl opacity-40 pointer-events-none -z-10"
+          aria-hidden
         />
-        
-        {/* Play/Pause Button Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
-          <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/40 transform transition-all duration-300 group-hover:scale-110 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-            {isPlaying ? (
-              <Pause className="w-10 h-10 text-white fill-white" />
-            ) : (
-              <Play className="w-10 h-10 text-white fill-white translate-x-1" />
-            )}
-          </div>
-        </div>
 
-        {/* Sound Toggle Overlay */}
-        <button 
-          onClick={toggleMute}
-          className="absolute bottom-6 right-6 p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white/90 opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 z-20"
-          aria-label={isMuted ? "Unmute" : "Mute"}
+        <div
+          className="relative w-full rounded-[20px] sm:rounded-[28px] overflow-hidden bg-black/40 group border border-white/10 cursor-pointer ring-1 ring-white/5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] transition-all duration-500 hover:border-white/20"
+          style={{ aspectRatio }}
+          onClick={togglePlay}
         >
-          {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-        </button>
+          <video
+            ref={videoRef}
+            src={src}
+            muted={isMuted}
+            loop
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+          />
+
+          {/* Top fade for label legibility */}
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/50 to-transparent pointer-events-none z-10" />
+          {/* Bottom fade for stats legibility */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 to-transparent pointer-events-none z-10" />
+
+          {/* Top label chip */}
+          {label && (
+            <div className="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 z-20 flex items-center gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/15">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#2196f3]" />
+              <span className="text-[8px] sm:text-[10px] md:text-[11px] font-medium tracking-widest uppercase text-white/90">
+                {label}
+              </span>
+            </div>
+          )}
+
+          {/* Stats overlay (bottom) */}
+          <div className="absolute bottom-2 left-2 right-10 sm:bottom-3 sm:left-3 sm:right-14 md:bottom-4 md:left-4 md:right-20 z-20">
+            <p className="text-[10px] sm:text-xs md:text-sm font-medium text-white/95 leading-snug drop-shadow-md">
+              {stats}
+            </p>
+          </div>
+
+          {/* Play/Pause Button Overlay */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/30 transform transition-all duration-300 group-hover:scale-110">
+              {isPlaying ? (
+                <Pause className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-white" />
+              ) : (
+                <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-white translate-x-0.5" />
+              )}
+            </div>
+          </div>
+
+          {/* Sound Toggle */}
+          <button
+            type="button"
+            onClick={toggleMute}
+            className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 md:bottom-4 md:right-4 p-1.5 sm:p-2 md:p-2.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 text-white/90 transition-all hover:scale-110 hover:bg-black/70 active:scale-95 z-20"
+            aria-label={isMuted ? "Unmute" : "Mute"}
+          >
+            {isMuted ? <VolumeX className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" /> : <Volume2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" />}
+          </button>
+        </div>
       </div>
-      <p className="font-sans font-medium text-white/75 text-xs text-center">
-        {stats}
-      </p>
     </div>
   );
 }
@@ -143,6 +174,16 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
     target: containerRef,
     offset: ["start start", "end end"]
   });
+
+  const [showBackground, setShowBackground] = React.useState(false);
+
+  useEffect(() => {
+    if (showContent) {
+      // Delay background initialization to prioritize rendering text and layout
+      const timer = setTimeout(() => setShowBackground(true), 800);
+      return () => clearTimeout(timer);
+    }
+  }, [showContent]);
   
   // No parallax: Endless background revealed by naturally scrolling the page
 
@@ -179,55 +220,92 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
       <div 
         className="absolute inset-x-0 top-0 h-full z-0 overflow-hidden pointer-events-none"
       >
-        <NeuralBackground 
-          color="#2196f3" 
-          particleCount={150} // Reduced for significantly better performance
-          speed={1.2} 
-          trailOpacity={0.025} 
-          scrollProgress={scrollYProgress}
-        />
+        <AnimatePresence>
+          {showBackground && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5 }}
+              className="w-full h-full"
+            >
+              <NeuralBackground 
+                color="#2196f3" 
+                particleCount={150} // Reduced for significantly better performance
+                speed={1.2} 
+                trailOpacity={0.025} 
+                scrollProgress={scrollYProgress}
+                resolution={0.7} // Lower internal Resolution for performance
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <div className="relative z-10 w-full">
         {/* 2. HERO SECTION */}
-        <section id="hero" className="relative h-[90vh] w-full flex items-center justify-center bg-transparent">
-          <div className="max-w-4xl mx-auto px-6 text-center space-y-10">
+        <section id="hero" className="relative min-h-[82vh] md:h-[90vh] w-full flex items-center justify-center bg-transparent pt-24 pb-8 md:pt-0 md:pb-0">
+          <div className="max-w-4xl mx-auto px-5 sm:px-6 text-center space-y-8 md:space-y-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={showContent ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <h1 className="text-[40px] md:text-8xl font-tight font-semibold tracking-[-0.02em] leading-[1.1] md:leading-[0.95] text-white mb-6 shadow-blue-glow">
-                High retention video editing.
-              </h1>
-              
-              <div className="max-w-xl mx-auto text-base md:text-lg font-sans font-normal text-white/80 leading-[1.4] mb-8 space-y-4">
-                <p>For creators, athletes, and brands that want to stand out.</p>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-white/[0.03] text-[11px] sm:text-xs uppercase tracking-widest text-white/70 mb-6 sm:mb-8">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2196f3] animate-pulse" />
+                Free first edit · no commitment
               </div>
 
-              <div className="flex justify-center pt-6">
-                <Link href="mailto:max.doucet@icloud.com?subject=Content%20Inquiry&body=Hi%20Max%2C%0A%0AI%20came%20across%20your%20work%20and%20I%E2%80%99m%20interested%20in%20working%20together.%0A%0AHere%E2%80%99s%20what%20I%E2%80%99m%20looking%20for%3A%0A%0AName%3A%0APlatform%20(TikTok%20%2F%20YouTube%20%2F%20Brand)%3A%0AType%20of%20content%3A%0AGoal%3A">
-                  <ShimmerButton 
+              <h1 className="text-[44px] sm:text-6xl md:text-[100px] font-tight font-semibold tracking-[-0.025em] leading-[1.02] md:leading-[0.92] text-white mb-5 md:mb-7 shadow-blue-glow">
+                Edits people <span className="italic font-medium text-white/95">actually</span> finish.
+              </h1>
+
+              <div className="max-w-xl mx-auto text-base sm:text-lg md:text-xl font-sans font-normal text-white/75 leading-[1.5] mb-8 space-y-4 px-2">
+                <p>
+                  Short-form video, cut for retention — for creators, athletes, and brands.
+                  <span className="text-white"> Send one clip. The first edit is on me.</span>
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 pt-2 sm:pt-4 px-4 sm:px-0">
+                <Link
+                  href="https://ig.me/m/max.dt88"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto"
+                >
+                  <ShimmerButton
                     background="#2196f3"
-                    className="px-8 py-4 rounded-full text-white text-base font-sans font-medium tracking-wider transition-transform hover:scale-105 glow-button"
+                    className="w-full sm:w-auto px-8 py-4 rounded-full text-white text-base font-sans font-semibold tracking-tight transition-transform hover:scale-105 glow-button"
                   >
-                    Share your vision
+                    <span className="flex items-center justify-center gap-2">
+                      <IconBrandInstagram className="w-4 h-4" />
+                      DM for your free edit
+                    </span>
                   </ShimmerButton>
+                </Link>
+                <Link
+                  href="#contact"
+                  className="w-full sm:w-auto px-8 py-4 rounded-full text-white/85 text-base font-sans font-medium tracking-tight border border-white/15 hover:border-white/40 hover:text-white transition-all flex items-center justify-center gap-2"
+                >
+                  Claim my free edit
                 </Link>
               </div>
             </motion.div>
           </div>
         </section>
 
+        {/* Subtle section divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent max-w-3xl mx-auto" />
+
         {/* 3. PROOF SECTION (MINIMAL) */}
-        <section id="proof" className="pt-8 pb-10 px-6 bg-transparent">
+        <section id="proof" className="pt-10 pb-10 sm:pt-12 sm:pb-12 px-5 sm:px-6 bg-transparent">
           <div className="max-w-5xl mx-auto text-center space-y-6">
-            <h2 className="text-sm font-tight font-semibold text-white tracking-tight uppercase">
-              Seen by creators, brands, and verified names
+            <h2 className="text-[11px] sm:text-sm font-tight font-semibold text-white/60 tracking-widest uppercase">
+              Loved by
             </h2>
-            <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 md:gap-x-16 md:gap-y-6">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 sm:gap-x-10 md:gap-x-16">
               {["ESPN UK", "Canal+", "Bash The Entertainer", "Monet McMichael"].map((name) => (
-                <span key={name} className="text-lg md:text-2xl font-tight font-semibold text-white/80 hover:text-white transition-all duration-200 ease-out uppercase tracking-tight cursor-pointer hover:scale-[1.02]">
+                <span key={name} className="text-base sm:text-xl md:text-2xl font-tight font-semibold text-white/80 hover:text-white transition-all duration-200 ease-out uppercase tracking-tight hover:scale-[1.02]">
                   {name}
                 </span>
               ))}
@@ -236,76 +314,128 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
         {/* 4. VIDEO SECTION (MOST IMPORTANT) */}
-        <section id="work" className="pt-6 pb-44 px-6 space-y-16 bg-transparent">
-          <div className="max-w-6xl mx-auto text-center space-y-16">
-            <p className="text-[10px] md:text-sm font-sans font-medium tracking-widest uppercase text-white/80 mb-8 px-4">
-              One edit is all it takes to be seen by millions.
-            </p>
-            
-            <div className="portfolio-video-container w-full space-y-12">
-              <PortfolioVideo 
-                src="/videos/saint-9-tt-fr.mp4" 
-                stats="6.2M views • 900K+ likes • 200K+ reposts" 
+        <section id="work" className="pt-10 pb-16 sm:pb-24 md:pb-32 px-5 sm:px-6 bg-transparent">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-10 sm:mb-14 md:mb-16">
+              <p className="text-[11px] sm:text-xs font-sans font-medium tracking-widest uppercase text-[#2196f3] mb-3">
+                Selected work
+              </p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-tight font-semibold tracking-tight text-white leading-[1.1]">
+                Imagine your content, <br className="sm:hidden" />
+                <span className="text-white/60">cut like this.</span>
+              </h2>
+            </div>
+
+            {/* 1. Hero TikTok (vertical) — solo, centered */}
+            <div className="flex justify-center">
+              <PortfolioVideo
+                src="/videos/saint-9-tt-fr.mp4"
+                label="TikTok"
+                stats="200K reposts"
                 aspectRatio="9/16"
-                maxWidth="400px"
+                maxWidth="380px"
               />
             </div>
 
-            <div className="portfolio-video-container w-full pt-28">
-              <PortfolioVideo 
-                src="/videos/saint-30-v2-tt.mp4" 
-                stats="560K views • 116K likes • saved by Canal+" 
-                aspectRatio="1.7/1"
-                maxWidth="800px"
+            {/* 2. Cinematic Lionsgate (horizontal) — underneath the vertical */}
+            <div className="mt-10 sm:mt-16 md:mt-20 flex justify-center">
+              <PortfolioVideo
+                src="/videos/saint-52-tt.mp4"
+                label="Cinematic"
+                stats="Lionsgate edit style"
+                aspectRatio="16/9"
+                maxWidth="900px"
               />
+            </div>
+
+            {/* 2. Football N-E-C + Cinematic Canal+ — side by side, even on mobile */}
+            <div className="mt-10 sm:mt-16 md:mt-20 grid grid-cols-2 gap-3 sm:gap-5 md:gap-8 items-center max-w-5xl mx-auto">
+              <PortfolioVideo
+                src="/videos/n-e-c-1-fv-tt.mp4"
+                label="Football"
+                stats="N-E-C · feature edit"
+                aspectRatio="16/9"
+                maxWidth="560px"
+              />
+              <PortfolioVideo
+                src="/videos/saint-30-v2-tt.mp4"
+                label="Cinematic"
+                stats="Saved by Canal+"
+                aspectRatio="16/9"
+                maxWidth="560px"
+              />
+            </div>
+
+            {/* Inline CTA after work — low-friction Instagram DM */}
+            <div className="mt-14 sm:mt-16 md:mt-20 flex flex-col items-center text-center">
+              <Link
+                href="https://ig.me/m/max.dt88"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex"
+              >
+                <ShimmerButton
+                  background="#2196f3"
+                  className="px-8 py-4 rounded-full text-white text-base font-sans font-semibold tracking-tight transition-transform hover:scale-105 glow-button"
+                >
+                  <span className="flex items-center gap-2">
+                    <IconBrandInstagram className="w-4 h-4" />
+                    DM me on Instagram
+                  </span>
+                </ShimmerButton>
+              </Link>
+              <p className="text-xs text-white/45 mt-4">One tap · first edit free</p>
             </div>
           </div>
         </section>
 
         {/* 5. WHAT I OFFER (CLEAN MINIMAL LIST) */}
-        <section id="services" className="py-32 px-6 bg-transparent">
+        <section id="services" className="py-14 sm:py-24 md:py-32 px-5 sm:px-6 bg-transparent">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-tight font-semibold tracking-tight text-white mb-16">
-              What I offer
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mb-10 sm:mb-14 md:mb-16">
+              <p className="text-[11px] sm:text-xs font-sans font-medium tracking-widest uppercase text-[#2196f3] mb-3">What I do</p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-tight font-semibold tracking-tight text-white max-w-2xl leading-[1.05]">
+                Same craft.<br className="sm:hidden" /> Three kinds of people.
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {/* Creators Box */}
-              <div className="p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col h-full text-left transition-all hover:bg-white/[0.04]">
-                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-6">
+              <div className="p-6 sm:p-7 md:p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col h-full text-left transition-all hover:bg-white/[0.05] hover:border-white/20">
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-4 md:mb-6">
                   <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
                     Creators
                   </TextShimmer>
                 </h3>
-                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-4">
-                  <p>Long-form editing (YouTube, vlogs).</p>
-                  <p>Clipping and posting across multiple platforms (2–5 posts daily).</p>
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-3 md:space-y-4">
+                  <p>Long-form that doesn&apos;t lose them at minute three.</p>
+                  <p>Daily clipping built to be reposted, not scrolled past.</p>
                 </div>
               </div>
-              
+
               {/* Athletes Box */}
-              <div className="p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col h-full text-left transition-all hover:bg-white/[0.04]">
-                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-6">
+              <div className="p-6 sm:p-7 md:p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col h-full text-left transition-all hover:bg-white/[0.05] hover:border-white/20">
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-4 md:mb-6">
                   <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
                     Athletes
                   </TextShimmer>
                 </h3>
-                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-4">
-                  <p>Mixtapes, game footage, and training edits.</p>
-                  <p>Lifestyle content to increase visibility and attract brand opportunities.</p>
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-3 md:space-y-4">
+                  <p>Highlights and mixtapes scouts actually finish.</p>
+                  <p>Lifestyle cuts that turn followers into brand deals.</p>
                 </div>
               </div>
-              
+
               {/* Brands Box */}
-              <div className="p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col h-full text-left transition-all hover:bg-white/[0.04]">
-                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-6">
+              <div className="p-6 sm:p-7 md:p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col h-full text-left transition-all hover:bg-white/[0.05] hover:border-white/20">
+                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-4 md:mb-6">
                   <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
                     Brands
                   </TextShimmer>
                 </h3>
-                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-4">
-                  <p>Content design for social media with a focus on engagement.</p>
-                  <p>Content rollout strategies that perform better than traditional ads.</p>
+                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-3 md:space-y-4">
+                  <p>Content that doesn&apos;t feel like an ad — and outperforms one.</p>
+                  <p>Native to the platform. Not adapted from a TV spot.</p>
                 </div>
               </div>
             </div>
@@ -313,48 +443,61 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
 
-        {/* 7. FREE OFFER + CTA SECTION (COMBINED) */}
-        <section id="contact" className="pt-24 pb-32 md:pt-32 md:pb-40 px-6 text-center bg-transparent">
-          <div className="max-w-4xl mx-auto space-y-8 md:space-y-10">
-            <h2 className="text-3xl md:text-5xl font-tight font-semibold text-white">
-              How it works
-            </h2>
-            
-            <div className="space-y-6">
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                Send a quick overview of your vision by email,<br />
-                or reach out to set up a call.
+        {/* 7. FREE OFFER + LEAD FORM (THE CONVERSION POINT) */}
+        <section id="contact" className="pt-14 pb-20 sm:pt-24 sm:pb-28 md:pt-32 md:pb-40 px-5 sm:px-6 bg-transparent">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-8 sm:mb-10 md:mb-12 space-y-4">
+              <p className="text-[11px] sm:text-xs font-sans font-medium tracking-widest uppercase text-[#2196f3]">
+                Try for free
               </p>
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                We’ll go deeper into what you’re trying to build<br />
-                and whether you need short-term or long-term editing.
-              </p>
-              <p className="text-lg md:text-xl font-tight font-semibold text-white pt-2">
-                If it makes sense,<br />
-                I’ll edit your first video for free.
-              </p>
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                If it works, we move forward.
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-tight font-semibold text-white tracking-tight leading-[1.05]">
+                Send one clip.<br className="hidden sm:block" />
+                <span className="text-white/70"> See what changes.</span>
+              </h2>
+              <p className="text-base sm:text-lg font-sans text-white/70 max-w-xl mx-auto leading-relaxed pt-2">
+                Tell me what you&apos;re building. I&apos;ll cut your first edit free — no contract, no catch.
               </p>
             </div>
 
-            <div className="pt-4 flex justify-center w-full">
-              <Link href="mailto:max.doucet@icloud.com?subject=Content%20Inquiry&body=Hi%20Max%2C%0A%0AI%20came%20across%20your%20work%20and%20I%E2%80%99m%20interested%20in%20working%20together.%0A%0AHere%E2%80%99s%20what%20I%E2%80%99m%20looking%20for%3A%0A%0AName%3A%0APlatform%20(TikTok%20%2F%20YouTube%20%2F%20Brand)%3A%0AType%20of%20content%3A%0AGoal%3A">
-                <ShimmerButton 
-                  background="#2196f3"
-                  className="px-10 py-5 rounded-full text-white text-xl font-sans font-medium tracking-wider transition-transform hover:scale-105 glow-button"
-                >
-                  Discuss your content
-                </ShimmerButton>
+            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-5 sm:p-7 md:p-9 backdrop-blur-sm shadow-[0_0_60px_rgba(33,150,243,0.08)]">
+              <LeadForm />
+            </div>
+
+            {/* Low-friction alternative */}
+            <div className="mt-6 flex items-center justify-center gap-3 text-sm">
+              <span className="text-white/40">Prefer one tap?</span>
+              <Link
+                href="https://ig.me/m/max.dt88"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-white/85 hover:text-white border-b border-white/20 hover:border-white/60 pb-0.5 transition-all"
+              >
+                <IconBrandInstagram className="w-3.5 h-3.5" />
+                DM me on Instagram
               </Link>
+            </div>
+
+            {/* Steps */}
+            <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3">
+              {[
+                { n: "01", t: "You send", d: "One rough clip + your goal." },
+                { n: "02", t: "I edit free", d: "Delivered in 48–72 hours." },
+                { n: "03", t: "We scale", d: "If it works, we keep going." },
+              ].map((s) => (
+                <div key={s.n} className="text-left p-4 sm:p-5 rounded-2xl border border-white/5 bg-white/[0.015]">
+                  <div className="text-[10px] sm:text-xs font-mono text-[#2196f3] mb-2 tracking-widest">{s.n}</div>
+                  <div className="text-base sm:text-lg font-semibold text-white mb-1">{s.t}</div>
+                  <div className="text-sm text-white/60 leading-snug">{s.d}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* 9. REDESIGNED FOOTER */}
 
-        <footer className="py-12 px-6 bg-[#000000] border-t border-white/10">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16 md:gap-12">
+        <footer className="py-10 sm:py-12 px-5 sm:px-6 bg-[#000000] border-t border-white/10">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10 md:gap-12">
             {/* LEFT SIDE - BRAND */}
             <div className="space-y-6 text-left w-full md:w-auto">
               <div className="text-2xl font-tight font-semibold text-white tracking-tight">

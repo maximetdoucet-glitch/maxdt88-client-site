@@ -16,7 +16,7 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
   useEffect(() => {
     let start = Date.now();
-    const duration = 800; // 0.8 second load
+    const duration = 500; // 0.5 second load
 
     const tick = () => {
       const elapsed = Date.now() - start;
@@ -28,35 +28,31 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
       if (pct < 1) {
         requestAnimationFrame(tick);
       } else {
-        setTimeout(() => setDone(true), 100);
-        setTimeout(() => onComplete(), 300);
+        setDone(true);
+        onComplete();
       }
     };
     requestAnimationFrame(tick);
   }, [onComplete, progress]);
 
   return (
-    <AnimatePresence>
-      {!done && (
-        <motion.div
-          exit={{ y: "-100%", opacity: 1 }}
-          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[200] bg-[#0a0a0a] flex flex-col items-center justify-center"
-        >
-          {/* Logo - Memoized to prevent re-renders during progress updates */}
-          <Logo />
+    <motion.div
+      exit={{ y: "-100%", opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+      className="fixed inset-0 z-[200] bg-[#0a0a0a] flex flex-col items-center justify-center"
+    >
+      {/* Logo - Memoized to prevent re-renders during progress updates */}
+      <Logo />
 
-          {/* Bottom bar */}
-          <div className="absolute bottom-12 left-0 right-0 px-8 md:px-16">
-            <div className="flex items-center justify-between mb-4">
-              <LoadingStatus isFull={isFull} />
-              <PercentageValue progress={progress} />
-            </div>
-            <ProgressBar progress={progress} />
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+      {/* Bottom bar */}
+      <div className="absolute bottom-12 left-0 right-0 px-8 md:px-16">
+        <div className="flex items-center justify-between mb-4">
+          <LoadingStatus isFull={isFull} />
+          <PercentageValue progress={progress} />
+        </div>
+        <ProgressBar progress={progress} />
+      </div>
+    </motion.div>
   );
 }
 

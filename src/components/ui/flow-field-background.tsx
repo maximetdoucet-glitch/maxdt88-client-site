@@ -10,6 +10,7 @@ interface NeuralBackgroundProps {
   particleCount?: number;
   speed?: number;
   scrollProgress?: any; // Accept MotionValue
+  resolution?: number; // Internal resolution multiplier (0.5 to 1.0)
 }
 
 export default function NeuralBackground({
@@ -18,11 +19,13 @@ export default function NeuralBackground({
   trailOpacity = 0.025, 
   particleCount = 200, 
   speed = 1.2,
+  resolution = 0.8,
   scrollProgress,
 }: NeuralBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const scrollRef = useRef(0);
 
   useMotionValueEvent(scrollProgress, "change", (latest) => {
@@ -160,7 +163,7 @@ export default function NeuralBackground({
     }
 
     const init = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2); 
+      const dpr = Math.min(window.devicePixelRatio || 1, 2) * resolution; 
       width = container.clientWidth;
       height = container.clientHeight;
       canvas.width = width * dpr;
@@ -190,6 +193,7 @@ export default function NeuralBackground({
         p.draw(ctx);
       });
 
+      if (!isReady) setIsReady(true);
       animationFrameId = requestAnimationFrame(animate);
     };
 
@@ -230,11 +234,17 @@ export default function NeuralBackground({
       container.removeEventListener("mousedown", handleClick);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [color, trailOpacity, particleCount, speed, isVisible, scrollProgress]);
+  }, [color, trailOpacity, particleCount, speed, isVisible, scrollProgress, resolution, isReady]);
 
   return (
     <div ref={containerRef} className={cn("relative w-full h-full bg-black overflow-hidden", className)}>
-      <canvas ref={canvasRef} className="block w-full h-full" />
+      <canvas 
+        ref={canvasRef} 
+        className={cn(
+          "block w-full h-full transition-opacity duration-1000",
+          isReady ? "opacity-100" : "opacity-0"
+        )} 
+      />
     </div>
   );
 }

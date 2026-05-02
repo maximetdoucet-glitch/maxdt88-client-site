@@ -69,21 +69,22 @@ export function Navbar() {
             ))}
           </div>
           
-          <Link href="mailto:max.doucet@icloud.com?subject=Content%20Inquiry&body=Hi%20Max%2C%0A%0AI%20came%20across%20your%20work%20and%20I%E2%80%99m%20interested%20in%20working%20together.%0A%0AHere%E2%80%99s%20what%20I%E2%80%99m%20looking%20for%3A%0A%0AName%3A%0APlatform%20(TikTok%20%2F%20YouTube%20%2F%20Brand)%3A%0AType%20of%20content%3A%0AGoal%3A">
-            <ShimmerButton 
+          <Link href={pathname === "/" ? "#contact" : "/#contact"}>
+            <ShimmerButton
               shimmerColor="#ffffff"
               shimmerSize="0.05em"
               background="#2196f3"
-              className="px-6 py-2 rounded-full text-white text-[10px] font-sans font-medium uppercase tracking-widest transition-all duration-300 glow-button"
+              className="px-5 py-2.5 rounded-full text-white text-xs font-sans font-semibold tracking-tight transition-all duration-300 glow-button"
             >
-              Share your vision
+              Free first edit
             </ShimmerButton>
           </Link>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden relative z-50 p-2 text-white"
+          className="md:hidden relative z-50 -mr-2 p-3 text-white"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -119,18 +120,19 @@ export function Navbar() {
               
               <div className="pt-6 flex flex-col gap-4">
                 <Link
-                  href="mailto:max.doucet@icloud.com?subject=Content%20Inquiry&body=Hi%20Max%2C%0A%0AI%20came%20across%20your%20work%20and%20I%E2%80%99m%20interested%20in%20working%20together.%0A%0AHere%E2%80%99s%20what%20I%E2%80%99m%20looking%20for%3A%0A%0AName%3A%0APlatform%20(TikTok%20%2F%20YouTube%20%2F%20Brand)%3A%0AType%20of%20content%3A%0AGoal%3A"
+                  href={pathname === "/" ? "#contact" : "/#contact"}
                   onClick={() => setMobileOpen(false)}
                 >
                   <ShimmerButton
                     shimmerColor="#ffffff"
                     shimmerSize="0.1em"
                     background="#2196f3"
-                    className="w-full py-4 rounded-full text-white font-sans font-medium uppercase tracking-widest text-[10px] glow-button"
+                    className="w-full py-4 rounded-full text-white font-sans font-semibold tracking-tight text-base glow-button"
                   >
-                    Share your vision
+                    Claim my free edit
                   </ShimmerButton>
                 </Link>
+                <p className="text-xs text-white/50 text-center">No spam · reply within 24h</p>
               </div>
             </div>
           </motion.div>
