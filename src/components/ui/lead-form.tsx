@@ -6,7 +6,10 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 
 const FALLBACK_EMAIL = "max.doucet@icloud.com";
-const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+// Web3Forms keys are public by design (client-submitted, server-side spam filtering).
+// Env var overrides hardcoded default for environment-specific keys if needed.
+const WEB3FORMS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "dab44c9c-1e28-4c87-83e9-070871cd0306";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
