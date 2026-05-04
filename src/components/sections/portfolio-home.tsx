@@ -356,7 +356,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
 
             {/* 1. Hero TikTok (vertical) + Cinematic Lionsgate — stacked on mobile, side-by-side on desktop with matching heights */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-12">
               <div className="w-full md:w-[253px] flex justify-center">
                 <PortfolioVideo
                   src="/videos/saint-9-tt-fr.mp4"
@@ -379,7 +379,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             </div>
 
             {/* 2. Football N-E-C + Cinematic Canal+ — side by side, even on mobile */}
-            <div className="mt-10 sm:mt-16 md:mt-20 grid grid-cols-2 gap-3 sm:gap-5 md:gap-8 items-center max-w-5xl mx-auto">
+            <div className="mt-16 sm:mt-24 md:mt-32 grid grid-cols-2 gap-3 sm:gap-5 md:gap-12 items-center max-w-5xl mx-auto">
               <PortfolioVideo
                 src="/videos/n-e-c-1-fv-tt.mp4"
                 label="Football"
