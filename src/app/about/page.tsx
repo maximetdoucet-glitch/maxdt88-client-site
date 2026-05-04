@@ -87,7 +87,7 @@ export default function AboutPage() {
           {/* Section 2 — Where My Work Shows Up */}
           <motion.section
             id="proof"
-            className="text-left space-y-5 md:ml-12 group/section"
+            className="text-left space-y-5 group/section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -150,7 +150,7 @@ export default function AboutPage() {
           {/* Section 4 — How I Build Videos */}
           <motion.section
             id="how-i-think"
-            className="text-left space-y-5 md:ml-12 group/section"
+            className="text-left space-y-5 group/section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -286,7 +286,7 @@ export default function AboutPage() {
           {/* Section 6 — What I Focus On */}
           <motion.section
             id="standard"
-            className="text-left space-y-5 pb-20 md:ml-12 group/section"
+            className="text-left space-y-5 pb-20 group/section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
