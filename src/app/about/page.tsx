@@ -39,12 +39,11 @@ export default function AboutPage() {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <div className="flex items-center gap-3 mb-5">
-              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em] uppercase">About</span>
+              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em] uppercase">The story behind the edits</span>
               <span className="h-px flex-1 bg-gradient-to-r from-[#2196f3]/60 to-transparent" />
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-tight font-semibold tracking-[-0.025em] leading-[1.02] text-white">
-              The story behind <br />
-              <span className="italic font-medium text-white/70">the edits.</span>
+              About <span className="italic font-medium text-white/70">me.</span>
             </h1>
           </motion.div>
 
