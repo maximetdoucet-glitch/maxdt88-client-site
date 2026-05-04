@@ -355,26 +355,27 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               </h2>
             </div>
 
-            {/* 1. Hero TikTok (vertical) — solo, centered */}
-            <div className="flex justify-center">
-              <PortfolioVideo
-                src="/videos/saint-9-tt-fr.mp4"
-                label="TikTok"
-                stats="200K reposts"
-                aspectRatio="9/16"
-                maxWidth="380px"
-              />
-            </div>
+            {/* 1. Hero TikTok (vertical) + Cinematic Lionsgate — stacked on mobile, side-by-side on desktop with matching heights */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-6">
+              <div className="w-full md:w-[253px] flex justify-center">
+                <PortfolioVideo
+                  src="/videos/saint-9-tt-fr.mp4"
+                  label="TikTok"
+                  stats="200K reposts"
+                  aspectRatio="9/16"
+                  maxWidth="380px"
+                />
+              </div>
 
-            {/* 2. Cinematic Lionsgate (horizontal) — underneath the vertical */}
-            <div className="mt-10 sm:mt-16 md:mt-20 flex justify-center">
-              <PortfolioVideo
-                src="/videos/saint-52-tt.mp4"
-                label="Cinematic"
-                stats="Lionsgate edit style"
-                aspectRatio="16/9"
-                maxWidth="900px"
-              />
+              <div className="mt-10 sm:mt-16 md:mt-0 w-full md:w-[800px] flex justify-center">
+                <PortfolioVideo
+                  src="/videos/saint-52-tt.mp4"
+                  label="Cinematic"
+                  stats="Lionsgate edit style"
+                  aspectRatio="16/9"
+                  maxWidth="900px"
+                />
+              </div>
             </div>
 
             {/* 2. Football N-E-C + Cinematic Canal+ — side by side, even on mobile */}
@@ -382,7 +383,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               <PortfolioVideo
                 src="/videos/n-e-c-1-fv-tt.mp4"
                 label="Football"
-                stats="N-E-C · feature edit"
+                stats="Ligue 1 style adapted to N-E-C"
                 aspectRatio="16/9"
                 maxWidth="560px"
               />
