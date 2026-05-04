@@ -29,18 +29,48 @@ export default function AboutPage() {
       </div>
 
       <div className="relative z-10 w-full pt-40 pb-20">
-        <div className="max-w-3xl mx-auto px-6 space-y-28 md:space-y-32">
-          
+        <div className="max-w-3xl mx-auto px-6">
+
+          {/* Hero intro */}
+          <motion.div
+            className="mb-24 md:mb-32"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em] uppercase">About</span>
+              <span className="h-px flex-1 bg-gradient-to-r from-[#2196f3]/60 to-transparent" />
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-tight font-semibold tracking-[-0.025em] leading-[1.02] text-white">
+              The story behind <br />
+              <span className="italic font-medium text-white/70">the edits.</span>
+            </h1>
+          </motion.div>
+
+        </div>
+        <div className="max-w-3xl mx-auto px-6 space-y-24 md:space-y-28">
+
           {/* Section 1 — Who I Am */}
-          <motion.section 
-            id="identity" 
-            className="text-left space-y-5 pt-10 border-t border-white/5 first:border-t-0 first:pt-0 group/section"
+          <motion.section
+            id="identity"
+            className="text-left space-y-5 group/section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             whileHover={{ filter: "brightness(1.05)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            <div className="flex items-center gap-3 mb-1">
+              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">01</span>
+              <motion.span
+                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
+                initial={{ width: 0 }}
+                whileInView={{ width: 80 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+              />
+            </div>
             <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
               Who I Am
             </h2>
@@ -55,15 +85,25 @@ export default function AboutPage() {
           </motion.section>
 
           {/* Section 2 — Where My Work Shows Up */}
-          <motion.section 
-            id="proof" 
-            className="text-left space-y-5 pt-10 border-t border-white/5 group/section"
+          <motion.section
+            id="proof"
+            className="text-left space-y-5 md:ml-12 group/section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             whileHover={{ filter: "brightness(1.05)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            <div className="flex items-center gap-3 mb-1">
+              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">02</span>
+              <motion.span
+                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
+                initial={{ width: 0 }}
+                whileInView={{ width: 80 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+              />
+            </div>
             <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
               Where My Work Shows Up
             </h2>
@@ -73,15 +113,25 @@ export default function AboutPage() {
           </motion.section>
 
           {/* Section 3 — How I See Content */}
-          <motion.section 
-            id="angle" 
-            className="text-left space-y-5 pt-10 border-t border-white/5 group/section"
+          <motion.section
+            id="angle"
+            className="text-left space-y-5 group/section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             whileHover={{ filter: "brightness(1.05)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            <div className="flex items-center gap-3 mb-1">
+              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">03</span>
+              <motion.span
+                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
+                initial={{ width: 0 }}
+                whileInView={{ width: 80 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+              />
+            </div>
             <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
               How I See Content
             </h2>
@@ -98,15 +148,25 @@ export default function AboutPage() {
           </motion.section>
 
           {/* Section 4 — How I Build Videos */}
-          <motion.section 
-            id="how-i-think" 
-            className="text-left space-y-5 pt-10 border-t border-white/5 group/section"
+          <motion.section
+            id="how-i-think"
+            className="text-left space-y-5 md:ml-12 group/section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             whileHover={{ filter: "brightness(1.05)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            <div className="flex items-center gap-3 mb-1">
+              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">04</span>
+              <motion.span
+                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
+                initial={{ width: 0 }}
+                whileInView={{ width: 80 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+              />
+            </div>
             <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
               How I Build Videos
             </h2>
@@ -165,15 +225,25 @@ export default function AboutPage() {
           </motion.section>
 
           {/* Section 5 — What Actually Drives Results */}
-          <motion.section 
-            id="connection" 
-            className="text-left space-y-5 pt-10 border-t border-white/5 group/section"
+          <motion.section
+            id="connection"
+            className="text-left space-y-5 group/section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             whileHover={{ filter: "brightness(1.05)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            <div className="flex items-center gap-3 mb-1">
+              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">05</span>
+              <motion.span
+                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
+                initial={{ width: 0 }}
+                whileInView={{ width: 80 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+              />
+            </div>
             <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
               What Actually Drives Results
             </h2>
@@ -214,15 +284,25 @@ export default function AboutPage() {
           </motion.section>
 
           {/* Section 6 — What I Focus On */}
-          <motion.section 
-            id="standard" 
-            className="text-left space-y-5 pb-20 pt-10 border-t border-white/5 group/section"
+          <motion.section
+            id="standard"
+            className="text-left space-y-5 pb-20 md:ml-12 group/section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             whileHover={{ filter: "brightness(1.05)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            <div className="flex items-center gap-3 mb-1">
+              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">06</span>
+              <motion.span
+                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
+                initial={{ width: 0 }}
+                whileInView={{ width: 80 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+              />
+            </div>
             <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
               What I Focus On
             </h2>
