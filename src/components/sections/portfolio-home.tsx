@@ -330,7 +330,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <section id="proof" className="pt-10 pb-10 sm:pt-12 sm:pb-12 px-5 sm:px-6 bg-transparent">
           <div className="max-w-5xl mx-auto text-center space-y-6">
             <h2 className="text-[11px] sm:text-sm font-tight font-semibold text-white/60 tracking-widest uppercase">
-              Loved by
+              Liked by
             </h2>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 sm:gap-x-10 md:gap-x-16">
               {["ESPN UK", "Canal+", "Bash The Entertainer", "Monet McMichael"].map((name) => (
