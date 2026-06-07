@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 // import NeuralBackground from "@/components/ui/flow-field-background";
-import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { TextShimmer } from "@/components/ui/text-shimmer";
 import { LeadForm } from "@/components/ui/lead-form";
 import { Volume2, VolumeX, Play, Pause, Maximize2 } from "lucide-react";
@@ -41,8 +40,8 @@ function PortfolioVideo({ src, stats, label, aspectRatio = "9/16", maxWidth = "4
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (videoRef.current) {
-          // Lower threshold to 0.3 for faster response
-          const inView = entry.isIntersecting && entry.intersectionRatio > 0.3;
+          // Higher threshold so only videos centrally in view autoplay — avoids decoder overload
+          const inView = entry.isIntersecting && entry.intersectionRatio > 0.65;
           
           if (inView) {
             // Auto-play when in view, but ONLY if not manually paused
@@ -60,8 +59,8 @@ function PortfolioVideo({ src, stats, label, aspectRatio = "9/16", maxWidth = "4
         }
       },
       {
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
-        rootMargin: "0px 0px -10% 0px" // Trigger slightly before it fully exits/enters
+        threshold: [0, 0.65, 1.0],
+        rootMargin: "0px 0px -10% 0px"
       }
     );
 
@@ -133,7 +132,7 @@ function PortfolioVideo({ src, stats, label, aspectRatio = "9/16", maxWidth = "4
             muted={isMuted}
             loop
             playsInline
-            preload="metadata"
+            preload="none"
             className="w-full h-full object-cover"
           />
 
@@ -283,7 +282,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               </div>
 
               <h1 className="text-[44px] sm:text-6xl md:text-[100px] font-tight font-semibold tracking-[-0.025em] leading-[1.02] md:leading-[0.92] text-white mb-5 md:mb-7 shadow-blue-glow">
-                Edits people <span className="italic font-medium text-white/95">actually</span> finish.
+                Edits that tell a story.
               </h1>
 
               <div className="max-w-xl mx-auto text-base sm:text-lg md:text-xl font-sans font-normal text-white/75 leading-[1.5] mb-8 space-y-4 px-2">
@@ -293,24 +292,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 pt-2 sm:pt-4 px-4 sm:px-0">
-                <Link
-                  href="https://ig.me/m/max.dt88"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => track("cta_click", { source: "hero_dm" })}
-                  className="w-full sm:w-auto"
-                >
-                  <ShimmerButton
-                    background="#2196f3"
-                    className="w-full sm:w-auto px-8 py-4 rounded-full text-white text-base font-sans font-semibold tracking-tight transition-transform hover:scale-105 glow-button"
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      <IconBrandInstagram className="w-4 h-4" />
-                      DM for your free edit
-                    </span>
-                  </ShimmerButton>
-                </Link>
+              <div className="flex justify-center items-center pt-2 sm:pt-4 px-4 sm:px-0">
                 <Link
                   href="#contact"
                   onClick={() => track("cta_click", { source: "hero_form" })}
@@ -396,27 +378,6 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               />
             </div>
 
-            {/* Inline CTA after work — low-friction Instagram DM */}
-            <div className="mt-14 sm:mt-16 md:mt-20 flex flex-col items-center text-center">
-              <Link
-                href="https://ig.me/m/max.dt88"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track("cta_click", { source: "midpage_dm" })}
-                className="inline-flex"
-              >
-                <ShimmerButton
-                  background="#2196f3"
-                  className="px-8 py-4 rounded-full text-white text-base font-sans font-semibold tracking-tight transition-transform hover:scale-105 glow-button"
-                >
-                  <span className="flex items-center gap-2">
-                    <IconBrandInstagram className="w-4 h-4" />
-                    DM me on Instagram
-                  </span>
-                </ShimmerButton>
-              </Link>
-              <p className="text-xs text-white/45 mt-4">One tap · first edit free</p>
-            </div>
           </div>
         </section>
 
