@@ -1,4 +1,4 @@
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://maxdt88-client-site.vercel.app").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://maxdt88.com").replace(/\/$/, "");
 
 // Google Search Console HTML-tag verification (URL-prefix property): set the content value as an env var.
 export const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "";
