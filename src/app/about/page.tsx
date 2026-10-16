@@ -75,7 +75,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-6">
               <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed max-w-2xl">
-                I’m Max, a Franco-American video editor based in the Netherlands.
+                I’m Max, a Franco-American short-form video editor based in the Netherlands. I take on long-form too.
               </p>
               <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed max-w-2xl">
                 I started building on social media in April 2025 and quickly generated <span className="text-white font-medium">videos reaching millions of views organically</span>.
@@ -189,7 +189,7 @@ export default function AboutPage() {
               
               <div className="space-y-4">
                 <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                  From there, I build each video around a <span className="text-white font-medium">clear storyline — not just visuals</span>.
+                  From there, I build each video around a <span className="text-white font-medium">clear storyline, not just visuals</span>.
                 </p>
                 <div className="space-y-3 pl-4 border-l border-white/5 py-1">
                   <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed opacity-75">
@@ -261,7 +261,7 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <div className="space-y-3 opacity-90">
                   <p className="text-lg md:text-xl font-sans font-normal text-white/80 leading-relaxed">
-                    Whether it’s the emotion, the mindset, the humor, or the identity —
+                    Whether it’s the emotion, the mindset, the humor, or the identity,
                   </p>
                   <p className="text-lg md:text-xl font-sans font-normal text-white/80 leading-relaxed">
                     if people relate to what they’re watching, they engage with it.
@@ -272,7 +272,7 @@ export default function AboutPage() {
                     That’s what drives likes, saves, reposts, and comments.
                   </p>
                   <p className="text-lg md:text-xl font-sans font-normal text-white font-medium">
-                    Not just views — but real traction.
+                    Not just views, but real traction.
                   </p>
                 </div>
               </div>
@@ -310,7 +310,7 @@ export default function AboutPage() {
                 I don’t chase views alone.
               </p>
               <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                I focus on <span className="text-white font-medium">strong engagement</span> —<br />
+                I focus on <span className="text-white font-medium">strong engagement</span>:<br />
                 a healthy ratio of likes, saves, reposts, and comments.
               </p>
               <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed opacity-75">
@@ -365,6 +365,7 @@ export default function AboutPage() {
           <p className="text-[10px] font-sans font-normal text-white/40 tracking-widest uppercase">
             © 2026 MAXDT88. ALL RIGHTS RESERVED.
           </p>
+            <a href="/privacy" className="inline-block mt-3 text-xs font-sans text-white/50 hover:text-white transition-colors">Privacy and cookies</a>
         </div>
       </footer>
     </main>

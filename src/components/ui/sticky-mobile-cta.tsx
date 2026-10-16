@@ -44,21 +44,22 @@ export function StickyMobileCTA() {
         >
           <div className="pointer-events-auto rounded-full bg-black/85 backdrop-blur-xl border border-white/10 shadow-[0_10px_40px_-10px_rgba(33,150,243,0.5)] px-2 py-2 flex items-center gap-2">
             <Link
+              href="#contact"
+              onClick={() => track("cta_click", { source: "sticky_mobile_form" })}
+              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-[#2196f3] text-white text-sm font-semibold tracking-tight active:scale-[0.98] transition-transform"
+            >
+              Hire me
+            </Link>
+            <Link
               href="https://ig.me/m/max.dt88"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="DM me on Instagram"
               onClick={() => track("cta_click", { source: "sticky_mobile_dm" })}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-[#2196f3] text-white text-sm font-semibold tracking-tight active:scale-[0.98] transition-transform"
+              className="inline-flex items-center gap-1.5 px-3 py-3 rounded-full text-white/70 text-xs font-medium border border-white/10 active:scale-[0.98] transition-transform whitespace-nowrap"
             >
               <IconBrandInstagram className="w-4 h-4" />
-              DM for your free edit
-            </Link>
-            <Link
-              href="#contact"
-              onClick={() => track("cta_click", { source: "sticky_mobile_form" })}
-              className="px-3 py-3 rounded-full text-white/70 text-xs font-medium border border-white/10 active:scale-[0.98] transition-transform whitespace-nowrap"
-            >
-              Email
+              DM
             </Link>
           </div>
         </motion.div>

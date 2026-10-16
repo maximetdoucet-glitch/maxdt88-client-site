@@ -38,7 +38,7 @@ export function LeadForm() {
       return;
     }
     if (!goal.trim()) {
-      setError("One line about what you're building.");
+      setError("One line about your channel and what you need.");
       return;
     }
 
@@ -89,8 +89,8 @@ export function LeadForm() {
         </div>
         <h3 className="text-2xl font-semibold text-white">Got it.</h3>
         <p className="text-base text-white/70 max-w-md mx-auto">
-          I&apos;ll get back to you within 24 hours. If your project&apos;s a fit,
-          your first edit is on me.
+          I&apos;ll get back to you within 24 hours to talk about
+          your project.
         </p>
       </motion.div>
     );
@@ -111,7 +111,7 @@ export function LeadForm() {
 
       <input
         type="text"
-        placeholder="What are you building? (one line)"
+        placeholder="Your channel and what you need edited"
         value={goal}
         onChange={(e) => setGoal(e.target.value)}
         className={inputBase}
@@ -146,7 +146,7 @@ export function LeadForm() {
             </span>
           ) : (
             <span className="flex items-center justify-center gap-2">
-              Claim my free edit <ArrowRight className="w-4 h-4" />
+              Send my brief <ArrowRight className="w-4 h-4" />
             </span>
           )}
         </ShimmerButton>

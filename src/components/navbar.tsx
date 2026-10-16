@@ -80,7 +80,7 @@ export function Navbar() {
               background="#2196f3"
               className="px-5 py-2.5 rounded-full text-white text-xs font-sans font-semibold tracking-tight transition-all duration-300 glow-button"
             >
-              Free first edit
+              Hire me
             </ShimmerButton>
           </Link>
         </div>
@@ -136,7 +136,7 @@ export function Navbar() {
                     background="#2196f3"
                     className="w-full py-4 rounded-full text-white font-sans font-semibold tracking-tight text-base glow-button"
                   >
-                    Claim my free edit
+                    Hire me
                   </ShimmerButton>
                 </Link>
                 <p className="text-xs text-white/50 text-center">No spam · reply within 24h</p>

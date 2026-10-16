@@ -276,9 +276,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               animate={showContent ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-white/[0.03] text-[11px] sm:text-xs uppercase tracking-widest text-white/70 mb-6 sm:mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-white/[0.03] text-xs sm:text-sm tracking-tight text-white/70 mb-6 sm:mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#2196f3] animate-pulse" />
-                Free first edit · no commitment
+                Short-form editor · long-form too
               </div>
 
               <h1 className="text-[44px] sm:text-6xl md:text-[100px] font-tight font-semibold tracking-[-0.025em] leading-[1.02] md:leading-[0.92] text-white mb-5 md:mb-7 shadow-blue-glow">
@@ -287,8 +287,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
 
               <div className="max-w-xl mx-auto text-base sm:text-lg md:text-xl font-sans font-normal text-white/75 leading-[1.5] mb-8 space-y-4 px-2">
                 <p>
-                  Short-form video, cut for retention — for creators, athletes, and brands.
-                  <span className="text-white"> Send one clip. The first edit is on me.</span>
+                  Short-form video for creators and brands, cut for retention. Long-form too.
+                  <span className="text-white"> Send me a reference and I&apos;ll match the style.</span>
                 </p>
               </div>
 
@@ -298,7 +298,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                   onClick={() => track("cta_click", { source: "hero_form" })}
                   className="w-full sm:w-auto px-8 py-4 rounded-full text-white/85 text-base font-sans font-medium tracking-tight border border-white/15 hover:border-white/40 hover:text-white transition-all flex items-center justify-center gap-2"
                 >
-                  Claim my free edit
+                  Hire me
                 </Link>
               </div>
             </motion.div>
@@ -312,7 +312,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         <section id="proof" className="pt-10 pb-10 sm:pt-12 sm:pb-12 px-5 sm:px-6 bg-transparent">
           <div className="max-w-5xl mx-auto text-center space-y-6">
             <h2 className="text-[11px] sm:text-sm font-tight font-semibold text-white/60 tracking-widest uppercase">
-              Liked by
+              Work seen by
             </h2>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 sm:gap-x-10 md:gap-x-16">
               {["ESPN UK", "Canal+", "Bash The Entertainer", "Monet McMichael"].map((name) => (
@@ -387,11 +387,11 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             <div className="mb-10 sm:mb-14 md:mb-16">
               <p className="text-[11px] sm:text-xs font-sans font-medium tracking-widest uppercase text-[#2196f3] mb-3">What I do</p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-tight font-semibold tracking-tight text-white max-w-2xl leading-[1.05]">
-                Same craft.<br className="sm:hidden" /> Three kinds of people.
+                Same craft.<br className="sm:hidden" /> Creators and brands.
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
               {/* Creators Box */}
               <div className="p-6 sm:p-7 md:p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col h-full text-left transition-all hover:bg-white/[0.05] hover:border-white/20">
                 <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-4 md:mb-6">
@@ -400,21 +400,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                   </TextShimmer>
                 </h3>
                 <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-3 md:space-y-4">
+                  <p>Shorts, Reels and TikToks cut to hold every second.</p>
                   <p>Long-form that doesn&apos;t lose them at minute three.</p>
-                  <p>Daily clipping built to be reposted, not scrolled past.</p>
-                </div>
-              </div>
-
-              {/* Athletes Box */}
-              <div className="p-6 sm:p-7 md:p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col h-full text-left transition-all hover:bg-white/[0.05] hover:border-white/20">
-                <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-4 md:mb-6">
-                  <TextShimmer baseColor="#ffffff" shimmerColor="#2196f3" duration={3}>
-                    Athletes
-                  </TextShimmer>
-                </h3>
-                <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-3 md:space-y-4">
-                  <p>Highlights and mixtapes scouts actually finish.</p>
-                  <p>Lifestyle cuts that turn followers into brand deals.</p>
                 </div>
               </div>
 
@@ -426,7 +413,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                   </TextShimmer>
                 </h3>
                 <div className="text-base md:text-lg font-sans font-normal text-white/85 leading-relaxed space-y-3 md:space-y-4">
-                  <p>Content that doesn&apos;t feel like an ad — and outperforms one.</p>
+                  <p>Content that doesn&apos;t feel like an ad, and outperforms one.</p>
                   <p>Native to the platform. Not adapted from a TV spot.</p>
                 </div>
               </div>
@@ -435,19 +422,52 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
         </section>
 
 
-        {/* 7. FREE OFFER + LEAD FORM (THE CONVERSION POINT) */}
+        {/* 6. HOW I WORK (WHY HIRE ME) */}
+        <section id="how-i-work" className="py-14 sm:py-24 md:py-32 px-5 sm:px-6 bg-transparent">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-10 sm:mb-14 md:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-tight font-semibold tracking-tight text-white max-w-2xl leading-[1.05] [text-wrap:balance]">
+                Built to plug into your channel.
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+              {[
+                { t: "Works off your references", d: "Send a video you love. I match the pacing, captions and style so it feels like your channel." },
+                { t: "Short-form first, long-form too", d: "Shorts, Reels and TikToks, plus full YouTube videos when you need them." },
+                { t: "Fast first cut", d: "First cut in 48 to 72 hours. Replies within 24 hours." },
+                { t: "Proven on social", d: "Videos reaching millions of views organically, with work seen by ESPN UK and Canal+." },
+              ].map((c) => (
+                <div key={c.t} className="p-6 sm:p-7 md:p-8 rounded-2xl border border-white/10 bg-white/[0.02] text-left transition-all hover:bg-white/[0.05] hover:border-white/20">
+                  <h3 className="text-xl md:text-2xl font-tight font-semibold text-white mb-3">{c.t}</h3>
+                  <p className="text-base md:text-lg font-sans font-normal text-white/80 leading-relaxed">{c.d}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 sm:mt-12 flex justify-center">
+              <Link
+                href="#contact"
+                onClick={() => track("cta_click", { source: "how_i_work" })}
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#2196f3] text-white text-base font-sans font-semibold tracking-tight text-center hover:brightness-110 transition-all"
+              >
+                Hire me
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* 7. CONTACT + LEAD FORM (THE CONVERSION POINT) */}
         <section id="contact" className="pt-14 pb-20 sm:pt-24 sm:pb-28 md:pt-32 md:pb-40 px-5 sm:px-6 bg-transparent">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-8 sm:mb-10 md:mb-12 space-y-4">
               <p className="text-[11px] sm:text-xs font-sans font-medium tracking-widest uppercase text-[#2196f3]">
-                Try for free
+                Work with me
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-tight font-semibold text-white tracking-tight leading-[1.05]">
-                Send one clip.<br className="hidden sm:block" />
-                <span className="text-white/70"> See what changes.</span>
+                Show me a reference.<br className="hidden sm:block" />
+                <span className="text-white/70"> I&apos;ll make it yours.</span>
               </h2>
               <p className="text-base sm:text-lg font-sans text-white/70 max-w-xl mx-auto leading-relaxed pt-2">
-                Tell me what you&apos;re building. I&apos;ll cut your first edit free — no contract, no catch.
+                Tell me what you&apos;re building and send a video you love. I&apos;ll match the style and pace, short-form or long-form.
               </p>
             </div>
 
@@ -473,9 +493,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             {/* Steps */}
             <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3">
               {[
-                { n: "01", t: "You send", d: "One rough clip + your goal." },
-                { n: "02", t: "I edit free", d: "Delivered in 48–72 hours." },
-                { n: "03", t: "We scale", d: "If it works, we keep going." },
+                { n: "01", t: "You send", d: "Your footage and a reference you like." },
+                { n: "02", t: "I edit", d: "First cut in 48 to 72 hours." },
+                { n: "03", t: "We keep going", d: "If it works, it becomes a regular workflow." },
               ].map((s) => (
                 <div key={s.n} className="text-left p-4 sm:p-5 rounded-2xl border border-white/5 bg-white/[0.015]">
                   <div className="text-[10px] sm:text-xs font-mono text-[#2196f3] mb-2 tracking-widest">{s.n}</div>
@@ -521,8 +541,8 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               <div className="space-y-3">
                 <h4 className="text-[10px] font-tight font-semibold text-white/50 uppercase tracking-widest">Socials</h4>
                 <nav className="flex flex-col gap-2 items-start md:items-end">
-                  <a href="https://www.tiktok.com/@max.dt88?_r=1&_t=ZN-94sSG2dY6SM" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
-                  <a href="https://www.instagram.com/max.dt88?igsh=YW9lenBseGM0Z3Zu&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
+                  <a href="https://www.tiktok.com/@max.dt88" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
+                  <a href="https://www.instagram.com/max.dt88" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
                   <a href="https://www.youtube.com/@Max.DT88/shorts" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">YouTube</a>
                 </nav>
               </div>
@@ -533,6 +553,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             <p className="text-[10px] font-sans font-normal text-white/40 tracking-widest uppercase">
               © 2026 MAXDT88. ALL RIGHTS RESERVED.
             </p>
+            <a href="/privacy" className="inline-block mt-3 text-xs font-sans text-white/50 hover:text-white transition-colors">Privacy and cookies</a>
           </div>
         </footer>
       </div>
