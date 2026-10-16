@@ -281,13 +281,13 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 Short-form editor · long-form too
               </div>
 
-              <h1 className="text-[44px] sm:text-6xl md:text-[100px] font-tight font-semibold tracking-[-0.025em] leading-[1.02] md:leading-[0.92] text-white mb-5 md:mb-7 shadow-blue-glow">
-                Edits that tell a story.
+              <h1 className="text-[44px] sm:text-6xl md:text-[100px] font-tight font-semibold tracking-[-0.025em] leading-[1.02] md:leading-[0.92] text-white mb-5 md:mb-7 shadow-blue-glow [text-wrap:balance]">
+                Video editor for creators and brands.
               </h1>
 
               <div className="max-w-xl mx-auto text-base sm:text-lg md:text-xl font-sans font-normal text-white/75 leading-[1.5] mb-8 space-y-4 px-2">
                 <p>
-                  Short-form video for creators and brands, cut for retention. Long-form too.
+                  Edits that tell a story. Short-form cut for retention, long-form too.
                   <span className="text-white"> Send me a reference and I&apos;ll match the style.</span>
                 </p>
               </div>
@@ -321,6 +321,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 </span>
               ))}
             </div>
+            <p className="text-sm sm:text-base font-sans text-white/60">
+              Recent work with <span className="text-white/85">_showtimejohn_</span>, and for <span className="text-white/85">silvaparas</span> as a creator and a brand.
+            </p>
           </div>
         </section>
 

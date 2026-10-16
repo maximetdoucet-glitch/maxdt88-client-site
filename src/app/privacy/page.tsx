@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   title: "Privacy and cookies",
   description: "How max.dt88 handles visitor data, analytics and cookies.",
   alternates: { canonical: "/privacy" },
+  openGraph: { type: "website", url: "/privacy", siteName: "max.dt88", images: ["/opengraph-image"], title: "Privacy and cookies | max.dt88", description: "How max.dt88 handles visitor data, analytics and cookies.", locale: "en_US" },
+  twitter: { card: "summary_large_image", images: ["/opengraph-image"], title: "Privacy and cookies | max.dt88", description: "How max.dt88 handles visitor data, analytics and cookies." },
 };
 
 const sections = [
