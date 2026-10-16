@@ -131,26 +131,22 @@ export function LeadForm() {
         )}
       </AnimatePresence>
 
-      <button
+      <ShimmerButton
         type="submit"
         disabled={status === "submitting"}
-        className="w-full mt-2"
+        background="#2196f3"
+        className="w-full mt-2 px-6 py-4 rounded-xl text-white text-base font-semibold tracking-tight glow-button disabled:opacity-60"
       >
-        <ShimmerButton
-          background="#2196f3"
-          className="w-full px-6 py-4 rounded-xl text-white text-base font-semibold tracking-tight glow-button disabled:opacity-60"
-        >
-          {status === "submitting" ? (
-            <span className="flex items-center justify-center gap-2">
-              <Loader2 className="w-4 h-4 animate-spin" /> Sending…
-            </span>
-          ) : (
-            <span className="flex items-center justify-center gap-2">
-              Send my brief <ArrowRight className="w-4 h-4" />
-            </span>
-          )}
-        </ShimmerButton>
-      </button>
+        {status === "submitting" ? (
+          <span className="flex items-center justify-center gap-2">
+            <Loader2 className="w-4 h-4 animate-spin" /> Sending…
+          </span>
+        ) : (
+          <span className="flex items-center justify-center gap-2">
+            Send my brief <ArrowRight className="w-4 h-4" />
+          </span>
+        )}
+      </ShimmerButton>
 
       <p className="text-xs text-white/45 text-center pt-1">
         No spam. Reply within 24 hours.

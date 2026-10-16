@@ -532,7 +532,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             {/* RIGHT SIDE - INFO STACK */}
             <div className="flex flex-col space-y-4 text-left md:text-right md:items-end w-full md:w-auto">
               <div className="space-y-3">
-                <h4 className="text-[10px] font-tight font-semibold text-white/50 uppercase tracking-widest">Contact</h4>
+                <p className="text-[10px] font-tight font-semibold text-white/50 uppercase tracking-widest">Contact</p>
                 <a 
                   href="mailto:max.doucet@icloud.com" 
                   className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300 block"
@@ -542,7 +542,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               </div>
               
               <div className="space-y-3">
-                <h4 className="text-[10px] font-tight font-semibold text-white/50 uppercase tracking-widest">Socials</h4>
+                <p className="text-[10px] font-tight font-semibold text-white/50 uppercase tracking-widest">Socials</p>
                 <nav className="flex flex-col gap-2 items-start md:items-end">
                   <a href="https://www.tiktok.com/@max.dt88" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
                   <a href="https://www.instagram.com/max.dt88" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
@@ -553,7 +553,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
           </div>
           
           <div className="max-w-6xl mx-auto mt-10 text-left">
-            <p className="text-[10px] font-sans font-normal text-white/40 tracking-widest uppercase">
+            <p className="text-[10px] font-sans font-normal text-white/55 tracking-widest uppercase">
               © 2026 MAXDT88. ALL RIGHTS RESERVED.
             </p>
             <a href="/privacy" className="inline-block mt-3 text-xs font-sans text-white/50 hover:text-white transition-colors">Privacy and cookies</a>
