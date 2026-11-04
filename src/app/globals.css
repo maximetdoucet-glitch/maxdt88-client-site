@@ -413,9 +413,3 @@ html.lenis, html.lenis body {
     line-height: 1;
   }
 }
-
-/* Ordinary Folk light pages (2026-11-04): flat #f8f8f8, dark text, no grain. */
-body:has(.of-page) { background-color: #f8f8f8; color: #161616; }
-body:has(.of-page) .grain { display: none; }
-.of-page :is(h1, h2, h3, h4, h5, h6) { color: inherit; letter-spacing: normal; }
-.of-page a { transition: color 0.5s, text-decoration-color 0.5s; }
