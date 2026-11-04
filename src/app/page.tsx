@@ -1,37 +1,12 @@
-"use client";
-
-import React, { useState, useCallback, useEffect } from "react";
-import { Navbar } from "@/components/navbar";
-import { LoadingScreen } from "@/components/ui/loading-screen";
-import { PortfolioHome } from "@/components/sections/portfolio-home";
-import { StickyMobileCTA } from "@/components/ui/sticky-mobile-cta";
-import { AnimatePresence } from "framer-motion";
+import { SiteNav, SiteFooter } from "@/components/site/chrome";
+import { PortfolioV1 } from "@/components/sections/portfolio-v1";
 
 export default function Home() {
-  const [loaded, setLoaded] = useState(false);
-  const [showContent, setShowContent] = useState(false);
-
-  const handleLoadComplete = useCallback(() => {
-    setLoaded(true);
-    setTimeout(() => setShowContent(true), 200);
-  }, []);
-
   return (
-    <>
-      <AnimatePresence mode="wait">
-        {!loaded && (
-          <LoadingScreen 
-            key="loader" 
-            onComplete={handleLoadComplete} 
-          />
-        )}
-      </AnimatePresence>
-
-      <main id="main-content-root" className="relative bg-black min-h-screen text-white overflow-x-hidden">
-        <Navbar />
-        <PortfolioHome showContent={showContent} />
-        {showContent && <StickyMobileCTA />}
-      </main>
-    </>
+    <main className="of-page min-h-screen bg-of-bg text-of-dark overflow-x-hidden">
+      <SiteNav current="work" />
+      <PortfolioV1 />
+      <SiteFooter />
+    </main>
   );
 }

@@ -11,6 +11,7 @@ import { ShimmerButton } from "./ui/shimmer-button";
 import { track } from "@vercel/analytics";
 
 const navItems = [
+  { name: "Portfolio", href: "/#work" },
   { name: "Services", href: "/#services" },
   { name: "About Me", href: "/about" },
 ];

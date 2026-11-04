@@ -12,15 +12,15 @@ export const metadata: Metadata = {
 const sections = [
   {
     h: "Who runs this site",
-    p: "This site is run by Max Doucet (max.dt88), a video editor based in the Netherlands. Questions about your data: max.doucet@icloud.com.",
+    p: "This site is run by Max Doucet (max.dt88), a video editor based in the Netherlands. Questions about your data: maxime.t.doucet@gmail.com.",
   },
   {
     h: "Analytics",
-    p: "The site uses Vercel Web Analytics and Speed Insights to count page views and measure loading speed. They do not set cookies and do not track you across other websites. If you decline in the cookie banner, no analytics events are sent from your browser.",
+    p: "The site uses Vercel Web Analytics and Speed Insights to count page views and measure loading speed; they set no cookies. Only if you click Accept in the cookie banner, the site also loads Google Analytics 4 (Google Ireland Ltd.) from www.googletagmanager.com, which sends usage data to www.google-analytics.com. It records pages visited, clicks on videos and links, and that a form was sent, never what you typed into the form. Google Analytics sets the cookies _ga and _ga_<ID>, which last up to two years. If you decline, Google Analytics is never loaded and no analytics events are sent.",
   },
   {
     h: "Cookies and local storage",
-    p: "The site sets no advertising or tracking cookies. Your cookie choice is saved in your browser's local storage so the banner does not show again. You can clear it at any time through your browser settings.",
+    p: "The site sets no advertising cookies. Google Analytics cookies (_ga, _ga_<ID>) are only set after you accept. Your cookie choice is saved in your browser local storage so the banner does not show again. To change your choice, clear this site data in your browser settings and the banner will appear again.",
   },
   {
     h: "Contact form",

@@ -48,7 +48,7 @@ const jsonLd = {
       jobTitle: "Video Editor",
       description: SITE_DESCRIPTION,
       url: `${SITE_URL}/`,
-      email: "max.doucet@icloud.com",
+      email: "maxime.t.doucet@gmail.com",
       address: { "@type": "PostalAddress", addressCountry: "NL" },
       knowsAbout: ["Short-form video editing", "YouTube Shorts", "Instagram Reels", "TikTok", "Long-form YouTube editing"],
       image: `${SITE_URL}/opengraph-image`,

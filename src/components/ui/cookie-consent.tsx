@@ -22,6 +22,7 @@ export function CookieConsent() {
     try {
       localStorage.setItem("cookie-consent", value);
     } catch {}
+    window.dispatchEvent(new CustomEvent("cookie-consent", { detail: value }));
     setIsVisible(false);
   };
 
@@ -35,12 +36,12 @@ export function CookieConsent() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed z-[100] left-3 right-3 bottom-20 md:bottom-6 md:left-auto md:right-6 md:max-w-[380px]"
+          className="fixed z-[100] left-3 right-3 bottom-3 md:bottom-6 md:left-auto md:right-6 md:max-w-[380px]"
         >
-          <div className="rounded-2xl bg-[#111111] border border-white/10 p-5 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.6)]">
-            <p className="text-sm font-semibold text-white mb-1.5">Privacy-friendly analytics</p>
+          <div className="bg-of-dark p-5">
+            <p className="text-sm font-semibold text-white mb-1.5">Cookies for analytics</p>
             <p className="text-[13px] text-white/60 leading-relaxed">
-              This site uses cookieless analytics to see which pages get visited. No ads, no tracking across sites.{" "}
+              With your OK, Google Analytics sets cookies to show me which videos and pages get attention. No ads. Decline and nothing is loaded.{" "}
               <Link href="/privacy" className="text-white/85 underline underline-offset-2 hover:text-white">
                 Privacy and cookies
               </Link>

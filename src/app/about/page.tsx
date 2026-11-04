@@ -50,7 +50,7 @@ export default function AboutPage() {
         </div>
         <div className="max-w-3xl mx-auto px-6 space-y-24 md:space-y-28">
 
-          {/* Section 1 — Who I Am */}
+          {/* Section 1, Who I Am */}
           <motion.section
             id="identity"
             className="text-left space-y-5 group/section"
@@ -83,7 +83,7 @@ export default function AboutPage() {
             </div>
           </motion.section>
 
-          {/* Section 2 — Where My Work Shows Up */}
+          {/* Section 2, Where My Work Shows Up */}
           <motion.section
             id="proof"
             className="text-left space-y-5 group/section"
@@ -111,7 +111,7 @@ export default function AboutPage() {
             </p>
           </motion.section>
 
-          {/* Section 3 — How I See Content */}
+          {/* Section 3, How I See Content */}
           <motion.section
             id="angle"
             className="text-left space-y-5 group/section"
@@ -146,7 +146,7 @@ export default function AboutPage() {
             </div>
           </motion.section>
 
-          {/* Section 4 — How I Build Videos */}
+          {/* Section 4, How I Build Videos */}
           <motion.section
             id="how-i-think"
             className="text-left space-y-5 group/section"
@@ -223,7 +223,7 @@ export default function AboutPage() {
             </div>
           </motion.section>
 
-          {/* Section 5 — What Actually Drives Results */}
+          {/* Section 5, What Actually Drives Results */}
           <motion.section
             id="connection"
             className="text-left space-y-5 group/section"
@@ -282,7 +282,7 @@ export default function AboutPage() {
             </div>
           </motion.section>
 
-          {/* Section 6 — What I Focus On */}
+          {/* Section 6, What I Focus On */}
           <motion.section
             id="standard"
             className="text-left space-y-5 pb-20 group/section"
@@ -333,7 +333,7 @@ export default function AboutPage() {
                 Video editing built for engagement.
               </p>
               <p className="text-xs font-sans font-normal text-white/65">
-                Available for select projects
+                Open to part-time and full-time contracts and gigs
               </p>
             </div>
           </div>
@@ -343,10 +343,10 @@ export default function AboutPage() {
             <div className="space-y-3">
               <p className="text-[10px] font-tight font-semibold text-white/50 uppercase tracking-widest">Contact</p>
               <a 
-                href="mailto:max.doucet@icloud.com" 
+                href="mailto:maxime.t.doucet@gmail.com" 
                 className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300 block"
               >
-                max.doucet@icloud.com
+                maxime.t.doucet@gmail.com
               </a>
             </div>
             

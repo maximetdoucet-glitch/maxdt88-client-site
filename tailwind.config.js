@@ -21,6 +21,10 @@ module.exports = {
         tight: ["var(--font-inter-tight)", "ui-sans-serif", "system-ui"],
       },
       colors: {
+        "of-dark": "#161616",
+        "of-grey": "#a2a2a2",
+        "of-bg": "#f8f8f8",
+        "of-panel": "#e8e8e3",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
