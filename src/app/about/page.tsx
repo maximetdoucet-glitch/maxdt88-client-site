@@ -45,7 +45,7 @@ const rows: Row[] = [
 
 const recognition = [
   { name: "Canal+", text: "Saved one of my independent Snowfall edits." },
-  { name: "Melvin Gregg", text: "Left a genuine comment on my independent Snowfall edit. He played Manboy in the series. Not a paid collaboration or an endorsement." },
+  { name: "Melvin Gregg", text: "Commented on one of my Snowfall edits. He played Manboy in the series." },
 ];
 
 const body = "text-[16px] leading-[24px] md:text-[18px] md:leading-[25.2px] text-of-dark";
@@ -89,8 +89,8 @@ export default function AboutPage() {
           ))}
           <article className={row}>
             <div className="md:col-span-5">
-              <h2 className={h2}>Personal edits seen and saved by</h2>
-              <p className={`${grey} mt-2`}>My independent edits have been liked by big creators and brands, and notably saved by Canal+.</p>
+              <h2 className={h2}>Recognition along the way</h2>
+              <p className={`${grey} mt-2`}>What started as experimenting with edits has led to some unexpected moments, including interactions with creators and accounts I grew up watching.</p>
             </div>
             <ul className={`${right} space-y-6`}>
               {recognition.map((r) => (
@@ -100,6 +100,14 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
+            <div className="md:col-start-7 md:col-span-6 mt-2">
+              <a href="/images/recognition/melvin-gregg-original.jpg" target="_blank" rel="noopener noreferrer" className="inline-block max-w-[220px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white" aria-label="View the original screenshot of Melvin Gregg's comment">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/recognition/melvin-gregg-comment.jpg" alt="Melvin Gregg commenting on my personal Snowfall edit" width={946} height={1798} loading="lazy" className="w-full rounded-lg" />
+                <span className="mt-3 block text-[13px] text-of-grey underline underline-offset-4">View the original screenshot</span>
+              </a>
+              <p className="mt-4 text-[14px] leading-6 text-of-grey">These moments came from personal edits, outside commissioned work.</p>
+            </div>
           </article>
         </div>
       </section>
@@ -107,6 +115,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1296px] grid gap-y-6 gap-x-[22px] lg:grid-cols-12">
           <h2 className="lg:col-span-5 self-start text-[40px] md:text-[clamp(40px,4vw,57px)] leading-[1] font-medium">Work together</h2>
           <div className="lg:col-span-6 lg:col-start-7 space-y-6 max-w-[560px]">
+            <p className={body}>I take the time to understand your style, work with your references and keep feedback easy to act on. Clear communication and consistent edits help us build a rhythm across projects.</p>
+            <p className={body}>I&apos;m looking for ongoing working relationships where we can keep developing the content together.</p>
             <p className={body}>Start with a free 30 to 60 second trial edit, so you can judge the fit on your own footage.</p>
             <p className={body}>
               <a href={MAILTO} className="underline underline-offset-4 decoration-of-grey hover:decoration-of-dark">{EMAIL}</a>

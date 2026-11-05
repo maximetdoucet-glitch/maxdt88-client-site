@@ -1,21 +1,24 @@
-# maxdt88 HANDOFF (2026-11-05, cube v17)
+# maxdt88 HANDOFF (2026-11-05, Astra rebuild applied locally; live = v17 cube c5dff1a)
 
 ## State
-- Repo C:\Users\maxdo\maxdt88-client-site, branch rebuild-reelhaus. Uncommitted, NOT deployed (needs Max's go).
-- Hero variant a (http://localhost:3088/?hero=a): glass pill "The tools I use", three.js Rubik cube, tool list right (md+), H1, CTA.
-- src/components/site/hero-cube.tsx: 10 programs (ICONS with name); stickers on all 6 sides (interior blanks hidden); orient() + slerp keeps logos upright through turns; cube-focus event -> piece comes forward 4s, turns pause; exports glass + HeroToolList.
-- src/components/sections/home-reel.tsx: imports HeroCube, HeroToolList, glass; cube + list in a relative wrapper.
-- Backups: hero-cube.tsx / home-reel.tsx .bak-2026-11-05n (v16 state).
-- QA (system Chrome, channel 'chrome'): NODE_PATH="D:/AntiGravity/omniroute/node_modules;C:/Users/maxdo/.claude/skills/building-websites/clone/scripts/node_modules"; node refs/hero-3d/qa-focus.cjs refs/hero-3d/shots; qa-v13.cjs x "$(pwd)/refs/hero-3d"; qa-apps.cjs.
-- v17 checked: 0 console errors; clicking "Topaz Video" brings its piece forward (shots/v17-focus.jpg vs v17-turn.jpg).
+- Repo C:\Users\maxdo\maxdt88-client-site, branch rebuild-reelhaus. origin/main = c5dff1a (v17 cube, LIVE on maxdt88.com, Vercel auto-deploys main; rollback = d700bf0).
+- Local commits NOT pushed: 3766e34 GA4 -> G-CF9GEG390R (hardcoded in consent-analytics.tsx, consent-gated); 5180e2f Astra rebuild.
+- Astra rebuild (from Downloads/maxdt88-site-2026-11-05.zip; report refs/astra-2026-11-05/QA-REPORT.md): cube removed, 10 software tiles + description panel (software-tiles.tsx), hero copy + "See client work", Wyatt edit 02, platform-link icons, About copy, local Inter fonts (src/assets), TS validation on, scripts/dev.mjs.
+- Local preview: `npx next start -p 3090` (production build of 5180e2f). Screens refs/astra-2026-11-05/astra-*.jpg: 0 errors, no overflow at 1440/390.
+- Push procedure: gh auth switch -u maximetdoucet-glitch; commit-tree HEAD^{tree} -p origin/main -p HEAD; git push origin <sha>:refs/heads/main; switch back to gmaxmediade-lang; poll maxdt88.com.
 
 ## Next step
-- Max reviews v17 live. Then pill/H1/CTA spacing via Master Brain (mb-task retrieve, values from Website Top-1% Standard / tokens, cite in DECISIONS).
+- Max reviews the local preview, then gives go to push (Astra + GA). After push: check live tiles + G-CF9GEG390R in bundle.
 
 ## Open
-- Extra tools for the list ("can use and do use"): Max to name them + official icon files.
-- Mobile (<md) has no tool list; placement TBD.
-- Tool list top item sits close under the nav at 1440x900.
-- Remove window.__cubeApps QA hook before ship.
-- Motion feel (turns, focus pop) UNVERIFIED until Max's trackpad.
-- Older: Lionsgate card, "Independent edits" heading, remove variants B/C + debug pill, old webp/mp4 deletions.
+- Max's verdict on Astra's tiles vs the cube (cube restorable from c5dff1a / 88965f0).
+- Wyatt 02 90K+ and SilvaParas ~3K counts omitted by Astra: need Max's screenshots.
+- Real-phone touch + reduced-motion check; motion feel UNVERIFIED.
+- Astra's zip had 3 partial hidden video temp files (skipped).
+- Older: spacing pill/H1/CTA, Lionsgate card, "Independent edits" heading, remove variants B/C, old webp/mp4 deletions.
+
+## Update 2026-11-05 late (commits 8b0f5eb, 9cca160, e379352, local, NOT pushed)
+- Hero: full screen (min-h 100svh-82px header), H1 "Short & long form video editing." (2 lines desktop), 48px gap tiles to H1, subline then trial line + Contact stacked under it, left aligned.
+- View chips on the videos (bottom right, same Views pill): Wyatt 01 "1.1M+ views", Wyatt 02 "90K+ views" (smaller chip, frame 125px), SilvaParas "3K views". Removed the "1.1M+ YouTube views" text line.
+- SilvaParas hover-play works in Playwright (paused false, readyState 4); Max reported he could not hover it, cause UNKNOWN.
+- OPEN: subline still says "Long-form edits are available too." (redundant with new H1, wording is Max's call); Max's verdict on hero; go to push.

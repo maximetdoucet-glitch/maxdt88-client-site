@@ -19,7 +19,7 @@ const nextConfig = {
         return [{ source: '/favicon.ico', destination: '/icon' }];
     },
     typescript: {
-        ignoreBuildErrors: true,
+        ignoreBuildErrors: false,
     },
 };
 

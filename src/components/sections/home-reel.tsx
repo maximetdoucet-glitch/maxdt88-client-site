@@ -9,7 +9,8 @@ const socialIcon = "text-of-dark transition-colors duration-500 hover:text-of-gr
 import { InquiryForm } from "@/components/site/inquiry-form";
 import { EMAIL, MAILTO } from "@/components/site/chrome";
 import { trackEvent } from "@/components/site/track";
-import { HeroCube, HeroToolList, glass } from "@/components/site/hero-cube";
+import { SoftwareTiles } from "@/components/site/software-tiles";
+import { PlatformLink } from "@/components/site/platform-link";
 
 // Geometry from research/reelhaus-teardown-2026-11-04.md (container 1116, gutter 11.25vw / 24, pill h36 r209 14px,
 // H2 44/52.8 two-tone, 24 pill to H2, 54 H2 to content, ~200 between sections, rows 727:379 gap 10, card r10,
@@ -70,7 +71,7 @@ function Head({ pill, dark, light, className = "" }: { pill: string; dark: strin
 // (Max 2026-11-04), so a black 45% blur underlay keeps it legible over bright frames.
 function Views({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span className={`inline-flex h-[33px] items-center gap-[6px] rounded-full bg-black/45 px-[14px] backdrop-blur-md text-[12px] font-medium leading-[14.4px] text-of-dark ${className}`}>
+    <span className={`inline-flex h-[33px] items-center gap-[6px] whitespace-nowrap rounded-full bg-black/45 px-[14px] backdrop-blur-md text-[12px] font-medium leading-[14.4px] text-of-dark ${className}`}>
       <IconEye />
       {children}
     </span>
@@ -94,81 +95,25 @@ function Client({ name, handle, href }: { name: string; handle?: string; href?: 
   );
 }
 
-// Hero v6 (Max 2026-11-05 "place title slightly higher and the homepage should be somethig neutral but aesthetic
-// visual"; brief e: neutral, restrained, supports the typography, no showreel or extra video). Wall rejected.
-// Three static Class C candidates, pick with ?hero=a|b|c, all on the of-home tokens (#0a0a0a / #181818 / #262626):
-// A light falloff + film grain, B abstract edit timeline, C one still from my work blurred to a colour field.
-const grain =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
-const tracks = [
-  [[4, 14], [20, 9], [31, 22], [56, 7], [66, 18], [87, 11]],
-  [[0, 9], [12, 26], [41, 12], [57, 20], [80, 16]],
-  [[7, 18], [28, 8], [39, 15], [58, 24], [85, 13]],
-  [[2, 22], [27, 13], [43, 9], [55, 17], [75, 21]],
-];
-
 function Hero() {
-  const [variant, setVariant] = useState<"a" | "b" | "c">("a");
-  useEffect(() => {
-    const v = new URLSearchParams(window.location.search).get("hero");
-    if (v === "b" || v === "c") setVariant(v);
-  }, []);
   return (
-    <section className="relative flex min-h-[calc(100svh-76px)] items-center overflow-hidden md:min-h-[calc(100svh-96px)]">
-      {variant === "a" && (
-        <div aria-hidden className="absolute inset-0">
-        </div>
-      )}
-      {variant === "b" && (
-        <div aria-hidden className="absolute inset-x-[10px] top-[8%] flex flex-col gap-[10px] md:inset-x-[30px] md:top-[10%]">
-          <div className="flex justify-between border-b border-white/10 pb-2 text-[12px] text-of-grey tabular-nums">
-            {["00:00", "00:15", "00:30", "00:45", "01:00"].map((t) => (<span key={t}>{t}</span>))}
-          </div>
-          {tracks.map((row, r) => (
-            <div key={r} className="relative h-[34px] md:h-[46px]">
-              {row.map(([x, w], i) => (
-                <span key={i} className="absolute top-0 h-full rounded-[6px]" style={{ left: `${x}%`, width: `${w}%`, background: r === 1 && i === 2 ? "#3a3a3a" : r % 2 ? "#181818" : "#262626" }} />
-              ))}
-            </div>
-          ))}
-          <span className="absolute bottom-[-20px] top-0 w-px bg-white/40" style={{ left: "44%" }} />
-        </div>
-      )}
-      {variant === "c" && (
-        <div aria-hidden className="absolute inset-0">
-          <img src="/videos/hero/saint-13.jpg" alt="" className="absolute inset-0 h-full w-full scale-125 object-cover opacity-60 blur-[90px] saturate-[0.6]" />
-          <div className="absolute inset-0 opacity-[0.07] mix-blend-screen" style={{ backgroundImage: grain }} />
-        </div>
-      )}
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-      <div className={`${reelWrap} relative w-full pb-28 md:pb-36`}>
+    <section className="relative flex flex-col pt-6 pb-12 md:min-h-[calc(100svh-82px)] md:justify-center md:pt-4 md:pb-10">
+      {/* Max 2026-11-05: hero fills the first screen (viewport minus the 82px header). */}
+      <div className={reelWrap}>
         <div className={reelInner}>
-          {variant === "a" && (
-            <>
-              <p className="relative z-10 flex justify-center"><span className={`${glass} inline-flex h-9 items-center rounded-[209px] px-4 text-[14px] leading-[20px] text-of-dark`}>The tools I use</span></p>
-              <div className="relative">
-                <HeroCube className="relative mx-auto -mb-2 -mt-1 aspect-square w-[300px] md:-mb-4 md:-mt-14 md:w-[min(520px,_50svh)]" />
-                <HeroToolList className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-end gap-2 md:flex" />
-              </div>
-            </>
-          )}
-          <h1 className="text-[44px] leading-[1.02] md:text-[clamp(56px,_5.6vw,_96px)] md:leading-[1] font-medium" style={{ letterSpacing: "-0.03em" }}>
-            Specialized in <br className="hidden sm:block" />
-            short-form videos.
+          <SoftwareTiles />
+          <div className="h-10 md:h-20" aria-hidden="true" />
+          <h1 className="text-[44px] leading-[1.02] md:text-[clamp(52px,_4.8vw,_80px)] md:leading-[1.02] font-medium [text-wrap:balance]" style={{ letterSpacing: "-0.03em" }}>
+            Short &amp; long form video editing.
           </h1>
-          <div className="mt-8 flex flex-col gap-6 md:mt-10 md:flex-row md:items-end md:justify-between">
-            <p className={`${grey} max-w-[520px]`}>
-              Shorts, Reels and TikToks built around story, pacing and payoff. Long-form edits are available too.
-            </p>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              <span className="text-[14px] md:text-[16px] text-of-grey">Start with a free 30 to 60 second trial edit</span>
-              <a
-                href="#contact"
-                onClick={() => trackEvent("contact_click", { source: "hero" })}
-                className="inline-flex h-[46px] items-center rounded-full bg-of-dark px-6 text-[16px] text-of-bg transition-opacity duration-300 hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-of-dark"
-              >
-                Contact
-              </a>
+          <div className="mt-6 flex flex-col gap-6 md:mt-8 md:gap-8">
+            <p className={`${grey} max-w-[500px]`}>Shorts, Reels and TikToks built around storytelling, pacing and viewer engagement. Long-form edits are available too.</p>
+            <div className="shrink-0">
+              <p className="mb-3 text-[13px] text-of-grey">Start with a free 30 to 60 second trial edit</p>
+              <div className="flex items-center gap-6">
+                <a href="#contact" onClick={() => trackEvent("contact_click", { source: "hero" })} className="inline-flex h-[46px] items-center rounded-full bg-of-dark px-6 text-[16px] text-of-bg transition-opacity hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-of-dark">Contact</a>
+                <a href="#work" className="text-[14px] text-of-grey underline underline-offset-4 hover:text-of-dark">See client work <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
           </div>
         </div>
@@ -179,62 +124,47 @@ function Hero() {
 
 function ClientWork() {
   return (
-    <section id="work" className={`${reelWrap} scroll-mt-6 pt-[96px] md:pt-[150px]`}>
+    <section id="work" className={`${reelWrap} scroll-mt-6 pt-[56px] md:pt-[80px]`}>
       <div className={reelInner}>
         <Reveal>
           <Head pill="Client work" dark="Selected client work." light="Cut from the footage creators and brands sent me." />
         </Reveal>
         <Reveal className="mt-10 md:mt-[54px]">
-          {/* Option A, Wyatt as the focus (Max 2026-11-04 "wyatts should be a bit bigger"): pair grown 360 to 480 tall, text on the right. */}
-          <article className={`${card} lg:flex lg:items-start lg:gap-[10px]`}>
-            <div className="grid grid-cols-2 gap-[10px] md:flex md:shrink-0">
-              <figure>
-                <figcaption className={`${meta} mb-2 px-1`}>Reference from Wyatt</figcaption>
-                <Media
-                  src="/videos/work/wyatt-reference.mp4"
-                  poster="/videos/work/wyatt-reference.jpg"
-                  ratio={480 / 854}
-                  title="Wyatt's reference video"
-                  alt="Frame from the reference video Wyatt Eiden sent, not my edit"
-                  className="w-full md:h-[480px] md:w-auto"
-                />
-              </figure>
-              <figure>
-                <figcaption className="mb-2 px-1 text-[14px] leading-[20px] font-medium text-of-dark">My edit</figcaption>
-                <Media
-                  src="/videos/work/wyatt-1-final.mp4"
-                  poster="/videos/work/wyatt-1-final.jpg"
-                  ratio={9 / 16}
-                  title="Wyatt Eiden Short, my edit"
-                  alt="Frame from the Wyatt Eiden Short I edited"
-                  className="w-full md:h-[480px] md:w-auto"
-                  badge={<Views>1.1M+ views</Views>}
-                />
-              </figure>
+          <article className={card}>
+            <div className="px-2 pt-3 pb-6 md:px-5 md:pt-5">
+              <Client name="Wyatt Eiden" handle="@wyattei" href="https://www.youtube.com/@wyattei" />
+              <p className={`${grey} mt-2`}>Two commissioned street interview edits, shaped around Wyatt&apos;s reference style.</p>
             </div>
-            <div className="flex flex-col gap-y-6 px-[10px] pb-[10px] pt-6 lg:min-w-0 lg:flex-1 lg:pb-[14px] lg:pl-[30px] lg:pr-[20px] lg:pt-[48px]">
+            <div className="grid gap-6 lg:grid-cols-[1.12fr_1fr] lg:gap-8">
               <div>
-                <Client name="Wyatt Eiden" handle="@wyattei" href="https://www.youtube.com/@wyattei" />
+                <div className="grid grid-cols-2 gap-[10px]">
+                  <figure>
+                    <figcaption className={`${meta} mb-2 px-1`}>Reference from Wyatt</figcaption>
+                    <Media src="/videos/work/wyatt-reference.mp4" poster="/videos/work/wyatt-reference.jpg" ratio={480 / 854} title="Wyatt's reference video" alt="Frame from the reference video Wyatt Eiden sent, not my edit" className="w-full" />
+                  </figure>
+                  <figure>
+                    <figcaption className="mb-2 px-1 text-[14px] leading-[20px] text-of-dark">My edit · 01</figcaption>
+                    <Media src="/videos/work/wyatt-1-final.mp4" poster="/videos/work/wyatt-1-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 01" alt="Frame from the first Wyatt Eiden Short I edited" className="w-full" badge={<Views>1.1M views</Views>} />
+                    <PlatformLink platform="youtube" href="https://youtube.com/shorts/XeeK6zdkmOY" title="Wyatt Eiden, edit 01" />
+                  </figure>
+                </div>
               </div>
-              <div>
-                <p className={meta}>Assignment</p>
-                <p className={`${body} mt-1 max-w-[560px]`}>Edit a Halloween street interview Short, asking people &quot;What&apos;s your Halloween costume?&quot;, to match a viral reference style provided by the creator.</p>
+              <div className="px-2 pb-4 lg:pr-5">
+                <p className={meta}>The first edit</p>
+                <p className={`${body} mt-2`}>A Halloween street interview, cut to match the text, effects and rhythm of Wyatt&apos;s reference.</p>
+                <p className={`${grey} mt-3`}>From two hours of footage, I kept the strongest costume reveals. Each cut starts on the reveal and ends when the answer lands, with tighter crops and consistent captions keeping the pace moving.</p>
+                <div className="mt-6 flex items-start gap-5 border-t border-white/10 pt-5">
+                  <figure className="w-[125px] shrink-0">
+                    <figcaption className="mb-2 text-[14px] leading-[20px] text-of-dark">My edit · 02</figcaption>
+                    <Media src="/videos/work/wyatt-2-final.mp4" poster="/videos/work/wyatt-2-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 02" alt="Frame from the second commissioned Wyatt Eiden edit" className="w-full" badge={<Views className="!gap-[4px] !px-[8px] !text-[11px]">90K views</Views>} />
+                  </figure>
+                  <div className="min-w-0 pt-7">
+                    <p className="text-[18px] font-medium text-of-dark">A second commission</p>
+                    <p className={`${meta} mt-2`}>Another delivered edit for Wyatt&apos;s channel.</p>
+                    <PlatformLink platform="instagram" href="https://www.instagram.com/reel/DfQO1OMptPH/" title="Wyatt Eiden, edit 02" />
+                  </div>
+                </div>
               </div>
-              <div>
-                <p className={meta}>My approach</p>
-                <p className={`${grey} mt-1 max-w-[560px]`}>
-                  I went through about two hours of raw footage and kept only the strongest costume reveals. Every clip starts on the reveal instead of the walk-up and cuts the moment the answer lands, so there is no dead space between people. I matched the reference&apos;s text, effects and rhythm, kept one short caption style throughout, and changed the framing with tighter crops instead of zooming on every shot, so the energy comes from the cuts.
-                </p>
-              </div>
-              <a
-                href="https://youtube.com/shorts/XeeK6zdkmOY"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("client_post_click", { clip: "wyatt_1" })}
-                className={`${body} ${link} self-start`}
-              >
-                Watch the Short on YouTube
-              </a>
             </div>
           </article>
         </Reveal>
@@ -248,22 +178,15 @@ function ClientWork() {
               title="Showtime John, store"
               alt="Frame from the Temptations We Face store episode, edited for Showtime John"
               className="w-full"
-              badge={<Views>24K views</Views>}
+              badge={<Views>24K combined views</Views>}
             />
             <div className="px-[10px] pb-[10px] pt-5">
+              <p className={`${meta} mb-3`}>Combined Instagram + TikTok views</p>
               <Client name="Showtime John" handle="@tempweface" href="https://www.instagram.com/tempweface/" />
               <p className={`${grey} mt-2 max-w-[640px]`}>
                 Short-form editing for a YouTube drama and entertainment series: an engaging standalone clip extracted from the original episode footage.
               </p>
-              <a
-                href="https://www.youtube.com/watch?v=fNZ4smBfW2U"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("client_post_click", { clip: "showtimejohn_series" })}
-                className={`${body} ${link} mt-3 inline-block`}
-              >
-                Watch the mini series on YouTube
-              </a>
+              <PlatformLink platform="youtube" href="https://www.youtube.com/watch?v=fNZ4smBfW2U" title="Temptations We Face miniseries" context="Series context" />
             </div>
           </article>
           <article className={card}>
@@ -279,15 +202,7 @@ function ClientWork() {
             <div className="px-[10px] pb-[10px] pt-5">
               <Client name="SilvaParas" handle="@silvaparas" href="https://www.instagram.com/silvaparas/" />
               <p className={`${grey} mt-2`}>Collection promotion edited from the brand&apos;s own behind-the-scenes iPhone footage.</p>
-              <a
-                href="https://www.instagram.com/silvaparas/"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("client_post_click", { clip: "silvaparas" })}
-                className={`${body} ${link} mt-3 inline-block`}
-              >
-                View on Instagram
-              </a>
+              <PlatformLink platform="instagram" href="https://www.instagram.com/reel/DXO4IOKgq5B/" title="SilvaParas collection promo" />
             </div>
           </article>
         </Reveal>
@@ -348,7 +263,7 @@ function Personal() {
     <section className={`${reelWrap} ${section}`}>
       <div className={reelInner}>
         <Reveal className="grid gap-y-8 gap-x-[10px] md:grid-cols-[1fr_auto] md:items-end">
-          <Head pill="My own content" dark="Where I built my skills." light="Independent edits, published on my own accounts." />
+          <Head pill="My own content" dark="Where I built my skills." light="Personal edits and music promotions, published on my own accounts." />
           <div className="grid grid-cols-2 gap-x-10 md:pb-1">
             <Stat value="45M+" label="Views across my accounts" />
             <Stat value="10+" label="Edits past one million" />
@@ -380,17 +295,9 @@ function Personal() {
             <div className="px-[10px] pb-[10px] pt-5 lg:min-w-0 lg:flex-1 lg:pl-[20px] lg:pt-[24px]">
               <h3 className={title}>Where Do I Start?</h3>
               <p className={`${grey} mt-2`}>
-                An independent music promotion for the artist TR, published on my own account. My edits for his tracks Connected and L4P reached 5M and 4M views across all platforms.
+                A paid music promotion for the artist TR, published on my own account. My edits for his tracks Connected and L4P reached 5M and 4M views across all platforms.
               </p>
-              <a
-                href="https://www.tiktok.com/@max.dt88/video/7602695229019327766"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("own_post_click", { clip: "wdis" })}
-                className={`${body} ${link} mt-3 inline-block`}
-              >
-                Watch it on TikTok
-              </a>
+              <PlatformLink platform="tiktok" href="https://www.tiktok.com/@max.dt88/video/7602695229019327766" title="Where Do I Start?" context="Watch on" />
             </div>
           </article>
           <article className={`${card} lg:flex lg:items-start`}>
@@ -406,15 +313,7 @@ function Personal() {
             <div className="px-[10px] pb-[10px] pt-5 lg:min-w-0 lg:flex-1 lg:pl-[20px] lg:pt-[24px]">
               <h3 className={title}>Ice Tea, Russ Millions</h3>
               <p className={`${grey} mt-2`}>A music promotion for the song Ice Tea by Russ Millions, edited for an agency.</p>
-              <a
-                href="https://www.instagram.com/reel/DNDbU_ZNcsN/"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("own_post_click", { clip: "saint_13" })}
-                className={`${body} ${link} mt-3 inline-block`}
-              >
-                Watch the reel on Instagram
-              </a>
+              <PlatformLink platform="instagram" href="https://www.instagram.com/reel/DNDbU_ZNcsN/" title="Ice Tea, Russ Millions" context="Watch on" />
             </div>
           </article>
         </Reveal>
@@ -451,15 +350,7 @@ function Personal() {
               <p className={`${grey} mt-2 max-w-[720px]`}>
                 I rebuilt Lionsgate&apos;s Katniss Everdeen edit with Snowfall footage on my own, not as a commission. Recreating professional references taught me the editing mechanics and visual execution behind them.
               </p>
-              <a
-                href="https://www.tiktok.com/@max.dt88/video/7621970389752696086"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("own_post_click", { clip: "lionsgate_recreation" })}
-                className={`${body} ${link} mt-3 inline-block`}
-              >
-                Watch my recreation on TikTok
-              </a>
+              <PlatformLink platform="tiktok" href="https://www.tiktok.com/@max.dt88/video/7621970389752696086" title="Lionsgate recreation" context="Watch on" />
             </div>
           </article>
         </Reveal>

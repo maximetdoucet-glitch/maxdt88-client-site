@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -8,8 +8,8 @@ import { ConsentAnalytics } from "@/components/consent-analytics";
 import { CookieConsent } from "@/components/ui/cookie-consent";
 import { SITE_URL, SITE_TITLE, SITE_DESCRIPTION, GOOGLE_SITE_VERIFICATION } from "@/lib/site";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const interTight = Inter_Tight({ subsets: ["latin"], variable: "--font-inter-tight" });
+const inter = localFont({ src: "../assets/inter-latin-variable.woff2", variable: "--font-inter", weight: "100 900", display: "swap" });
+const interTight = localFont({ src: "../assets/inter-tight-latin-variable.woff2", variable: "--font-inter-tight", weight: "100 900", display: "swap" });
 
 export const viewport = {
   width: "device-width",
