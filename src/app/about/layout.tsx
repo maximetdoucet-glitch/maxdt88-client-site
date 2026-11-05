@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 
+const description =
+  "Max is a Franco-American video editor in the Netherlands. Viewer-first short-form editing for creators and brands, built on 45M+ views of his own content.";
+
 export const metadata: Metadata = {
-  title: "About",
-  description: "Max is a Franco-American short-form video editor based in the Netherlands, editing for creators and brands. Long-form too.",
+  title: "About Max, Video Editor",
+  description,
   alternates: { canonical: "/about" },
-  openGraph: { type: "profile", url: "/about", siteName: "max.dt88", title: "About Max | max.dt88", description: "Max is a Franco-American short-form video editor based in the Netherlands, editing for creators and brands. Long-form too.", locale: "en_US" },
-  twitter: { card: "summary_large_image", title: "About Max | max.dt88", description: "Max is a Franco-American short-form video editor based in the Netherlands, editing for creators and brands. Long-form too." },
+  openGraph: { type: "profile", url: "/about", siteName: "max.dt88", images: ["/opengraph-image"], title: "About Max, Video Editor | max.dt88", description, locale: "en_US" },
+  twitter: { card: "summary_large_image", images: ["/opengraph-image"], title: "About Max, Video Editor | max.dt88", description },
 };
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {

@@ -1,373 +1,120 @@
-"use client";
+import { SiteNav, SiteFooter, MAILTO, EMAIL } from "@/components/site/chrome";
 
-import React, { useRef } from "react";
-import { useScroll, motion } from "framer-motion";
-import { Navbar } from "@/components/navbar";
-import NeuralBackground from "@/components/ui/flow-field-background";
-import { TextShimmer } from "@/components/ui/text-shimmer";
+type Row = { title: string; paras: string[]; list?: string[] };
+
+const rows: Row[] = [
+  {
+    title: "Who I am",
+    paras: [
+      "I'm Max, a Franco-American video editor based in the Netherlands.",
+      "I started out editing for a barbershop. From there I taught myself through independent edits on my own social accounts.",
+      "That work led to commissioned edits for creators and brands. Today I am expanding ongoing collaborations with creators, artists and brands.",
+    ],
+  },
+  {
+    title: "How I see content",
+    paras: [
+      "Content is the new way to communicate with people, and the fastest one. Different audiences care about different things, so good editing starts with knowing who the audience is, what they value and what the video should communicate.",
+      "That communication can be humorous, informative, emotional, entertaining, promotional or simply satisfying to watch.",
+    ],
+  },
+  {
+    title: "How I build videos",
+    paras: [
+      "I start from the response the video should get. First what the audience should experience, then the payoff, the hook and the progression between them.",
+      "In my Snowfall edits, viewers connected with Franklin Saint's transformation and the circumstances that drove it. I structured the edit around that emotional interest, not around effects.",
+    ],
+  },
+  {
+    title: "What drives results",
+    paras: [
+      "Audience response and emotional engagement. A successful edit gives its audience something to care about: humor, excitement, curiosity, recognition or an emotional connection.",
+      "Engagement does not guarantee performance. It is the part of the result that editing can influence.",
+    ],
+  },
+  {
+    title: "What I prioritize",
+    paras: [],
+    list: [
+      "1. The quality and possibilities of the available footage",
+      "2. How that footage is selected and presented",
+      "3. The intended audience response and the goal of the video",
+    ],
+  },
+];
+
+const recognition = [
+  { name: "Canal+", text: "Saved one of my independent Snowfall edits." },
+  { name: "Melvin Gregg", text: "Left a genuine comment on my independent Snowfall edit. He played Manboy in the series. Not a paid collaboration or an endorsement." },
+];
+
+const body = "text-[16px] leading-[24px] md:text-[18px] md:leading-[25.2px] text-of-dark";
+const grey = "text-[16px] md:text-[18px] leading-[1.4] text-of-grey";
+const h2 = "text-[30px] md:text-[clamp(30px,3vw,40px)] leading-[1.1] font-medium";
+const row = "grid gap-y-4 gap-x-[22px] md:grid-cols-12 border-b border-of-grey/40 py-10 md:py-[50px]";
+const right = "md:col-span-6 md:col-start-7 max-w-[560px]";
 
 export default function AboutPage() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
   return (
-    <main ref={containerRef} className="relative bg-black min-h-screen text-white overflow-x-hidden selection:bg-[#2196f3]/30">
-      <Navbar />
-      
-      {/* 1. CONTINUOUS BACKGROUND */}
-      <div className="absolute inset-x-0 top-0 h-full z-0 overflow-hidden pointer-events-none">
-        <NeuralBackground 
-          color="#2196f3" 
-          particleCount={150}
-          speed={1.2} 
-          trailOpacity={0.025} 
-          scrollProgress={scrollYProgress}
-        />
-      </div>
-
-      <div className="relative z-10 w-full pt-40 pb-20">
-        <div className="max-w-3xl mx-auto px-6">
-
-          {/* Hero intro */}
-          <motion.div
-            className="mb-24 md:mb-32"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <div className="flex items-center gap-3 mb-5">
-              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em] uppercase">The story behind the edits</span>
-              <span className="h-px flex-1 bg-gradient-to-r from-[#2196f3]/60 to-transparent" />
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-tight font-semibold tracking-[-0.025em] leading-[1.02] text-white">
-              About <span className="italic font-medium text-white/70">me.</span>
-            </h1>
-          </motion.div>
-
-        </div>
-        <div className="max-w-3xl mx-auto px-6 space-y-24 md:space-y-28">
-
-          {/* Section 1 — Who I Am */}
-          <motion.section
-            id="identity"
-            className="text-left space-y-5 group/section"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            whileHover={{ filter: "brightness(1.05)" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="flex items-center gap-3 mb-1">
-              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">01</span>
-              <motion.span
-                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
-                initial={{ width: 0 }}
-                whileInView={{ width: 80 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-              />
-            </div>
-            <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
-              Who I Am
-            </h2>
-            <div className="space-y-6">
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed max-w-2xl">
-                I’m Max, a Franco-American short-form video editor based in the Netherlands. I take on long-form too.
-              </p>
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed max-w-2xl">
-                I started building on social media in April 2025 and quickly generated <span className="text-white font-medium">videos reaching millions of views organically</span>.
-              </p>
-            </div>
-          </motion.section>
-
-          {/* Section 2 — Where My Work Shows Up */}
-          <motion.section
-            id="proof"
-            className="text-left space-y-5 group/section"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            whileHover={{ filter: "brightness(1.05)" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="flex items-center gap-3 mb-1">
-              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">02</span>
-              <motion.span
-                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
-                initial={{ width: 0 }}
-                whileInView={{ width: 80 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-              />
-            </div>
-            <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
-              Where My Work Shows Up
-            </h2>
-            <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed max-w-2xl">
-              My work has been seen by brands the likes of ESPN UK and Canal+, as well as by <span className="text-white font-medium transition-colors duration-500">popular creators and influencers</span> across multiple niches.
-            </p>
-          </motion.section>
-
-          {/* Section 3 — How I See Content */}
-          <motion.section
-            id="angle"
-            className="text-left space-y-5 group/section"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            whileHover={{ filter: "brightness(1.05)" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="flex items-center gap-3 mb-1">
-              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">03</span>
-              <motion.span
-                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
-                initial={{ width: 0 }}
-                whileInView={{ width: 80 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-              />
-            </div>
-            <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
-              How I See Content
-            </h2>
-            <div className="space-y-6">
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed max-w-2xl">
-                Most brands approach social media like advertising.<br />
-                I approach it <span className="text-white font-medium">like content</span>.
-              </p>
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed max-w-2xl">
-                The goal isn’t to push products.<br />
-                It’s to create videos people actually want to watch.
-              </p>
-            </div>
-          </motion.section>
-
-          {/* Section 4 — How I Build Videos */}
-          <motion.section
-            id="how-i-think"
-            className="text-left space-y-5 group/section"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            whileHover={{ filter: "brightness(1.05)" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="flex items-center gap-3 mb-1">
-              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">04</span>
-              <motion.span
-                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
-                initial={{ width: 0 }}
-                whileInView={{ width: 80 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-              />
-            </div>
-            <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
-              How I Build Videos
-            </h2>
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                  Every project starts with understanding the vision.
-                </p>
-                <div className="space-y-3 pl-4 border-l border-white/5 py-1">
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed opacity-75">
-                    How you want to be perceived.
-                  </p>
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed opacity-75">
-                    What you want to highlight.
-                  </p>
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed opacity-75">
-                    What matters to your audience.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                  From there, I build each video around a <span className="text-white font-medium">clear storyline, not just visuals</span>.
-                </p>
-                <div className="space-y-3 pl-4 border-l border-white/5 py-1">
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed opacity-75">
-                    A strong hook to stop the scroll.
-                  </p>
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed opacity-75">
-                    A structured flow that keeps attention.
-                  </p>
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed opacity-75">
-                    A climax that creates impact.
-                  </p>
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed opacity-75">
-                    And an ending that leaves either closure or curiosity.
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="space-y-3">
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                    It doesn’t need to be complex.
-                  </p>
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                    But it needs to make sense.
-                  </p>
-                </div>
-                <p className="text-lg md:text-xl font-sans font-normal text-[#2196f3] font-medium">
-                  Because when a video makes sense, people stay.
-                </p>
-              </div>
-            </div>
-          </motion.section>
-
-          {/* Section 5 — What Actually Drives Results */}
-          <motion.section
-            id="connection"
-            className="text-left space-y-5 group/section"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            whileHover={{ filter: "brightness(1.05)" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="flex items-center gap-3 mb-1">
-              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">05</span>
-              <motion.span
-                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
-                initial={{ width: 0 }}
-                whileInView={{ width: 80 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-              />
-            </div>
-            <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
-              What Actually Drives Results
-            </h2>
-            <div className="space-y-8">
-              <div className="space-y-3">
-                <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                  The goal isn’t just attention.
-                </p>
-                <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed italic">
-                  It’s connection.
-                </p>
-              </div>
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                The strongest content makes <span className="text-white font-medium">people see themselves in it</span>.
-              </p>
-              <div className="space-y-4">
-                <div className="space-y-3 opacity-90">
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/80 leading-relaxed">
-                    Whether it’s the emotion, the mindset, the humor, or the identity,
-                  </p>
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/80 leading-relaxed">
-                    if people relate to what they’re watching, they engage with it.
-                  </p>
-                </div>
-                <div className="space-y-3">
-                  <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                    That’s what drives likes, saves, reposts, and comments.
-                  </p>
-                  <p className="text-lg md:text-xl font-sans font-normal text-white font-medium">
-                    Not just views, but real traction.
-                  </p>
-                </div>
-              </div>
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed opacity-75">
-                And over time, that’s what builds an audience that comes back.
-              </p>
-            </div>
-          </motion.section>
-
-          {/* Section 6 — What I Focus On */}
-          <motion.section
-            id="standard"
-            className="text-left space-y-5 pb-20 group/section"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            whileHover={{ filter: "brightness(1.05)" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="flex items-center gap-3 mb-1">
-              <span className="text-[10px] md:text-xs font-mono text-[#2196f3] tracking-[0.3em]">06</span>
-              <motion.span
-                className="h-px bg-gradient-to-r from-[#2196f3] to-transparent"
-                initial={{ width: 0 }}
-                whileInView={{ width: 80 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-              />
-            </div>
-            <h2 className="text-xl md:text-2xl font-tight font-semibold text-white drop-shadow-[0_0_15px_rgba(33,150,243,0.2)] group-hover/section:drop-shadow-[0_0_20px_rgba(33,150,243,0.4)] transition-all duration-500">
-              What I Focus On
-            </h2>
-            <div className="space-y-6">
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                I don’t chase views alone.
-              </p>
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed">
-                I focus on <span className="text-white font-medium">strong engagement</span>:<br />
-                a healthy ratio of likes, saves, reposts, and comments.
-              </p>
-              <p className="text-lg md:text-xl font-sans font-normal text-white/85 leading-relaxed opacity-75">
-                Because that’s what builds consistency, not just one viral moment.
-              </p>
-            </div>
-          </motion.section>
-        </div>
-      </div>
-
-      <footer className="py-12 px-6 bg-[#000000] border-t border-white/10 relative z-10">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16 md:gap-12">
-          {/* LEFT SIDE - BRAND */}
-          <div className="space-y-6 text-left w-full md:w-auto">
-            <div className="text-2xl font-tight font-semibold text-white tracking-tight">
-              max<TextShimmer baseColor="#2196f3" shimmerColor="#ffffff" className="text-2xl font-tight font-semibold" duration={3}>.dt88</TextShimmer>
-            </div>
-            <div className="space-y-2">
-              <p className="text-sm font-sans font-normal text-white/75">
-                Video editing built for engagement.
-              </p>
-              <p className="text-xs font-sans font-normal text-white/65">
-                Available for select projects
-              </p>
-            </div>
-          </div>
-          
-          {/* RIGHT SIDE - INFO STACK */}
-          <div className="flex flex-col space-y-4 text-left md:text-right md:items-end w-full md:w-auto">
-            <div className="space-y-3">
-              <p className="text-[10px] font-tight font-semibold text-white/50 uppercase tracking-widest">Contact</p>
-              <a 
-                href="mailto:max.doucet@icloud.com" 
-                className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300 block"
-              >
-                max.doucet@icloud.com
-              </a>
-            </div>
-            
-            <div className="space-y-3">
-              <p className="text-[10px] font-tight font-semibold text-white/50 uppercase tracking-widest">Socials</p>
-              <nav className="flex flex-col gap-2 items-start md:items-end">
-                <a href="https://www.tiktok.com/@max.dt88" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">TikTok</a>
-                <a href="https://www.instagram.com/max.dt88" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">Instagram</a>
-                <a href="https://www.youtube.com/@Max.DT88/shorts" target="_blank" rel="noopener noreferrer" className="text-sm font-sans font-normal text-white hover:brightness-125 transition-all duration-300">YouTube</a>
-              </nav>
-            </div>
-          </div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto mt-10 text-left">
-          <p className="text-[10px] font-sans font-normal text-white/55 tracking-widest uppercase">
-            © 2026 MAXDT88. ALL RIGHTS RESERVED.
+    <main className="of-page of-home min-h-screen bg-of-bg text-of-dark overflow-x-hidden">
+      <SiteNav current="about" />
+      <section className="px-5 md:px-[5vw] pt-[70px] pb-[70px] md:pt-[150px] md:pb-[100px]">
+        <div className="mx-auto max-w-[1296px]">
+          <h1 className="max-w-[1200px] text-[50px] md:text-[clamp(50px,6.3vw,90px)] leading-[1] md:leading-[0.95] font-medium">
+            About me
+          </h1>
+          <p className={`${body} mt-8 max-w-[640px]`}>
+            A video editor who puts the viewer first: the footage leads and the editing supports it.
           </p>
-            <a href="/privacy" className="inline-block mt-3 text-xs font-sans text-white/50 hover:text-white transition-colors">Privacy and cookies</a>
         </div>
-      </footer>
+      </section>
+      <section className="px-5 md:px-[5vw]">
+        <div className="mx-auto max-w-[1296px] border-t border-of-grey/40">
+          {rows.map((r) => (
+            <article key={r.title} className={row}>
+              <h2 className={`${h2} md:col-span-5`}>{r.title}</h2>
+              <div className={`${right} space-y-5`}>
+                {r.paras.map((p) => (
+                  <p key={p} className={body}>{p}</p>
+                ))}
+                {r.list && (
+                  <ul className="space-y-1">
+                    {r.list.map((li) => (
+                      <li key={li} className={grey}>{li}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </article>
+          ))}
+          <article className={row}>
+            <div className="md:col-span-5">
+              <h2 className={h2}>Personal edits seen and saved by</h2>
+              <p className={`${grey} mt-2`}>My independent edits have been liked by big creators and brands, and notably saved by Canal+.</p>
+            </div>
+            <ul className={`${right} space-y-6`}>
+              {recognition.map((r) => (
+                <li key={r.name}>
+                  <p className="text-[20px] md:text-[24px] leading-[1.2] font-medium">{r.name}</p>
+                  <p className={`${body} mt-1`}>{r.text}</p>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </section>
+      <section className="px-5 md:px-[5vw] pt-[70px] md:pt-[150px]">
+        <div className="mx-auto max-w-[1296px] grid gap-y-6 gap-x-[22px] lg:grid-cols-12">
+          <h2 className="lg:col-span-5 self-start text-[40px] md:text-[clamp(40px,4vw,57px)] leading-[1] font-medium">Work together</h2>
+          <div className="lg:col-span-6 lg:col-start-7 space-y-6 max-w-[560px]">
+            <p className={body}>Start with a free 30 to 60 second trial edit, so you can judge the fit on your own footage.</p>
+            <p className={body}>
+              <a href={MAILTO} className="underline underline-offset-4 decoration-of-grey hover:decoration-of-dark">{EMAIL}</a>
+            </p>
+          </div>
+        </div>
+      </section>
+      <SiteFooter />
     </main>
   );
 }

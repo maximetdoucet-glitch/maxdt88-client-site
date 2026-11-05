@@ -21,6 +21,11 @@ module.exports = {
         tight: ["var(--font-inter-tight)", "ui-sans-serif", "system-ui"],
       },
       colors: {
+        "of-dark": "rgb(var(--of-dark) / <alpha-value>)",
+        "of-grey": "rgb(var(--of-grey) / <alpha-value>)",
+        "of-bg": "rgb(var(--of-bg) / <alpha-value>)",
+        "of-panel": "rgb(var(--of-panel) / <alpha-value>)",
+        "of-card": "rgb(var(--of-card) / <alpha-value>)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

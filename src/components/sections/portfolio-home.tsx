@@ -13,6 +13,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
+
+// Set to "/videos/<file>.mp4" once the motion graphics reel is rendered.
+const MOGRAPH_SRC: string | null = null;
+
 const NeuralBackground = dynamic(() => import("@/components/ui/flow-field-background"), { ssr: false });
 
 gsap.registerPlugin(ScrollTrigger);
@@ -40,7 +44,7 @@ function PortfolioVideo({ src, stats, label, aspectRatio = "9/16", maxWidth = "4
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (videoRef.current) {
-          // Higher threshold so only videos centrally in view autoplay — avoids decoder overload
+          // Higher threshold so only videos centrally in view autoplay, avoids decoder overload
           const inView = entry.isIntersecting && entry.intersectionRatio > 0.65;
           
           if (inView) {
@@ -102,7 +106,7 @@ function PortfolioVideo({ src, stats, label, aspectRatio = "9/16", maxWidth = "4
       webkitEnterFullscreen?: () => void;
     } | null;
     if (!v) return;
-    // Unmute on fullscreen — full-screen viewing should have sound by default
+    // Unmute on fullscreen, full-screen viewing should have sound by default
     v.muted = false;
     setIsMuted(false);
     if (typeof v.webkitEnterFullscreen === "function") {
@@ -115,7 +119,7 @@ function PortfolioVideo({ src, stats, label, aspectRatio = "9/16", maxWidth = "4
   return (
     <div className="flex flex-col items-center w-full" ref={containerRef} style={{ maxWidth }}>
       <div className="relative w-full mx-auto" style={{ maxWidth }}>
-        {/* Soft ambient glow — premium, not flashy */}
+        {/* Soft ambient glow, premium, not flashy */}
         <div
           className="absolute -inset-x-6 -inset-y-6 sm:-inset-x-10 sm:-inset-y-10 bg-[#2196f3]/20 blur-3xl opacity-40 pointer-events-none -z-10"
           aria-hidden
@@ -278,7 +282,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-white/[0.03] text-xs sm:text-sm tracking-tight text-white/70 mb-6 sm:mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#2196f3] animate-pulse" />
-                Short-form editor · long-form too
+                Portfolio · short-form editor, long-form too
               </div>
 
               <h1 className="text-[44px] sm:text-6xl md:text-[100px] font-tight font-semibold tracking-[-0.025em] leading-[1.02] md:leading-[0.92] text-white mb-5 md:mb-7 shadow-blue-glow [text-wrap:balance]">
@@ -289,6 +293,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 <p>
                   Edits that tell a story. Short-form cut for retention, long-form too.
                   <span className="text-white"> Send me a reference and I&apos;ll match the style.</span>
+                </p>
+                <p className="text-sm sm:text-base text-white/60">
+                  Hiring through YT Jobs or YT Careers? My work is right below.
                 </p>
               </div>
 
@@ -302,6 +309,67 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                 </Link>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* 4. VIDEO SECTION (MOST IMPORTANT) */}
+        <section id="work" className="scroll-mt-20 sm:scroll-mt-24 pt-10 pb-16 sm:pb-24 md:pb-32 px-5 sm:px-6 bg-transparent">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-10 sm:mb-14 md:mb-16">
+              <p className="text-[11px] sm:text-xs font-sans font-medium tracking-widest uppercase text-[#2196f3] mb-3">
+                Portfolio
+              </p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-tight font-semibold tracking-tight text-white leading-[1.1]">
+                Imagine your content, <br className="sm:hidden" />
+                <span className="text-white/60">cut like this.</span>
+              </h2>
+            </div>
+
+            <h3 className="text-sm sm:text-base font-tight font-semibold text-white/70 tracking-tight mb-5 sm:mb-6 text-center">Short-form and cinematic</h3>
+            {/* 1. Hero TikTok (vertical) + Cinematic Lionsgate, stacked on mobile, side-by-side on desktop with matching heights */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-12">
+              <div className="w-full md:w-[253px] flex justify-center">
+                <PortfolioVideo
+                  src="/videos/saint-9-tt-fr.mp4"
+                  label="TikTok"
+                  stats="200K reposts"
+                  aspectRatio="9/16"
+                  maxWidth="380px"
+                />
+              </div>
+
+              <div className="mt-10 sm:mt-16 md:mt-0 w-full md:w-[800px] flex justify-center">
+                <PortfolioVideo
+                  src="/videos/saint-52-tt.mp4"
+                  label="Cinematic"
+                  stats="Lionsgate edit style"
+                  aspectRatio="16/9"
+                  maxWidth="900px"
+                />
+              </div>
+            </div>
+
+            {/* 2. Football N-E-C + Cinematic Canal+, side by side, even on mobile */}
+            <div className="mt-16 sm:mt-24 md:mt-32">
+            <h3 className="text-sm sm:text-base font-tight font-semibold text-white/70 tracking-tight mb-5 sm:mb-6 text-center">Sports and long-form style</h3>
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 md:gap-12 items-center max-w-5xl mx-auto">
+              <PortfolioVideo
+                src="/videos/n-e-c-1-fv-tt.mp4"
+                label="Football"
+                stats="Ligue 1 style adapted to N-E-C"
+                aspectRatio="16/9"
+                maxWidth="560px"
+              />
+              <PortfolioVideo
+                src="/videos/saint-30-v2-tt.mp4"
+                label="Cinematic"
+                stats="Saved by Canal+"
+                aspectRatio="16/9"
+                maxWidth="560px"
+              />
+            </div>
+
           </div>
         </section>
 
@@ -327,62 +395,25 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
           </div>
         </section>
 
-        {/* 4. VIDEO SECTION (MOST IMPORTANT) */}
-        <section id="work" className="pt-10 pb-16 sm:pb-24 md:pb-32 px-5 sm:px-6 bg-transparent">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-10 sm:mb-14 md:mb-16">
-              <p className="text-[11px] sm:text-xs font-sans font-medium tracking-widest uppercase text-[#2196f3] mb-3">
-                Selected work
-              </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-tight font-semibold tracking-tight text-white leading-[1.1]">
-                Imagine your content, <br className="sm:hidden" />
-                <span className="text-white/60">cut like this.</span>
-              </h2>
-            </div>
-
-            {/* 1. Hero TikTok (vertical) + Cinematic Lionsgate — stacked on mobile, side-by-side on desktop with matching heights */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-12">
-              <div className="w-full md:w-[253px] flex justify-center">
-                <PortfolioVideo
-                  src="/videos/saint-9-tt-fr.mp4"
-                  label="TikTok"
-                  stats="200K reposts"
-                  aspectRatio="9/16"
-                  maxWidth="380px"
-                />
+        {/* 4b. MOTION GRAPHICS (renders once the mograph reel exists) */}
+        {MOGRAPH_SRC && (
+          <section id="motion-graphics" className="pt-6 pb-16 sm:pb-24 md:pb-32 px-5 sm:px-6 bg-transparent">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center">
+              <div className="text-left">
+                <p className="text-[11px] sm:text-xs font-sans font-medium tracking-widest uppercase text-[#2196f3] mb-3">Motion graphics</p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-tight font-semibold tracking-tight text-white max-w-xl leading-[1.05] [text-wrap:balance]">
+                  Titles, counters and 3D, built for your channel.
+                </h2>
+                <p className="mt-5 text-base md:text-lg font-sans text-white/75 max-w-lg leading-relaxed">
+                  Kinetic captions, animated stats, lower thirds and 3D title cards. Made in Blender and After Effects.
+                </p>
               </div>
-
-              <div className="mt-10 sm:mt-16 md:mt-0 w-full md:w-[800px] flex justify-center">
-                <PortfolioVideo
-                  src="/videos/saint-52-tt.mp4"
-                  label="Cinematic"
-                  stats="Lionsgate edit style"
-                  aspectRatio="16/9"
-                  maxWidth="900px"
-                />
+              <div className="w-full md:w-[300px] flex justify-center">
+                <PortfolioVideo src={MOGRAPH_SRC} label="Motion graphics" stats="Blender and After Effects" aspectRatio="9/16" maxWidth="340px" />
               </div>
             </div>
-
-            {/* 2. Football N-E-C + Cinematic Canal+ — side by side, even on mobile */}
-            <div className="mt-16 sm:mt-24 md:mt-32 grid grid-cols-2 gap-3 sm:gap-5 md:gap-12 items-center max-w-5xl mx-auto">
-              <PortfolioVideo
-                src="/videos/n-e-c-1-fv-tt.mp4"
-                label="Football"
-                stats="Ligue 1 style adapted to N-E-C"
-                aspectRatio="16/9"
-                maxWidth="560px"
-              />
-              <PortfolioVideo
-                src="/videos/saint-30-v2-tt.mp4"
-                label="Cinematic"
-                stats="Saved by Canal+"
-                aspectRatio="16/9"
-                maxWidth="560px"
-              />
-            </div>
-
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* 5. WHAT I OFFER (CLEAN MINIMAL LIST) */}
         <section id="services" className="py-14 sm:py-24 md:py-32 px-5 sm:px-6 bg-transparent">
@@ -390,7 +421,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
             <div className="mb-10 sm:mb-14 md:mb-16">
               <p className="text-[11px] sm:text-xs font-sans font-medium tracking-widest uppercase text-[#2196f3] mb-3">What I do</p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-tight font-semibold tracking-tight text-white max-w-2xl leading-[1.05]">
-                Same craft.<br className="sm:hidden" /> Creators and brands.
+                Built for creators.<br className="sm:hidden" /> Brands too.
               </h2>
             </div>
 
@@ -472,6 +503,9 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
               <p className="text-base sm:text-lg font-sans text-white/70 max-w-xl mx-auto leading-relaxed pt-2">
                 Tell me what you&apos;re building and send a video you love. I&apos;ll match the style and pace, short-form or long-form.
               </p>
+              <p className="text-sm sm:text-base font-sans text-white/80 max-w-xl mx-auto leading-relaxed">
+                Open to part-time or full-time contracts and available for gigs. Rates to be discussed.
+              </p>
             </div>
 
             <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-5 sm:p-7 md:p-9 backdrop-blur-sm shadow-[0_0_60px_rgba(33,150,243,0.08)]">
@@ -524,7 +558,7 @@ export function PortfolioHome({ showContent }: PortfolioHomeProps) {
                   Video editing built for engagement.
                 </p>
                 <p className="text-xs font-sans font-normal text-white/65">
-                  Available for select projects
+                  Open to part-time and full-time contracts and gigs
                 </p>
               </div>
             </div>
