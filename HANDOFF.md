@@ -16,3 +16,9 @@
 - Real-phone touch + reduced-motion check; motion feel UNVERIFIED.
 - Astra's zip had 3 partial hidden video temp files (skipped).
 - Older: spacing pill/H1/CTA, Lionsgate card, "Independent edits" heading, remove variants B/C, old webp/mp4 deletions.
+
+## Update 2026-11-05 late (commits 8b0f5eb, 9cca160, e379352, local, NOT pushed)
+- Hero: full screen (min-h 100svh-82px header), H1 "Short & long form video editing." (2 lines desktop), 48px gap tiles to H1, subline then trial line + Contact stacked under it, left aligned.
+- View chips on the videos (bottom right, same Views pill): Wyatt 01 "1.1M+ views", Wyatt 02 "90K+ views" (smaller chip, frame 125px), SilvaParas "3K views". Removed the "1.1M+ YouTube views" text line.
+- SilvaParas hover-play works in Playwright (paused false, readyState 4); Max reported he could not hover it, cause UNKNOWN.
+- OPEN: subline still says "Long-form edits are available too." (redundant with new H1, wording is Max's call); Max's verdict on hero; go to push.
