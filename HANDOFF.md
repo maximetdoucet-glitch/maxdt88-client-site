@@ -26,3 +26,6 @@
 ## LIVE 2026-11-05 (Max go): main = e4418e3 on maxdt88.com
 - Live has Astra package, GA4 G-CF9GEG390R (verified in layout chunk), H1 "Short & long form video editing." one line at 1440 (clamp 52px/4.8vw/80px), 80px gap tiles to H1, CTA under subline, view chips 1.1M / 90K / 3K (no plus).
 - OPEN: subline "Long-form edits are available too." redundant with H1 (Max's wording call); SilvaParas hover issue not reproduced; phone 202px gap tiles to H1; real-phone check.
+
+## 2026-11-05 late
+- Subline sentence "Long-form edits are available too." removed (commit 6913beb on rebuild-reelhaus). NOT live yet: needs Max go, then the usual push procedure.
