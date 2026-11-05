@@ -156,7 +156,7 @@ function ClientWork() {
                 <div className="mt-6 flex items-start gap-5 border-t border-white/10 pt-5">
                   <figure className="w-[112px] shrink-0 md:w-[125px]">
                     <figcaption className="mb-2 text-[14px] leading-[20px] text-of-dark">My edit · 02</figcaption>
-                    <Media src="/videos/work/wyatt-2-final.mp4" poster="/videos/work/wyatt-2-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 02" alt="Frame from the second commissioned Wyatt Eiden edit" className="w-full" badge={<Views className="px-[10px]">90K+ views</Views>} />
+                    <Media src="/videos/work/wyatt-2-final.mp4" poster="/videos/work/wyatt-2-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 02" alt="Frame from the second commissioned Wyatt Eiden edit" className="w-full" badge={<Views className="!gap-[4px] !px-[8px] !text-[11px]">90K+ views</Views>} />
                   </figure>
                   <div className="min-w-0 pt-7">
                     <p className="text-[18px] font-medium text-of-dark">A second commission</p>
