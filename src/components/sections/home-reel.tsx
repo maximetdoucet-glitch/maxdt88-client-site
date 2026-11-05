@@ -107,7 +107,7 @@ function Hero() {
             Short &amp; long form video editing.
           </h1>
           <div className="mt-6 flex flex-col gap-6 md:mt-8 md:gap-8">
-            <p className={`${grey} max-w-[500px]`}>Shorts, Reels and TikToks built around storytelling, pacing and viewer engagement. Long-form edits are available too.</p>
+            <p className={`${grey} max-w-[500px]`}>Shorts, Reels and TikToks built around storytelling, pacing and viewer engagement.</p>
             <div className="shrink-0">
               <p className="mb-3 text-[13px] text-of-grey">Start with a free 30 to 60 second trial edit</p>
               <div className="flex items-center gap-6">
