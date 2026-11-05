@@ -71,7 +71,7 @@ function Head({ pill, dark, light, className = "" }: { pill: string; dark: strin
 // (Max 2026-11-04), so a black 45% blur underlay keeps it legible over bright frames.
 function Views({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span className={`inline-flex h-[33px] items-center gap-[6px] rounded-full bg-black/45 px-[14px] backdrop-blur-md text-[12px] font-medium leading-[14.4px] text-of-dark ${className}`}>
+    <span className={`inline-flex h-[33px] items-center gap-[6px] whitespace-nowrap rounded-full bg-black/45 px-[14px] backdrop-blur-md text-[12px] font-medium leading-[14.4px] text-of-dark ${className}`}>
       <IconEye />
       {children}
     </span>
@@ -97,14 +97,16 @@ function Client({ name, handle, href }: { name: string; handle?: string; href?: 
 
 function Hero() {
   return (
-    <section className="relative pt-6 pb-12 md:pt-12 md:pb-16">
+    <section className="relative flex flex-col pt-6 pb-12 md:min-h-[calc(100svh-82px)] md:justify-center md:pt-4 md:pb-10">
+      {/* Max 2026-11-05: hero fills the first screen (viewport minus the 82px header). */}
       <div className={reelWrap}>
         <div className={reelInner}>
           <SoftwareTiles />
-          <h1 className="text-[44px] leading-[1.02] md:text-[clamp(56px,_5.6vw,_96px)] md:leading-[1] font-medium" style={{ letterSpacing: "-0.03em" }}>
-            Specialized in <br className="hidden sm:block" />short-form video editing.
+          <div className="h-10 md:h-12" aria-hidden="true" />
+          <h1 className="text-[44px] leading-[1.02] md:text-[clamp(56px,_5.6vw,_96px)] md:leading-[1] font-medium [text-wrap:balance]" style={{ letterSpacing: "-0.03em" }}>
+            Short &amp; long form video editing.
           </h1>
-          <div className="mt-6 flex flex-col gap-6 md:mt-8 md:flex-row md:items-end md:justify-between">
+          <div className="mt-6 flex flex-col gap-6 md:mt-8 md:gap-8">
             <p className={`${grey} max-w-[500px]`}>Shorts, Reels and TikToks built around storytelling, pacing and viewer engagement. Long-form edits are available too.</p>
             <div className="shrink-0">
               <p className="mb-3 text-[13px] text-of-grey">Start with a free 30 to 60 second trial edit</p>
@@ -142,8 +144,7 @@ function ClientWork() {
                   </figure>
                   <figure>
                     <figcaption className="mb-2 px-1 text-[14px] leading-[20px] text-of-dark">My edit · 01</figcaption>
-                    <Media src="/videos/work/wyatt-1-final.mp4" poster="/videos/work/wyatt-1-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 01" alt="Frame from the first Wyatt Eiden Short I edited" className="w-full" />
-                    <p className="mt-3 text-[14px] text-of-dark">1.1M+ YouTube views</p>
+                    <Media src="/videos/work/wyatt-1-final.mp4" poster="/videos/work/wyatt-1-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 01" alt="Frame from the first Wyatt Eiden Short I edited" className="w-full" badge={<Views>1.1M+ views</Views>} />
                     <PlatformLink platform="youtube" href="https://youtube.com/shorts/XeeK6zdkmOY" title="Wyatt Eiden, edit 01" />
                   </figure>
                 </div>
@@ -155,7 +156,7 @@ function ClientWork() {
                 <div className="mt-6 flex items-start gap-5 border-t border-white/10 pt-5">
                   <figure className="w-[112px] shrink-0 md:w-[125px]">
                     <figcaption className="mb-2 text-[14px] leading-[20px] text-of-dark">My edit · 02</figcaption>
-                    <Media src="/videos/work/wyatt-2-final.mp4" poster="/videos/work/wyatt-2-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 02" alt="Frame from the second commissioned Wyatt Eiden edit" className="w-full" />
+                    <Media src="/videos/work/wyatt-2-final.mp4" poster="/videos/work/wyatt-2-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 02" alt="Frame from the second commissioned Wyatt Eiden edit" className="w-full" badge={<Views className="px-[10px]">90K+ views</Views>} />
                   </figure>
                   <div className="min-w-0 pt-7">
                     <p className="text-[18px] font-medium text-of-dark">A second commission</p>
@@ -196,6 +197,7 @@ function ClientWork() {
               title="SilvaParas collection promo"
               alt="Frame from the SilvaParas collection promo"
               className="h-[380px] md:h-[360px]"
+              badge={<Views>3K views</Views>}
             />
             <div className="px-[10px] pb-[10px] pt-5">
               <Client name="SilvaParas" handle="@silvaparas" href="https://www.instagram.com/silvaparas/" />
