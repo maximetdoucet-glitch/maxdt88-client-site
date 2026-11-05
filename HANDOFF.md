@@ -22,3 +22,10 @@
 - View chips on the videos (bottom right, same Views pill): Wyatt 01 "1.1M+ views", Wyatt 02 "90K+ views" (smaller chip, frame 125px), SilvaParas "3K views". Removed the "1.1M+ YouTube views" text line.
 - SilvaParas hover-play works in Playwright (paused false, readyState 4); Max reported he could not hover it, cause UNKNOWN.
 - OPEN: subline still says "Long-form edits are available too." (redundant with new H1, wording is Max's call); Max's verdict on hero; go to push.
+
+## LIVE 2026-11-05 (Max go): main = e4418e3 on maxdt88.com
+- Live has Astra package, GA4 G-CF9GEG390R (verified in layout chunk), H1 "Short & long form video editing." one line at 1440 (clamp 52px/4.8vw/80px), 80px gap tiles to H1, CTA under subline, view chips 1.1M / 90K / 3K (no plus).
+- OPEN: subline "Long-form edits are available too." redundant with H1 (Max's wording call); SilvaParas hover issue not reproduced; phone 202px gap tiles to H1; real-phone check.
+
+## 2026-11-05 late
+- Subline sentence "Long-form edits are available too." removed (commit 6913beb on rebuild-reelhaus). NOT live yet: needs Max go, then the usual push procedure.
