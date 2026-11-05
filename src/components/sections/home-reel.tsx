@@ -154,7 +154,7 @@ function ClientWork() {
                 <p className={`${body} mt-2`}>A Halloween street interview, cut to match the text, effects and rhythm of Wyatt&apos;s reference.</p>
                 <p className={`${grey} mt-3`}>From two hours of footage, I kept the strongest costume reveals. Each cut starts on the reveal and ends when the answer lands, with tighter crops and consistent captions keeping the pace moving.</p>
                 <div className="mt-6 flex items-start gap-5 border-t border-white/10 pt-5">
-                  <figure className="w-[112px] shrink-0 md:w-[125px]">
+                  <figure className="w-[125px] shrink-0">
                     <figcaption className="mb-2 text-[14px] leading-[20px] text-of-dark">My edit · 02</figcaption>
                     <Media src="/videos/work/wyatt-2-final.mp4" poster="/videos/work/wyatt-2-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 02" alt="Frame from the second commissioned Wyatt Eiden edit" className="w-full" badge={<Views className="!gap-[4px] !px-[8px] !text-[11px]">90K+ views</Views>} />
                   </figure>
