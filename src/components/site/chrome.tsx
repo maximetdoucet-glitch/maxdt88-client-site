@@ -11,16 +11,21 @@ const DISCORD = "MaximeDoucet0536";
 
 const link = "transition-colors duration-500 hover:text-of-dark";
 
-export function SiteNav({ current }: { current?: "work" | "services" | "about" }) {
+// "reel" = homepage frame from research/reelhaus-teardown-2026-11-04.md (container 1116, gutter 11.25vw / 24).
+type Frame = "of" | "reel";
+const wrap = (f: Frame) => (f === "reel" ? "px-6 md:px-[11.25vw]" : "px-5 md:px-[5vw]");
+const inner = (f: Frame) => (f === "reel" ? "max-w-[1116px]" : "max-w-[1296px]");
+
+export function SiteNav({ current, frame = "of" }: { current?: "home" | "services" | "about"; frame?: Frame }) {
   const item = (key: string) => (current === key ? "text-of-dark" : "text-of-grey");
   return (
-    <header className="px-5 md:px-[5vw] pt-5 pb-5 md:pt-10">
-      <nav aria-label="Main" className="mx-auto max-w-[1296px] flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 text-[16px] md:text-[18px] leading-[22px]">
+    <header className={`${wrap(frame)} pt-5 pb-5 md:pt-10`}>
+      <nav aria-label="Main" className={`mx-auto ${inner(frame)} flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 text-[16px] md:text-[18px] leading-[22px]`}>
         <Link href="/" className="text-of-dark font-medium">max.dt88</Link>
         <ul className="flex gap-5 md:gap-8">
-          <li><Link href="/#work" className={`${item("work")} ${link}`}>Work</Link></li>
-          <li><Link href="/services" className={`${item("services")} ${link}`}>Services</Link></li>
+          <li><Link href="/" className={`${item("home")} ${link}`}>Home</Link></li>
           <li><Link href="/about" className={`${item("about")} ${link}`}>About Me</Link></li>
+          <li><Link href="/services" className={`${item("services")} ${link}`}>Services</Link></li>
           <li>
             <a href={MAILTO} onClick={() => trackEvent("contact_mailto", { source: "nav" })} className={`text-of-dark ${link}`}>
               Contact
@@ -32,7 +37,7 @@ export function SiteNav({ current }: { current?: "work" | "services" | "about" }
   );
 }
 
-export function SiteFooter() {
+export function SiteFooter({ frame = "of" }: { frame?: Frame }) {
   const [shown, setShown] = useState(false);
   const discord = async () => {
     setShown(true);
@@ -43,8 +48,8 @@ export function SiteFooter() {
   };
   const icon = "h-7 w-7 text-of-dark transition-colors duration-500 hover:text-of-grey";
   return (
-    <footer className="px-5 md:px-[5vw] pt-[50px] md:pt-[150px] pb-[50px] text-[16px] md:text-[18px] leading-[25px]">
-      <div className="mx-auto max-w-[1296px]">
+    <footer className={`${wrap(frame)} pt-[80px] md:pt-[150px] pb-[40px] text-[16px] md:text-[18px] leading-[25px]`}>
+      <div className={`mx-auto ${inner(frame)}`}>
         <div className="grid gap-8 md:grid-cols-2">
           <div>
             <div className="flex items-center gap-5">
@@ -59,7 +64,7 @@ export function SiteFooter() {
               {shown ? `Discord: ${DISCORD} (copied)` : ""}
             </p>
           </div>
-          <div>
+          <div className="md:text-right">
             <a href={MAILTO} onClick={() => trackEvent("contact_mailto", { source: "footer" })} className="text-of-dark underline underline-offset-4 decoration-of-grey">
               {EMAIL}
             </a>
@@ -68,10 +73,9 @@ export function SiteFooter() {
             </p>
           </div>
         </div>
-        <p className="mt-[50px] text-of-dark font-medium text-[13vw] md:text-[6vw] leading-[1.4]">
-          © 2026
-          <br />
-          max.dt88
+        <p className="mt-[50px] flex items-baseline justify-between gap-4 border-t border-of-grey/40 pt-5">
+          <span className="text-of-dark font-medium">max.dt88</span>
+          <span className="text-of-grey">© 2026</span>
         </p>
       </div>
     </footer>

@@ -35,7 +35,7 @@ const body = "text-[16px] leading-[24px] md:text-[18px] md:leading-[25.2px] text
 
 export default function ServicesPage() {
   return (
-    <main className="of-page min-h-screen bg-of-bg text-of-dark overflow-x-hidden">
+    <main className="of-page of-home min-h-screen bg-of-bg text-of-dark overflow-x-hidden">
       <SiteNav current="services" />
       <section className="px-5 md:px-[5vw] pt-[70px] pb-[70px] md:pt-[150px] md:pb-[100px]">
         <div className="mx-auto max-w-[1296px]">
@@ -64,8 +64,8 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-[1296px] grid gap-y-6 gap-x-[22px] lg:grid-cols-12">
           <h2 className="lg:col-span-5 self-start text-[40px] md:text-[clamp(40px,4vw,57px)] leading-[1] font-medium">How we work together</h2>
           <div className="lg:col-span-6 lg:col-start-7 space-y-6 max-w-[560px]">
-            <p className={body}>I prefer recurring, part-time or full-time collaborations, where I can learn your style and get faster with every video.</p>
-            <p className={body}>We start with one free 30 to 60 second trial edit with an agreed scope. Once we know the requirements and the creative fit, we agree on ongoing rates.</p>
+            <p className={body}>You send the raw footage with a reference or a short brief. I return a first cut, then we refine it together with your notes until it feels right.</p>
+            <p className={body}>Along the way I keep track of what you like: pacing, captions, framing and the moments you always want kept. That way every next video needs fewer changes, which is why I prefer recurring, part-time or full-time collaborations.</p>
             <p className={body}>
               <a href={MAILTO} className="underline underline-offset-4 decoration-of-grey hover:decoration-of-dark">{EMAIL}</a>
             </p>

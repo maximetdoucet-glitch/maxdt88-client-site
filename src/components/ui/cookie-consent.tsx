@@ -36,9 +36,9 @@ export function CookieConsent() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed z-[100] left-3 right-3 bottom-3 md:bottom-6 md:left-auto md:right-6 md:max-w-[380px]"
+          className="pointer-events-none fixed inset-x-3 bottom-3 z-[100] flex justify-center md:bottom-6"
         >
-          <div className="bg-of-dark p-5">
+          <div className="pointer-events-auto w-full max-w-[440px] rounded-[10px] border border-white/10 bg-[#161616] p-5 shadow-lg">
             <p className="text-sm font-semibold text-white mb-1.5">Cookies for analytics</p>
             <p className="text-[13px] text-white/60 leading-relaxed">
               With your OK, Google Analytics sets cookies to show me which videos and pages get attention. No ads. Decline and nothing is loaded.{" "}
