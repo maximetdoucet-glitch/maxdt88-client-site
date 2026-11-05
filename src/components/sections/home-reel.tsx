@@ -102,8 +102,8 @@ function Hero() {
       <div className={reelWrap}>
         <div className={reelInner}>
           <SoftwareTiles />
-          <div className="h-10 md:h-12" aria-hidden="true" />
-          <h1 className="text-[44px] leading-[1.02] md:text-[clamp(56px,_5.6vw,_96px)] md:leading-[1] font-medium [text-wrap:balance]" style={{ letterSpacing: "-0.03em" }}>
+          <div className="h-10 md:h-20" aria-hidden="true" />
+          <h1 className="text-[44px] leading-[1.02] md:text-[clamp(52px,_4.8vw,_80px)] md:leading-[1.02] font-medium [text-wrap:balance]" style={{ letterSpacing: "-0.03em" }}>
             Short &amp; long form video editing.
           </h1>
           <div className="mt-6 flex flex-col gap-6 md:mt-8 md:gap-8">
@@ -144,7 +144,7 @@ function ClientWork() {
                   </figure>
                   <figure>
                     <figcaption className="mb-2 px-1 text-[14px] leading-[20px] text-of-dark">My edit · 01</figcaption>
-                    <Media src="/videos/work/wyatt-1-final.mp4" poster="/videos/work/wyatt-1-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 01" alt="Frame from the first Wyatt Eiden Short I edited" className="w-full" badge={<Views>1.1M+ views</Views>} />
+                    <Media src="/videos/work/wyatt-1-final.mp4" poster="/videos/work/wyatt-1-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 01" alt="Frame from the first Wyatt Eiden Short I edited" className="w-full" badge={<Views>1.1M views</Views>} />
                     <PlatformLink platform="youtube" href="https://youtube.com/shorts/XeeK6zdkmOY" title="Wyatt Eiden, edit 01" />
                   </figure>
                 </div>
@@ -156,7 +156,7 @@ function ClientWork() {
                 <div className="mt-6 flex items-start gap-5 border-t border-white/10 pt-5">
                   <figure className="w-[125px] shrink-0">
                     <figcaption className="mb-2 text-[14px] leading-[20px] text-of-dark">My edit · 02</figcaption>
-                    <Media src="/videos/work/wyatt-2-final.mp4" poster="/videos/work/wyatt-2-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 02" alt="Frame from the second commissioned Wyatt Eiden edit" className="w-full" badge={<Views className="!gap-[4px] !px-[8px] !text-[11px]">90K+ views</Views>} />
+                    <Media src="/videos/work/wyatt-2-final.mp4" poster="/videos/work/wyatt-2-final.jpg" ratio={9 / 16} title="Wyatt Eiden, edit 02" alt="Frame from the second commissioned Wyatt Eiden edit" className="w-full" badge={<Views className="!gap-[4px] !px-[8px] !text-[11px]">90K views</Views>} />
                   </figure>
                   <div className="min-w-0 pt-7">
                     <p className="text-[18px] font-medium text-of-dark">A second commission</p>
