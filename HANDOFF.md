@@ -1,4 +1,4 @@
-# maxdt88 HANDOFF (2026-11-05, cube v17)
+# maxdt88 HANDOFF (2026-11-05, v17 LIVE on maxdt88.com, main c5dff1a; rollback = d700bf0)
 
 ## State
 - Repo C:\Users\maxdo\maxdt88-client-site, branch rebuild-reelhaus. Uncommitted, NOT deployed (needs Max's go).
@@ -16,6 +16,6 @@
 - Extra tools for the list ("can use and do use"): Max to name them + official icon files.
 - Mobile (<md) has no tool list; placement TBD.
 - Tool list top item sits close under the nav at 1440x900.
-- Remove window.__cubeApps QA hook before ship.
+- Focus bug (live): when the clicked app is off screen it can land on a top-back piece that comes forward hidden behind the pill; prefer front-facing pieces (most visible sides, nearest camera).
 - Motion feel (turns, focus pop) UNVERIFIED until Max's trackpad.
 - Older: Lionsgate card, "Independent edits" heading, remove variants B/C + debug pill, old webp/mp4 deletions.

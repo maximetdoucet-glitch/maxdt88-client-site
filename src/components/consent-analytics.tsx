@@ -5,8 +5,9 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-// Public measurement ID; env var overrides.
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-RZ2ZTTT6B4";
+// Public measurement ID.
+// Max 2026-11-05: GA4 property G-CF9GEG390R (replaces G-RZ2ZTTT6B4). Fixed in code so a stale env var cannot override it.
+const GA_ID = "G-CF9GEG390R";
 // Vercel serves /_vercel/* only on its own hosting; locally those scripts 404.
 const ON_VERCEL = !!process.env.NEXT_PUBLIC_VERCEL_ENV;
 
