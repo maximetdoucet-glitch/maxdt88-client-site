@@ -481,7 +481,6 @@ body:has(.of-page) .grain { display: none; }
   a:not([class*="block"]):not([class*="flex"]):not([class*="grid"]):not(:has(img, video, picture, svg)) { padding-block:12px; margin-block:-12px; }
 }
 /* Large screens: scale the 1440 layout up instead of leaving a narrow column */
-@media (min-width: 1680px) { html { zoom: 1.15; --z: 1.15; } }
-@media (min-width: 1900px) { html { zoom: 1.2; --z: 1.2; } }
-@media (min-width: 2300px) { html { zoom: 1.5; --z: 1.5; } }
-@media (min-width: 3200px) { html { zoom: 2; --z: 2; } }
+@media (min-width: 1900px) { html { zoom: 1.1; --z: 1.1; } }
+@media (min-width: 2300px) { html { zoom: 1.2; --z: 1.2; } }
+@media (min-width: 3200px) { html { zoom: 1.6; --z: 1.6; } }
