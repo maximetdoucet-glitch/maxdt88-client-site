@@ -23,8 +23,8 @@ export function InquiryForm() {
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject: `New inquiry from ${name}`, from_name: name, name, email, details }),
+        // Plain form data avoids a CORS preflight (Web3Forms documents FormData submits).
+        body: (() => { f.set("access_key", WEB3FORMS_KEY); f.set("subject", `New inquiry from ${name}`); f.set("from_name", name); f.set("email", email); f.set("details", details); return f; })(),
       });
       const data = await res.json();
       if (!data.success) throw new Error(data.message);
