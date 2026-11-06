@@ -86,7 +86,7 @@ function Client({ name, handle, href }: { name: string; handle?: string; href?: 
       {handle && href && (
         <>
           {" "}
-          <a href={href} target="_blank" rel="noopener noreferrer" className={`${meta} whitespace-nowrap font-normal ${link}`}>
+          <a href={href} target="_blank" rel="noopener noreferrer" className={`tap ${meta} whitespace-nowrap font-normal ${link}`}>
             ({handle})
           </a>
         </>
@@ -97,7 +97,7 @@ function Client({ name, handle, href }: { name: string; handle?: string; href?: 
 
 function Hero() {
   return (
-    <section className="relative flex flex-col pt-6 pb-12 md:min-h-[calc(100svh-82px)] md:justify-center md:pt-4 md:pb-10">
+    <section className="relative flex flex-col pt-6 pb-12 md:min-h-[calc(100svh_/_var(--z,1)_-_82px)] md:justify-center md:pt-4 md:pb-10">
       {/* Max 2026-11-05: hero fills the first screen (viewport minus the 82px header). */}
       <div className={reelWrap}>
         <div className={reelInner}>
@@ -112,7 +112,7 @@ function Hero() {
               <p className="mb-3 text-[13px] text-of-grey">Start with a free 30 to 60 second trial edit</p>
               <div className="flex items-center gap-6">
                 <a href="#contact" onClick={() => trackEvent("contact_click", { source: "hero" })} className="inline-flex h-[46px] items-center rounded-full bg-of-dark px-6 text-[16px] text-of-bg transition-opacity hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-of-dark">Contact</a>
-                <a href="#work" className="text-[14px] text-of-grey underline underline-offset-4 hover:text-of-dark">See client work <span aria-hidden="true">↗</span></a>
+                <a href="#work" className="tap text-[14px] text-of-grey underline underline-offset-4 hover:text-of-dark">See client work <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </div>

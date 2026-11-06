@@ -22,7 +22,7 @@ export function SiteNav({ current, frame = "of" }: { current?: "home" | "service
     <header className={`${wrap(frame)} pt-5 pb-5 md:pt-10`}>
       <nav aria-label="Main" className={`mx-auto ${inner(frame)} flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 text-[16px] md:text-[18px] leading-[22px]`}>
         <Link href="/" className="text-of-dark font-medium">max.dt88</Link>
-        <ul className="flex gap-5 md:gap-8">
+        <ul className="flex whitespace-nowrap gap-3 text-[15px] min-[360px]:gap-5 min-[360px]:text-[16px] md:gap-8 md:text-[18px]">
           <li><Link href="/" className={`${item("home")} ${link}`}>Home</Link></li>
           <li><Link href="/about" className={`${item("about")} ${link}`}>About Me</Link></li>
           <li><Link href="/services" className={`${item("services")} ${link}`}>Services</Link></li>
