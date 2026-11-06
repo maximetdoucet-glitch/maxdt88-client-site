@@ -5,7 +5,7 @@ import { EMAIL } from "./chrome";
 import { trackEvent } from "./track";
 
 // Web3Forms keys are public by design (client-submitted, server-side spam filtering).
-const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "dab44c9c-1e28-4c87-83e9-070871cd0306";
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "418d31ee-1ce4-4937-ad6c-14af6dcc63ca";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
