@@ -29,3 +29,9 @@
 
 ## 2026-11-05 late
 - Subline sentence "Long-form edits are available too." removed (commit 6913beb on rebuild-reelhaus). NOT live yet: needs Max go, then the usual push procedure.
+
+## 2026-11-06
+- Software descriptions pass (7 entries, Max's text verbatim) committed on rebuild-reelhaus; build OK; QA 10 tiles x 1440/390: no clipping, no page overflow, 0 console errors. NOT live: needs Max go (with 6913beb).
+- Panel height now varies per tool (1440: 174-204px, 390: 110-162px), so content below shifts on click. Fix only if Max asks (e.g. raise min-height).
+- Responsive pass (2026-11-06) committed: nav one line at 320, touch hit areas, big-screen zoom steps. QA 320-3840 x 4 pages: 0 overflow, 0 broken images, 0 JS errors, 10/10 tiles, video hover hit OK. NOT live; real phone UNVERIFIED.
+- Form (2026-11-06): Web3Forms, FormData submit verified success. OPEN: confirm the key's inbox is maxime.t.doucet@gmail.com; if not, new key from web3forms.com for that address -> NEXT_PUBLIC_WEB3FORMS_KEY / WEB3FORMS_KEY const.
